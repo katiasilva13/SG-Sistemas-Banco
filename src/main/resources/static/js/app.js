@@ -1,0 +1,1 @@
+angular.module("banco", ["ngMessages", "uiMasks"]);
