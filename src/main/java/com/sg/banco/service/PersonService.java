@@ -4,6 +4,7 @@ import com.sg.banco.domain.Address;
 import com.sg.banco.domain.LegalPerson;
 import com.sg.banco.domain.NaturalPerson;
 import com.sg.banco.domain.Person;
+import com.sg.banco.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

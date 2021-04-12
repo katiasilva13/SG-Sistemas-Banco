@@ -8,7 +8,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Getter
 @Setter
-//@Builder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "savings_account_id")
