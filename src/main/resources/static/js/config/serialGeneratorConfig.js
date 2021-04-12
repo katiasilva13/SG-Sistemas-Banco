@@ -1,3 +1,3 @@
-angular.module("banco").config(function (serialGeneratorProvider) {
-	serialGeneratorProvider.setLength(100);
+angular.module("listaTelefonica").config(function (serialGeneratorProvider) {
+	serialGeneratorProvider.setLength(5);
 });

@@ -1,4 +1,4 @@
-angular.module("banco").provider("serialGenerator", function (config) {
+angular.module("listaTelefonica").provider("serialGenerator", function (config) {
 	console.log(config);
 	var _length = 10;
 	

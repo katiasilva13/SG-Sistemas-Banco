@@ -1,1 +1,1 @@
-angular.module("banco", ["ngMessages", "uiMasks"]);
+angular.module("listaTelefonica", ["ngMessages", "ngRoute", "ngMask"]);

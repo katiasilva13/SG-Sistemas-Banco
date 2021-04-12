@@ -1,100 +1,44 @@
-<html ng-app="banco">
+<html ng-app="listaTelefonica">
 
 <head>
+    <base href="/">
     <meta charset="UTF-8">
-    <title>Banco</title>
+    <title>Lista Telefonica</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="css/ui.css">
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-messages.js"></script>
     <script src="lib/angular/angular-locale_pt-br.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controllers/bancoCtrl.js"></script>
+    <script src="js/controllers/listaTelefonicaCtrl.js"></script>
+    <script src="js/controllers/novoContatoCtrl.js"></script>
+    <script src="js/controllers/detalhesContatoCtrl.js"></script>
     <script src="js/services/contatosAPIService.js"></script>
     <script src="js/services/operadorasAPIService.js"></script>
     <script src="js/services/serialGeneratorService.js"></script>
     <script src="js/config/serialGeneratorConfig.js"></script>
-    <script src="js/config/baseUrl.js"></script>
+    <script src="js/config/routeConfig.js"></script>
+    <script src="js/value/configValue.js"></script>
     <script src="js/filters/nameFilter.js"></script>
+    <script src="js/filters/ellipsisFilter.js"></script>
     <script src="js/directives/uiAlertDirective.js"></script>
-    <script src="lib/ui/uiMasks.js"></script>
+    <script src="js/interceptors/timestampInterceptor.js"></script>
+    <script src="js/interceptors/errorInterceptor.js"></script>
+    <script src="js/interceptors/loadingInterceptor.js"></script>
+    <script src="js/config/interceptorConfig.js"></script>
+    <script src="lib/ui/ngMask.js"></script>
 </head>
 
-<body ng-controller="bancoCtrl">
-    <div class="jumbotron">
-        <h3>{{app}}</h3>
-
-        <ui-alert ng-if="message" title="Ops, aconteceu um problema!">
-            {{message}}
-        </ui-alert>
-
-        <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
-              
-        <table ng-show="contatos.length > 0" class="table">
-            <tr>
-                <th></th>
-                <th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
-                <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
-                <th><a href="" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
-                <th><a href="" ng-click="ordenarPor('data')">Data</a></th>
-            </tr>
-            <tr ng-class="{'selecionado negrito': contato.selecionado}"
-                ng-repeat="contato in contatos  | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao ">
-                <td><input type="checkbox" ng-model="contato.selecionado"></td>
-                <td>{{contato.nome | name}}</td>
-                <td>{{contato.telefone}}</td>
-                <td>{{contato.operadora.nome}}</td>
-                <td>{{contato.data | date: 'dd/MM/yyyy - EEE'}}</td>
-            </tr>
-        </table>
-        <hr />
-        <form name="contatoForm" center-block>
-            <input class="form-control" type="text" ng-model="contato.nome" name="nome" placeholder="Nome"
-                ng-required="true" ng-minlength="7" />
-            <input class="form-control" type="text" ng-model="contato.telefone" name="telefone" placeholder="Telefone"
-                ng-required="true" ng-pattern="/^\(\d{2}\)\d{4,5}-\d{4}$/"  ui-phone-number/>
-            <input class="form-control" type="text" ng-model="contato.data" name="data" placeholder="Data" ui-date>
-            <select class="form-control" ng-model="contato.operadora"
-                ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' group by operadora.categoria for operadora in operadoras ">
-                <option value="">Selecione uma operadora</option>
-            </select>
-        </form>
-        <div ng-messages="contatoForm.nome.$error">
-            <div ng-message="required && (contatoForm.nome.$dirty || contatoForm.telefone.$valid)"
-                class="alert alert-danger">
-                Nome é obrigatório.
-            </div>
-            <div ng-message="pattern" class="alert alert-danger">
-                Telefone deve ter formato (xx)xxxxx-xxxx.
-            </div>
-        </div>
-        <!-- <div ng-if="contatoForm.nome.$error.required && (contatoForm.nome.$dirty || contatoForm.telefone.$valid) "
-            class="
-            alert alert-danger">
-            Nome é obrigatório.
-        </div>
-        <div ng-if="contatoForm.nome.$error.minlength " class="
-            alert alert-danger">
-            Nome deve ter no mínimo 7 caracteres.
-        </div>
-        <div ng-if="contatoForm.telefone.$error.required && (contatoForm.telefone.$dirty || contatoForm.nome.$valid) "
-            class="alert alert-danger">
-            Telefone é obrigatório.
-        </div>
-        <div ng-if="contatoForm.telefone.$error.pattern " class="
-        alert alert-danger">
-            Telefone deve ter formato (xx)xxxxx-xxxx.
-        </div> -->
-        <button class="btn btn-primary" ng-click="adicionarContato(contato)" ng-disabled="contatoForm.$invalid">
-            Adicionar contato
-        </button>
-        <button class="btn btn-danger" ng-click="apagarContatos(contatos)"
-            ng-disabled="!isContatoSelecionado(contatos)">
-            Apagar contatos
-        </button>
-    </div>
-    <div ng-include="'view/footer.html'"></div>
+<body>
+    <div class="jumbotron" ng-show="loading">
+		<h5>Carregando, por favor aguarde...</h5>
+	</div>
+	<div ng-hide="loading">
+		<div ng-view></div>
+		<div ng-include="'view/footer.html'"></div>
+	</div>
 </body>
 
 </html>
