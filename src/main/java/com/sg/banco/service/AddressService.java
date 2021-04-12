@@ -30,16 +30,16 @@ public class AddressService  implements Serializable {
 
     public List<Address> deleteById(Integer id) {
         this.repository.deleteById(id);
-        return getAuthors();
+        return getAll();
     }
 
     public Address create(Map<String, String> json) {
-        String city = trimWhitespace(json.get("city").toUpperCase(Locale.ROOT);
+        String city = trimWhitespace(json.get("city")).toUpperCase(Locale.ROOT);
         String street = trimWhitespace(json.getOrDefault("street", "")).toUpperCase(Locale.ROOT);
         String number = trimWhitespace(json.getOrDefault("phoneNumber", "")).toUpperCase(Locale.ROOT);
         String neighborhood = trimWhitespace(json.getOrDefault("neighborhood", "")).toUpperCase(Locale.ROOT);
         String cep = trimWhitespace(json.getOrDefault("cep", "")).toUpperCase(Locale.ROOT);
-        UF uf = trimWhitespace(json.get("uf").toUpperCase(Locale.ROOT);
+        UF uf = UF.valueOf(trimWhitespace(json.get("uf")).toUpperCase(Locale.ROOT));
 
         Address address = Address.builder()
                 .street(street)

@@ -1,9 +1,7 @@
 package com.sg.banco.api;
 
-import com.sg.banco.domain.CheckingAccount;
-import com.sg.banco.domain.LegalAccount;
-import com.sg.banco.domain.NaturalAccount;
 import com.sg.banco.domain.Account;
+import com.sg.banco.domain.CheckingAccount;
 import com.sg.banco.domain.SavingsAccount;
 import com.sg.banco.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;

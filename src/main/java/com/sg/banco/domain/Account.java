@@ -2,7 +2,11 @@ package com.sg.banco.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
+import com.sg.banco.enumerator.AccountType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +26,7 @@ public class Account implements Serializable {
     protected Integer id;
 
     @Column(name = "account_type")//poupança, corrente
-    private String accountType;
+    private AccountType accountType;
 
     @Column(name = "account_code")//numero da conta
     private String accountCode;

@@ -17,7 +17,7 @@ import java.util.Map;
 import static org.springframework.util.StringUtils.trimWhitespace;
 
 @Service
-public class PersonService  implements Serializable {
+public class PersonService implements Serializable {
 
     @Autowired
     private PersonRepository repository;
@@ -49,13 +49,13 @@ public class PersonService  implements Serializable {
         String phoneNumber = trimWhitespace(json.getOrDefault("phoneNumber", ""));
         Address address = addressService.create(json);
 
-        Person person =null;
-        if (json.containsKey("cpf")){
+        Person person = null;
+        if (json.containsKey("cpf")) {
             String cpf = trimWhitespace(json.get("cpf")).toUpperCase(Locale.ROOT);
             String rg = trimWhitespace(json.get("rg")).toUpperCase(Locale.ROOT);
             person = naturalPersonService.create(name, phoneNumber, address, cpf, rg);
 
-        }else if (json.containsKey("cnpj")){
+        } else if (json.containsKey("cnpj")) {
             String cnpj = trimWhitespace(json.get("cnpj")).toUpperCase(Locale.ROOT);
             String companyName = trimWhitespace(json.getOrDefault("companyName", name));
             person = legalPersonService.create(name, phoneNumber, address, cnpj, companyName);
