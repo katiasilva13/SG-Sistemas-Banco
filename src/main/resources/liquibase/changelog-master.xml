@@ -15,10 +15,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="street" type="VARCHAR(200)"/>
-            <column name="number" type="VARCHAR(10)"/>
+            <column name="number" type="VARCHAR(20)"/>
             <column name="neighborhood" type="VARCHAR(150)"/>
             <column name="city" type="VARCHAR(150)"/>
-            <column name="cep" type="VARCHAR(10)"/>
+            <column name="cep" type="VARCHAR(15)"/>
             <column name="uf" type="VARCHAR(2)"/>
         </createTable>
     </changeSet>
@@ -34,7 +34,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(200)"/>
-            <column name="phone_number" type="VARCHAR(20)"/>
+            <column name="phone_number" type="VARCHAR(25)"/>
             <column name="address_id" type="INTEGER"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
@@ -54,7 +54,7 @@
             <column name="legal_person_id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="cnpj" type="VARCHAR(20)"/>
+            <column name="cnpj" type="VARCHAR(25)"/>
             <column name="company_name" type="VARCHAR(150)"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
@@ -74,8 +74,8 @@
             <column name="natural_person_id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="cpf" type="VARCHAR(20)"/>
-            <column name="rg" type="VARCHAR(20)"/>
+            <column name="cpf" type="VARCHAR(25)"/>
+            <column name="rg" type="VARCHAR(25)"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
                                  baseTableName="natural_person" baseColumnNames="natural_person_id"
@@ -94,9 +94,9 @@
             <column name="id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="account_type" type="VARCHAR(20)"/>
+            <column name="account_type" type="VARCHAR(25)"/>
             <column name="account_code" type="SERIAL" autoIncrement="true"/>
-            <column name="branch" type="VARCHAR(20)"/>
+            <column name="branch" type="VARCHAR(25)"/>
             <column name="balance" type="DOUBLE"/>
             <column name="person_id" type="INTEGER"/>
         </createTable>
