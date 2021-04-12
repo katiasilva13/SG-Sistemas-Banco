@@ -95,7 +95,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="account_type" type="VARCHAR(25)"/>
-            <column name="account_code" type="SERIAL" autoIncrement="true"/>
+            <column name="account_code" type="INTEGER" autoIncrement="true"/>
             <column name="branch" type="VARCHAR(25)"/>
             <column name="balance" type="DOUBLE"/>
             <column name="person_id" type="INTEGER"/>
@@ -120,6 +120,7 @@
             <column name="overdraft_limit" type="DOUBLE"/>
             <column name="interest_rate" type="DOUBLE"/>
             <column name="interest" type="DOUBLE"/>
+            <column name="interest_days" type="DATE"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
                                  baseTableName="checking_account" baseColumnNames="checking_account_id"
@@ -140,6 +141,7 @@
             </column>
             <column name="savings_rate" type="DOUBLE"/>
             <column name="savings_income" type="DOUBLE"/>
+            <column name="investment_days" type="DATE"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
                                  baseTableName="savings_account" baseColumnNames="savings_account_id"

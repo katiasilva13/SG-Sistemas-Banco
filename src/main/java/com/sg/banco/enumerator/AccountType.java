@@ -7,7 +7,12 @@ public enum AccountType {
 
     private Integer code;
 
-    AccountType(Integer code) {
+   AccountType(Integer code) {
         this.code = code;
     }
+
+    public Integer getCode() {
+        return code;
+    }
+
 }

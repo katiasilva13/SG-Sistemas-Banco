@@ -53,8 +53,12 @@ public class AccountService implements Serializable {
     }
 
     public Account create(Map<String, String> json) {
-        AccountType accountType = AccountType.valueOf(trimWhitespace(json.get("accountType")).toUpperCase(Locale.ROOT));
-
+        Integer checkType = Integer.parseInt(trimWhitespace(json.get("accountType")).toUpperCase(Locale.ROOT));
+        AccountType accountType = null;
+        for (AccountType type : AccountType.values()) {
+            if (type.getCode().equals(checkType)) accountType = type;
+        }
+//todo generate account_code
         String branch = trimWhitespace(json.get("branch")).toUpperCase(Locale.ROOT);
         Double balance = Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT));
 

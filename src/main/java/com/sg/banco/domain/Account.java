@@ -25,7 +25,7 @@ public class Account implements Serializable {
     @Column(name = "id")
     protected Integer id;
 
-    @Column(name = "account_type")//poupança, corrente
+    @Column(name = "account_type")// corrente=1 ; poupança=2
     private AccountType accountType;
 
     @Column(name = "account_code")//numero da conta

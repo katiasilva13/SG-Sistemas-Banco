@@ -24,4 +24,6 @@ public class CheckingAccount extends Account {
     @Column//juros
     private Double interest;
 
+    @Column(name = "interest_days")//dias de juros
+    private Double interestDays;
 }

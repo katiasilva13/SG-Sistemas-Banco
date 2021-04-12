@@ -21,4 +21,7 @@ public class SavingsAccount extends Account {
     @Column(name = "savings_income")//rendimento da poupança
     private Double savingsIncome;
 
+    @Column(name = "investment_days")//dias rendendo
+    private Double investmentDays;
+
 }
