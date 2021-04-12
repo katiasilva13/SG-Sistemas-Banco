@@ -12,6 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @NoArgsConstructor
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "natural_person_id")
+@Entity
 public class NaturalPerson extends Person {
 
     @Column(name = "cpf")
@@ -19,4 +20,5 @@ public class NaturalPerson extends Person {
 
     @Column(name = "rg")
     private String rg;
+
 }

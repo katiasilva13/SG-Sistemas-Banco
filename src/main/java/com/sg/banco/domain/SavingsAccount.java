@@ -13,11 +13,12 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "savings_account_id")
 @Entity
-public class SavingsAccount extends Account{
+public class SavingsAccount extends Account {
 
     @Column(name = "savings_rate")//taxa de rendimento da poupança
     private Double savingsRate;
 
     @Column(name = "savings_income")//rendimento da poupança
     private Double savingsIncome;
+
 }

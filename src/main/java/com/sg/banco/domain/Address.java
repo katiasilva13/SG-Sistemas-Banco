@@ -4,6 +4,7 @@ import com.sg.banco.enumerator.UF;
 import lombok.*;
 
 import javax.persistence.*;
+
 @Getter
 @Setter
 @Builder

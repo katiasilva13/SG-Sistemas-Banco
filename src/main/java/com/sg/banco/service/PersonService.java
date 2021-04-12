@@ -72,4 +72,5 @@ public class PersonService implements Serializable {
     public List<LegalPerson> getAllLegalPerson() {
         return legalPersonService.getAll();
     }
+
 }

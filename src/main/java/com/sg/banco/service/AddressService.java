@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.springframework.util.StringUtils.trimWhitespace;
 
 @Service
-public class AddressService  implements Serializable {
+public class AddressService implements Serializable {
 
     @Autowired
     private AddressRepository repository;
@@ -51,6 +51,6 @@ public class AddressService  implements Serializable {
                 .build();
         this.repository.save(address);
         return address;
-
     }
+
 }

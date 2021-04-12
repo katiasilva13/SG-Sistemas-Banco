@@ -33,7 +33,7 @@ public class SavingsAccountService implements Serializable {
                                  Double savingsRate, Double savingsIncome) {
 
         SavingsAccount account = SavingsAccount.builder()
-                .savingsIncome(savingsIncome)
+                .savingsRate(savingsRate)
                 .savingsIncome(savingsIncome)
                 .build();
         account.setAccountType(accountType);

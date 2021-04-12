@@ -13,7 +13,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "checking_account_id")
 @Entity
-public class CheckingAccount extends Account{
+public class CheckingAccount extends Account {
 
     @Column(name = "overdraft_limit")//limite
     private Double overdraftLimit;
@@ -23,6 +23,5 @@ public class CheckingAccount extends Account{
 
     @Column//juros
     private Double interest;
-
 
 }

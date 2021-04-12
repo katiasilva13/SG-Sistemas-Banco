@@ -1,10 +1,10 @@
 package com.sg.banco.service;
 
-import com.sg.banco.domain.*;
+import com.sg.banco.domain.CheckingAccount;
+import com.sg.banco.domain.Person;
 import com.sg.banco.enumerator.AccountType;
 import com.sg.banco.repository.CheckingAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -43,4 +43,5 @@ public class CheckingAccountService implements Serializable {
         this.repository.save(account);
         return account;
     }
+
 }

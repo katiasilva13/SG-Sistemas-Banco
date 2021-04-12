@@ -59,7 +59,7 @@ public class AccountService implements Serializable {
         Double balance = Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT));
 
         Integer personId = Integer.parseInt(trimWhitespace(json.getOrDefault("personId", "0.0")).toUpperCase(Locale.ROOT));
-        Person person = this.personService.getById(personId);
+        Person person = personService.getById(personId);
 //TODO verificar se pf ou pj
         //TODO verficar se a pessoa já tem conta desse tipo
         //TODO calcular juros
@@ -83,6 +83,5 @@ public class AccountService implements Serializable {
         this.repository.save(account);
         return account;
     }
-
 
 }

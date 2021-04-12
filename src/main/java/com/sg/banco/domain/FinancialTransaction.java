@@ -6,13 +6,14 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class FinancialTransaction  implements Serializable {
+public class FinancialTransaction implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

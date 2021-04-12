@@ -1,9 +1,7 @@
 package com.sg.banco.service;
 
 import com.sg.banco.domain.Address;
-import com.sg.banco.domain.LegalPerson;
 import com.sg.banco.domain.NaturalPerson;
-import com.sg.banco.domain.Person;
 import com.sg.banco.repository.NaturalPersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -42,4 +40,5 @@ public class NaturalPersonService implements Serializable {
         this.repository.save(person);
         return person;
     }
+
 }
