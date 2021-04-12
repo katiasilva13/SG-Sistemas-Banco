@@ -24,8 +24,8 @@ public class Address {
     @Column(name = "number")
     private String number;
 
-    @Column(name = "neighborhhod")
-    private String neighborhhod;
+    @Column(name = "neighborhood")
+    private String neighborhood;
 
     @Column(name = "city")
     private String city;

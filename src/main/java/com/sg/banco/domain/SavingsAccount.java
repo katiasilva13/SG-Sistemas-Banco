@@ -17,6 +17,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class SavingsAccount extends Account{
 
-    @Column
-    private Double savings_income;
+    @Column(name = "savings_rate")//taxa de rendimento da poupança
+    private Double savingsRate;
+
+    @Column(name = "savings_income")//rendimento da poupança
+    private Double savingsIncome;
 }

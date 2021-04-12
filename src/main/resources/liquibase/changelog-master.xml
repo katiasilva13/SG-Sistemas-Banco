@@ -7,15 +7,145 @@
     <changeSet id="1" author="katia.silva@sgsistemas.com.br">
         <preConditions>
             <not>
-                <tableExists tableName="client" schemaName="ex4"/>
+                <tableExists tableName="address" schemaName="ex5"/>
             </not>
         </preConditions>
-        <createTable tableName="author" schemaName="ex4">
+        <createTable tableName="address" schemaName="ex5">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(200)"/>
+            <column name="number" type="VARCHAR(10)"/>
+            <column name="neighborhood" type="VARCHAR(150)"/>
+            <column name="city" type="VARCHAR(150)"/>
+            <column name="cep" type="VARCHAR(10)"/>
+            <column name="uf" type="VARCHAR(2)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="person" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="person" schemaName="ex5">
             <column name="id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(200)"/>
+            <column name="phone_number" type="VARCHAR(20)"/>
+            <column name="address_id" type="INTEGER"/>
         </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="person" baseColumnNames="address_id"
+                                 constraintName="fk_address_address_id"
+                                 referencedTableName="address"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="3" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="legal_person" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="legal_person" schemaName="ex5">
+            <column name="legal_person_id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cnpj" type="VARCHAR(20)"/>
+            <column name="company_name" type="VARCHAR(150)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="legal_person" baseColumnNames="legal_person_id"
+                                 constraintName="fk_person_person_id"
+                                 referencedTableName="person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="4" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="natural_person" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="natural_person" schemaName="ex5">
+            <column name="natural_person_id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="cpf" type="VARCHAR(20)"/>
+            <column name="rg" type="VARCHAR(20)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="natural_person" baseColumnNames="natural_person_id"
+                                 constraintName="fk_person_person_id"
+                                 referencedTableName="person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="5" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="account" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="account" schemaName="ex5">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="account_type" type="VARCHAR(20)"/>
+            <column name="account_code" type="VARCHAR(20)"/>
+            <column name="branch" type="VARCHAR(20)"/>
+            <column name="balance" type="DOUBLE"/>
+            <column name="person_id" type="INTEGER"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="account" baseColumnNames="person_id"
+                                 constraintName="fk_person_person_id"
+                                 referencedTableName="person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="6" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="checking_account" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="checking_account" schemaName="ex5">
+            <column name="checking_account_id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="overdraft_limit" type="DOUBLE"/>
+            <column name="interest_rate" type="DOUBLE"/>
+            <column name="interest" type="DOUBLE"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="checking_account" baseColumnNames="checking_account_id"
+                                 constraintName="fk_account_account_id"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="7" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="savings_account" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="savings_account" schemaName="ex5">
+            <column name="savings_account_id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="savings_rate" type="DOUBLE"/>
+            <column name="savings_income" type="DOUBLE"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="savings_account" baseColumnNames="savings_account_id"
+                                 constraintName="fk_account_account_id"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>

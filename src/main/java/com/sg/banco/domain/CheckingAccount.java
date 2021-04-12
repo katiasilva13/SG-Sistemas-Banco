@@ -17,13 +17,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class CheckingAccount extends Account{
 
-    @Column
+    @Column(name = "overdraft_limit")//limite
     private Double overdraftLimit;
 
-    @Column
+    @Column(name = "interest_rate")//taxa de juros
     private Double interestRate;
 
-    @Column
+    @Column//juros
     private Double interest;
 
 

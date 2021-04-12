@@ -21,17 +21,17 @@ public class Account implements Serializable {
     @Column(name = "id")
     protected Integer id;
 
-    @Column(name = "account_type")
+    @Column(name = "account_type")//poupança, corrente
     private String accountType;
 
-    @Column(name = "account_code")
+    @Column(name = "account_code")//numero da conta
     private String accountCode;
 
-    @Column
-    private String balance;
-
-    @Column
+    @Column//agencia
     private String branch;
+
+    @Column//extrato
+    private Double balance;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

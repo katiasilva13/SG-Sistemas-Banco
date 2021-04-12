@@ -17,4 +17,8 @@ public class LegalPerson extends Person {
 
     @Column(name = "cnpj")
     private String cnpj;
+
+    @Column(name = "company_name")
+    private String companyName;
+
 }
