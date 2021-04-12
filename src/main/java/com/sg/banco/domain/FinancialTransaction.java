@@ -2,15 +2,13 @@ package com.sg.banco.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sg.banco.enumerator.TransactionType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

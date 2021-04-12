@@ -1,9 +1,6 @@
 package com.sg.banco.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +8,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Getter
 @Setter
+//@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @PrimaryKeyJoinColumn(name = "checking_account_id")
