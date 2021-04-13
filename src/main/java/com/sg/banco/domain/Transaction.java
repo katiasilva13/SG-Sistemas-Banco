@@ -8,12 +8,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -38,4 +38,9 @@ public class Transaction implements Serializable {
     @JoinColumn(name = "source_account_id", referencedColumnName = "id", nullable = false)
     private Account sourceAccount;
 
+    public Transaction(TransactionType transactionType, Double value, Account sourceAccount) {
+        this.transactionType = transactionType;
+        this.value = value;
+        this.sourceAccount = sourceAccount;
+    }
 }

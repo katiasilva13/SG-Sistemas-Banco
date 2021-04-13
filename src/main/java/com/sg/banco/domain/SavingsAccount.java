@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -17,10 +18,10 @@ import java.time.LocalDate;
 public class SavingsAccount extends Account {
 
     @Column(name = "savings_rate")//taxa de rendimento da poupança
-    private Double savingsRate;
+    private BigDecimal savingsRate;
 
     @Column(name = "savings_income")//rendimento da poupança
-    private Double savingsIncome;
+    private BigDecimal savingsIncome;
 
     @Column(name = "investment_day")//dia do investimento
     private LocalDate investmentDay;

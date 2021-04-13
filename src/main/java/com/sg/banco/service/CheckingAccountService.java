@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -29,8 +30,8 @@ public class CheckingAccountService implements Serializable {
         return getAll();
     }
 
-    public CheckingAccount create(AccountType accountType, String branch, Double balance, Person person,
-                                  Double overdraftLimit, Double interestRate, Double interest, String accountCode) {
+    public CheckingAccount create(AccountType accountType, String branch, BigDecimal balance, Person person,
+                                  BigDecimal overdraftLimit, BigDecimal interestRate, BigDecimal interest, String accountCode) {
         CheckingAccount account = CheckingAccount.builder()
                 .overdraftLimit(overdraftLimit)
                 .interestRate(interestRate)

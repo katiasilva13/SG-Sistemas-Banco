@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
@@ -68,22 +69,22 @@ public class AccountService implements Serializable {
             throw new Exception("Usuário já possui uma conta do tipo " + accountType.toString());
 
         String branch = trimWhitespace(json.get("branch")).toUpperCase(Locale.ROOT);
-        Double balance = Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT));
+        BigDecimal balance = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT)));
 
-        String accountCode = generateCode(checkType, branch, personId);
+        String accountCode = generateCode(checkType, personId);
 
         Account account = null;
         if (accountType.equals(AccountType.CHECKING_ACCOUNT)) {
-            Double overdraftLimit = Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftLimit", "1000.00")).toUpperCase(Locale.ROOT));
-            Double interestRate = Double.parseDouble(trimWhitespace(json.getOrDefault("interestRate", "1.57")).toUpperCase(Locale.ROOT));
-            Double interest = Double.parseDouble(trimWhitespace(json.getOrDefault("interest", "0.0")).toUpperCase(Locale.ROOT));
+            BigDecimal overdraftLimit = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftLimit", "1000.00")).toUpperCase(Locale.ROOT)));
+            BigDecimal interestRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interestRate", "1.57")).toUpperCase(Locale.ROOT)));
+            BigDecimal interest = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interest", "0.0")).toUpperCase(Locale.ROOT)));
 
             account = checkingAccountService.create(accountType, branch, balance, person,
                     overdraftLimit, interestRate, interest, accountCode);
 
         } else if (accountType.equals(AccountType.SAVINGS_ACCOUNT)) {
-            Double savingsRate = Double.parseDouble(trimWhitespace(json.getOrDefault("savingsRate", "0.87")).toUpperCase(Locale.ROOT));
-            Double savingsIncome = Double.parseDouble(trimWhitespace(json.getOrDefault("savingsIncome", "0.0")).toUpperCase(Locale.ROOT));
+            BigDecimal savingsRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsRate", "0.87"))));
+            BigDecimal  savingsIncome = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsIncome", "0.0"))));
             account = savingsAccountService.create(accountType, branch, balance, person,
                     savingsRate, savingsIncome, accountCode);
         }
@@ -103,14 +104,9 @@ public class AccountService implements Serializable {
         return false;
     }
 
-    private String generateCode(Integer checkType, String branch, Integer personId) {
+    private String generateCode(Integer checkType, Integer personId) {
         LocalDateTime localDate = LocalDateTime.now();
-        String base = branch
-                //    .concat(" ")
-                .concat(checkType.toString())
-                .concat("13");
-        String code = base
-                //   .concat(" ")
+        String code = checkType.toString()
                 .concat(personId.toString())
                 .concat(String.valueOf(localDate.getMinute()))
                 //    .concat(" ")
@@ -134,5 +130,14 @@ public class AccountService implements Serializable {
 
     public List<Account> getByPersonId(Integer personId) {
         return this.repository.findAllByPersonId(personId);
+    }
+
+    public Account getByData(String destinationAccountType, String destinationAccountCode, String destinationAccountBranch) {
+        return this.repository.findWhereAccountTypeAndAccountCodeAndBranch(destinationAccountType,
+                destinationAccountCode, destinationAccountBranch);
+    }
+
+    public void update(Account sourceAccount) {
+        this.repository.save(sourceAccount);
     }
 }

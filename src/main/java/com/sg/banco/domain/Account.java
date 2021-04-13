@@ -10,7 +10,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -35,7 +35,7 @@ public class Account implements Serializable {
     private String branch;
 
     @Column//extrato
-    private Double balance;
+    private BigDecimal balance;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

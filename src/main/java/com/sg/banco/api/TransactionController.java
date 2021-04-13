@@ -30,9 +30,19 @@ public class TransactionController {
         return service.deleteById(id);
     }
 
-//    @PostMapping("/transacoes")
+    @PostMapping("/transacoes/")
+    public Transaction create(@RequestBody Map<String, String> json) throws Exception {
+        return service.createTransaction(json);
+    }
+//
+//    @PostMapping("/transacoes/saque")
 //    public Transaction create(@RequestBody Map<String, String> json) throws Exception {
-//        return service.create(json);
+//        return service.createDeposit(json);
+//    }
+//
+//    @PostMapping("/transacoes/saque")
+//    public Transaction create(@RequestBody Map<String, String> json) throws Exception {
+//        return service.createTranfer(json);
 //    }
     
 }
