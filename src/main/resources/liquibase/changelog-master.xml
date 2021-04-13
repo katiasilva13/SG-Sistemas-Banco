@@ -120,7 +120,7 @@
             <column name="overdraft_limit" type="DOUBLE"/>
             <column name="interest_rate" type="DOUBLE"/>
             <column name="interest" type="DOUBLE"/>
-            <column name="interest_days" type="DATE"/>
+            <column name="interest_day" type="DATE"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
                                  baseTableName="checking_account" baseColumnNames="checking_account_id"
@@ -141,7 +141,7 @@
             </column>
             <column name="savings_rate" type="DOUBLE"/>
             <column name="savings_income" type="DOUBLE"/>
-            <column name="investment_days" type="DATE"/>
+            <column name="investment_day" type="DATE"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
                                  baseTableName="savings_account" baseColumnNames="savings_account_id"
@@ -150,4 +150,48 @@
                                  referencedColumnNames="id"/>
     </changeSet>
 
+    <changeSet id="8" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="transaction" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="transaction" schemaName="ex5">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="transaction_type" type="VARCHAR(25)"/>
+            <column name="value" type="DOUBLE"/>
+            <column name="source_account_id" type="INTEGER"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="transaction" baseColumnNames="source_account_id"
+                                 constraintName="fk_account_account_id"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="9" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <tableExists tableName="transfer" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <createTable tableName="transfer" schemaName="ex5">
+            <column name="transfer_id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="destination_account_id" type="INTEGER"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="transfer" baseColumnNames="destination_account_id"
+                                 constraintName="fk_account_account_id"
+                                 referencedTableName="account"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
+                                 baseTableName="transfer" baseColumnNames="transfer_id"
+                                 constraintName="fk_transaction_transaction_id"
+                                 referencedTableName="transaction"
+                                 referencedColumnNames="id"/>
+    </changeSet>
 </databaseChangeLog>

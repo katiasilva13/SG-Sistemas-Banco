@@ -41,8 +41,8 @@ public class Account implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id", nullable = false)
     private Person person;
-
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<FinancialTransaction> financialTransactions;
+//
+//    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+//    private List<Transaction> transactions;
 
 }

@@ -1,6 +1,7 @@
 package com.sg.banco.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sg.banco.enumerator.TransactionType;
 import lombok.*;
 
@@ -9,11 +10,12 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class FinancialTransaction implements Serializable {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Transaction implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,9 +25,12 @@ public class FinancialTransaction implements Serializable {
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
+    @Column(name = "value")
+    protected Double value;
+
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
-    private Account account;
+    @JoinColumn(name = "source_account_id", referencedColumnName = "id", nullable = false)
+    private Account sourceAccount;
 
 }

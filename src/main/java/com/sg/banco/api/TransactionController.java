@@ -5,5 +5,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class FinancialTransactionController {
+public class TransactionController {
 }

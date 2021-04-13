@@ -7,6 +7,7 @@ import com.sg.banco.domain.SavingsAccount;
 import com.sg.banco.enumerator.AccountType;
 import com.sg.banco.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -31,7 +32,7 @@ public class AccountService implements Serializable {
     private PersonService personService;
 
     public List<Account> getAll() {
-        return this.repository.findAll();
+        return this.repository.findAll(Sort.by(Sort.Order.asc("accountCode")));
     }
 
     public Account getById(Integer id) {
@@ -57,21 +58,17 @@ public class AccountService implements Serializable {
         for (AccountType type : AccountType.values()) {
             if (type.getCode().equals(checkType)) accountType = type;
         }
+
         Integer personId = Integer.parseInt(trimWhitespace(json.getOrDefault("personId", "0.0")).toUpperCase(Locale.ROOT));
         Person person = personService.getById(personId);
-        
-        //TODO verificar se pf ou pj
-        //TODO verficar se a pessoa já tem conta desse tipo
         if (duplicatedAccountType(personId, accountType))
             throw new Exception("Usuário já possui uma conta do tipo " + accountType.toString());
         
         String branch = trimWhitespace(json.get("branch")).toUpperCase(Locale.ROOT);
         Double balance = Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT));
 
-        //TODO calcular juros
-        //TODO calcular rendimentos
-
         String accountCode = generateCode(checkType,branch, personId);
+
         Account account = null;
         if (accountType.equals(AccountType.CHECKING_ACCOUNT)) {
             Double overdraftLimit = Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftLimit", "1000.00")).toUpperCase(Locale.ROOT));
@@ -87,7 +84,7 @@ public class AccountService implements Serializable {
             account = savingsAccountService.create(accountType, branch, balance, person,
                     savingsRate, savingsIncome, accountCode);
         }
-
+//todo add account to person ... ou não
         this.repository.save(account);
         return account;
     }
@@ -122,6 +119,7 @@ public class AccountService implements Serializable {
                 .concat(getRandomNumberUsingInts().toString());
         return code;
     }
+
     public Integer getRandomNumberUsingInts() {
         int min =0;
         int max = 9;
