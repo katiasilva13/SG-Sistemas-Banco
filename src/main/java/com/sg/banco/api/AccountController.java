@@ -33,7 +33,7 @@ public class AccountController {
     }
 
     @PostMapping("/contas")
-    public Account create(@RequestBody Map<String, String> json) {
+    public Account create(@RequestBody Map<String, String> json) throws Exception {
         return service.create(json);
     }
 

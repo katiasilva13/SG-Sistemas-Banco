@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -25,5 +26,5 @@ public class CheckingAccount extends Account {
     private Double interest;
 
     @Column(name = "interest_days")//dias de juros
-    private Double interestDays;
+    private LocalDate interestDays;
 }

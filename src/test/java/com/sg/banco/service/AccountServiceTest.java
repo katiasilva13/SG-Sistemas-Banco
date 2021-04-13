@@ -2,16 +2,18 @@ package com.sg.banco.service;
 
 import com.sg.banco.domain.Account;
 import com.sg.banco.domain.Person;
+import com.sg.banco.enumerator.AccountType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class AccountServiceTest {
 
@@ -68,24 +70,55 @@ class AccountServiceTest {
 
     @Test
     @Transactional
-    void testCreateSavingsAccountPF() {
+    void createSavingsAccountPFSuccess() throws Exception {
         Person person = this.personService.create(getStringStringMapPF());
         Account account = this.service.create(getStringStringMapSA(person.getId()));
-        Assertions.assertEquals("317",
-                service.getById(account.getId()).getBranch());
+        Assertions.assertEquals(AccountType.SAVINGS_ACCOUNT,
+                service.getById(account.getId()).getAccountType());
     }
 
-//    @Test
-//    @Transactional
-//    void testCreateCheckingAccountPJ() {
-//        Person person = this.personService.create(getStringStringMapPJ());
-//    }
+    @Test
+    @Transactional
+    void createCheckingAccountPJSuccess() throws Exception {
+        Person person = this.personService.create(getStringStringMapPJ());
+        Account account = this.service.create(getStringStringMapCA(person.getId()));
+        Assertions.assertEquals(AccountType.CHECKING_ACCOUNT,
+                service.getById(account.getId()).getAccountType());
+    }
 
-//    @Test
-//    void getAll() {
-//    }
-//
-//    @Test
-//    void getById() {
-//    }
+    @Test
+    @Transactional
+    void getAllSuccess() throws Exception {
+        Person pf = this.personService.create(getStringStringMapPF());
+        Account sa = this.service.create(getStringStringMapSA(pf.getId()));
+        Person pj = this.personService.create(getStringStringMapPJ());
+        Account ca = this.service.create(getStringStringMapCA(pj.getId()));
+        List<Account> accounts = new ArrayList<>();
+        accounts.add(sa);
+        accounts.add(ca);
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.getAll().containsAll(accounts);
+        });
+    }
+
+    @Test
+    @Transactional
+    void duplicatedAccountTypeTrue() throws Exception {
+        Person pf = this.personService.create(getStringStringMapPF());
+        this.service.create(getStringStringMapSA(pf.getId()));
+        Assertions.assertThrows(Exception.class, () -> {
+            this.service.create(getStringStringMapSA(pf.getId()));
+        });
+    }
+
+    @Test
+    @Transactional
+    void duplicatedAccountTypeFalse() throws Exception {
+        Person pj = this.personService.create(getStringStringMapPJ());
+        this.service.create(getStringStringMapSA(pj.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.create(getStringStringMapCA(pj.getId()));
+        });
+    }
+
 }

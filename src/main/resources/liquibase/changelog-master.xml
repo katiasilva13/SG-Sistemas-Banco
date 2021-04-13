@@ -95,7 +95,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="account_type" type="VARCHAR(25)"/>
-            <column name="account_code" type="INTEGER" autoIncrement="true"/>
+            <column name="account_code" type="VARCHAR(45)"/>
             <column name="branch" type="VARCHAR(25)"/>
             <column name="balance" type="DOUBLE"/>
             <column name="person_id" type="INTEGER"/>

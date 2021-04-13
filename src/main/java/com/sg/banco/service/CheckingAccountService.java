@@ -30,7 +30,7 @@ public class CheckingAccountService implements Serializable {
     }
 
     public CheckingAccount create(AccountType accountType, String branch, Double balance, Person person,
-                                  Double overdraftLimit, Double interestRate, Double interest) {
+                                  Double overdraftLimit, Double interestRate, Double interest, String accountCode) {
         CheckingAccount account = CheckingAccount.builder()
                 .overdraftLimit(overdraftLimit)
                 .interestRate(interestRate)
@@ -40,6 +40,7 @@ public class CheckingAccountService implements Serializable {
         account.setPerson(person);
         account.setBalance(balance);
         account.setBranch(branch);
+        account.setAccountCode(accountCode);
         this.repository.save(account);
         return account;
     }

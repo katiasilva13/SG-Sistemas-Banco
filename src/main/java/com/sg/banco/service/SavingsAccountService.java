@@ -30,7 +30,7 @@ public class SavingsAccountService implements Serializable {
     }
 
     public SavingsAccount create(AccountType accountType, String branch, Double balance, Person person,
-                                 Double savingsRate, Double savingsIncome) {
+                                 Double savingsRate, Double savingsIncome, String accountCode) {
 
         SavingsAccount account = SavingsAccount.builder()
                 .savingsRate(savingsRate)
@@ -40,6 +40,7 @@ public class SavingsAccountService implements Serializable {
         account.setPerson(person);
         account.setBalance(balance);
         account.setBranch(branch);
+        account.setAccountCode(accountCode);
         this.repository.save(account);
         return account;
     }
