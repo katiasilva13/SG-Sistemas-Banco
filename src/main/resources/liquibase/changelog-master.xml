@@ -162,6 +162,7 @@
             </column>
             <column name="transaction_type" type="VARCHAR(25)"/>
             <column name="value" type="DOUBLE"/>
+            <column name="timestamp" type="TIMESTAMP"/>
             <column name="source_account_id" type="INTEGER"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"

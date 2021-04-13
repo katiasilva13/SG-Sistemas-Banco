@@ -7,6 +7,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -27,6 +29,9 @@ public class Transaction implements Serializable {
 
     @Column(name = "value")
     protected Double value;
+
+    @Column(name = "timestamp")
+    protected Timestamp timestamp;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

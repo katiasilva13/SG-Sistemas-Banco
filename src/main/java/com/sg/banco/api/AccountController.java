@@ -46,4 +46,10 @@ public class AccountController {
     public List<SavingsAccount> getAllSavingsAccounts() {
         return service.getAllSavingsAccounts();
     }
+
+    @GetMapping("/contas/usuario/{personId}")
+    public List<Account> getByPersonId(@PathVariable Integer personId) {
+        return service.getByPersonId(personId);
+    }
+
 }

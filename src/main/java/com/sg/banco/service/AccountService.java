@@ -12,7 +12,10 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Random;
 
 import static org.springframework.util.StringUtils.trimWhitespace;
 
@@ -63,11 +66,11 @@ public class AccountService implements Serializable {
         Person person = personService.getById(personId);
         if (duplicatedAccountType(personId, accountType))
             throw new Exception("Usuário já possui uma conta do tipo " + accountType.toString());
-        
+
         String branch = trimWhitespace(json.get("branch")).toUpperCase(Locale.ROOT);
         Double balance = Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT));
 
-        String accountCode = generateCode(checkType,branch, personId);
+        String accountCode = generateCode(checkType, branch, personId);
 
         Account account = null;
         if (accountType.equals(AccountType.CHECKING_ACCOUNT)) {
@@ -90,38 +93,37 @@ public class AccountService implements Serializable {
     }
 
     private Boolean duplicatedAccountType(Integer personId, AccountType accountType) {
-        Boolean retorno = false;
-        if(this.repository.existsByPersonId(personId)){
+        if (this.repository.existsByPersonId(personId)) {
             List<Account> accounts = this.repository.findAllByPersonId(personId);
-            for (Account account: accounts
-                 ) {
+            for (Account account : accounts
+            ) {
                 if (account.getAccountType().equals(accountType)) return true;
             }
         }
-        return retorno;
+        return false;
     }
 
     private String generateCode(Integer checkType, String branch, Integer personId) {
         LocalDateTime localDate = LocalDateTime.now();
         String base = branch
-            //    .concat(" ")
+                //    .concat(" ")
                 .concat(checkType.toString())
                 .concat("13");
         String code = base
-             //   .concat(" ")
+                //   .concat(" ")
                 .concat(personId.toString())
                 .concat(String.valueOf(localDate.getMinute()))
-            //    .concat(" ")
+                //    .concat(" ")
                 .concat(String.valueOf(localDate.getSecond()))
                 .concat(String.valueOf(localDate.getHour()))
-            //    .concat(" ")
+                //    .concat(" ")
                 .concat(String.valueOf(localDate.getDayOfYear()))
                 .concat(getRandomNumberUsingInts().toString());
         return code;
     }
 
     public Integer getRandomNumberUsingInts() {
-        int min =0;
+        int min = 0;
         int max = 9;
         Random random = new Random();
         Integer r = random.ints(min, max)
@@ -130,4 +132,7 @@ public class AccountService implements Serializable {
         return r;
     }
 
+    public List<Account> getByPersonId(Integer personId) {
+        return this.repository.findAllByPersonId(personId);
+    }
 }
