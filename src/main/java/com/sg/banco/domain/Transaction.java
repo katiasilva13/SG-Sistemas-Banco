@@ -28,10 +28,10 @@ public class Transaction implements Serializable {
     private TransactionType transactionType;
 
     @Column(name = "value")
-    protected Double value;
+    private Double value;
 
     @Column(name = "timestamp")
-    protected Timestamp timestamp;
+    private Timestamp timestamp;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

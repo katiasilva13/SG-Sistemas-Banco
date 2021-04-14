@@ -1,5 +1,6 @@
 package com.sg.banco.service;
 
+import com.sg.banco.domain.Account;
 import com.sg.banco.domain.CheckingAccount;
 import com.sg.banco.domain.Person;
 import com.sg.banco.enumerator.AccountType;
@@ -44,6 +45,10 @@ public class CheckingAccountService implements Serializable {
         account.setAccountCode(accountCode);
         this.repository.save(account);
         return account;
+    }
+
+    public void update(CheckingAccount sourceAccount) {
+        this.repository.save(sourceAccount);
     }
 
 }

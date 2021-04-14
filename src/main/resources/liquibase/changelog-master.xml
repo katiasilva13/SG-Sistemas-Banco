@@ -97,7 +97,7 @@
             <column name="account_type" type="VARCHAR(25)"/>
             <column name="account_code" type="VARCHAR(45)"/>
             <column name="branch" type="VARCHAR(25)"/>
-            <column name="balance" type="DOUBLE"/>
+            <column name="balance" type="DECIMAL"/>
             <column name="person_id" type="INTEGER"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
@@ -117,9 +117,10 @@
             <column name="checking_account_id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="overdraft_limit" type="DOUBLE"/>
-            <column name="interest_rate" type="DOUBLE"/>
-            <column name="interest" type="DOUBLE"/>
+            <column name="overdraft_limit" type="DECIMAL"/>
+            <column name="overdraft_available" type="DECIMAL"/>
+            <column name="interest_rate" type="DECIMAL"/>
+            <column name="interest" type="DECIMAL"/>
             <column name="interest_day" type="DATE"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
@@ -139,8 +140,9 @@
             <column name="savings_account_id" type="INTEGER" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="savings_rate" type="DOUBLE"/>
-            <column name="savings_income" type="DOUBLE"/>
+            <column name="savings_rate" type="DECIMAL"/>
+            <column name="invested" type="DECIMAL"/>
+            <column name="savings_income" type="DECIMAL"/>
             <column name="investment_day" type="DATE"/>
         </createTable>
         <addForeignKeyConstraint baseTableSchemaName="ex5" referencedTableSchemaName="ex5"
@@ -161,7 +163,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="transaction_type" type="VARCHAR(25)"/>
-            <column name="value" type="DOUBLE"/>
+            <column name="value" type="DECIMAL"/>
             <column name="timestamp" type="TIMESTAMP"/>
             <column name="source_account_id" type="INTEGER"/>
         </createTable>

@@ -23,6 +23,9 @@ public class SavingsAccount extends Account {
     @Column(name = "savings_income")//rendimento da poupança
     private BigDecimal savingsIncome;
 
+    @Column//dinheiro investido
+    private BigDecimal invested;
+
     @Column(name = "investment_day")//dia do investimento
     private LocalDate investmentDay;
 

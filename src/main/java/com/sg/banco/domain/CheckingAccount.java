@@ -20,6 +20,9 @@ public class CheckingAccount extends Account {
     @Column(name = "overdraft_limit")//limite
     private BigDecimal overdraftLimit;
 
+    @Column(name = "overdraft_available")//limite disponível
+    private BigDecimal overdraftAvailable;
+
     @Column(name = "interest_rate")//taxa de juros
     private BigDecimal interestRate;
 
