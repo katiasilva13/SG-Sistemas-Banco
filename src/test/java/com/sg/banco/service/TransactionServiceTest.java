@@ -180,25 +180,29 @@ class TransactionServiceTest {
     void transferPJCAtoPFSA() throws Exception {
         Person pj = personService.create(getStringStringMapPJ());
         Account ca = accountService.create(getStringStringMapCA(pj.getId()));
-
         Person pf = personService.create(getStringStringMapPF());
         Account sa = accountService.create(getStringStringMapSA(pf.getId()));
-
+        this.service.createTransaction(getStringStringMapDeposit(ca.getId()));
         Assertions.assertDoesNotThrow(() -> {
             this.service.createTransaction(getStringStringMapTranfer(ca.getId(), sa));
         });
-//        ca = accountService.getById(ca.getId());
+        Assertions.assertEquals(BigDecimal.valueOf(207.1), ca.getBalance());
+
+    }
+
+    @Test
+    @Transactional
+    void transferPJCALimitToPFSA() throws Exception {
+        Person pj = personService.create(getStringStringMapPJ());
+        Account ca = accountService.create(getStringStringMapCA(pj.getId()));
+        Person pf = personService.create(getStringStringMapPF());
+        Account sa = accountService.create(getStringStringMapSA(pf.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapTranfer(ca.getId(), sa));
+        });
         Assertions.assertEquals(BigDecimal.valueOf(890.1),
                 ((CheckingAccount) ca).getOverdraftAvailable());
 
     }
-
-//    @Test
-//    void getAll() {
-//    }
-//
-//    @Test
-//    void getById() {
-//    }
 
 }
