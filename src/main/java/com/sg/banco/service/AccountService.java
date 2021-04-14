@@ -6,7 +6,6 @@ import com.sg.banco.domain.Person;
 import com.sg.banco.domain.SavingsAccount;
 import com.sg.banco.enumerator.AccountType;
 import com.sg.banco.repository.AccountRepository;
-import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -83,7 +82,7 @@ public class AccountService implements Serializable {
 
         } else if (accountType.equals(AccountType.SAVINGS_ACCOUNT)) {
             BigDecimal savingsRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsRate", "0.87"))));
-            BigDecimal  savingsIncome = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsIncome", "0.0"))));
+            BigDecimal savingsIncome = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsIncome", "0.0"))));
             BigDecimal invested = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("invested", "0.0")).toUpperCase(Locale.ROOT)));
             account = savingsAccountService.create(accountType, branch, balance, person,
                     savingsRate, savingsIncome, accountCode, invested);
@@ -135,11 +134,6 @@ public class AccountService implements Serializable {
     public List<Account> getByPersonId(Integer personId) {
         return this.repository.findAllByPersonId(personId);
     }
-
-//    public Account getByData(AccountType destinationAccountType, String destinationAccountCode, String destinationAccountBranch) {
-//        return this.repository.findByAccountTypeAndAccountCodeAndBranch(destinationAccountType.toString(),
-//                destinationAccountCode, destinationAccountBranch);
-//    }
 
     public Account getByData(String destinationAccountCode, String destinationAccountBranch) {
         return this.repository.findByAccountCodeAndBranch(destinationAccountCode, destinationAccountBranch);

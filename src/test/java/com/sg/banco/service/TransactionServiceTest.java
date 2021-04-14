@@ -3,7 +3,6 @@ package com.sg.banco.service;
 import com.sg.banco.domain.Account;
 import com.sg.banco.domain.CheckingAccount;
 import com.sg.banco.domain.Person;
-import com.sg.banco.domain.Transaction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class TransactionServiceTest {
 

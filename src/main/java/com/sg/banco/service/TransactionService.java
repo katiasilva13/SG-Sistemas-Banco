@@ -59,7 +59,7 @@ public class TransactionService implements Serializable {
         for (TransactionType type : TransactionType.values()) {
             if (type.getCode().equals(checkType)) transactionType = type;
         }
-//todo if interest =0 then setInterestDay(null)
+
         Integer sourceAccountId = Integer.parseInt(trimWhitespace(json.get("sourceAccountId")).toUpperCase(Locale.ROOT));
         Account sourceAccount = accountService.getById(sourceAccountId);
         Double value = Double.parseDouble(trimWhitespace(json.get("value")).toUpperCase(Locale.ROOT));
@@ -69,8 +69,6 @@ public class TransactionService implements Serializable {
 
         if (sourceAccount instanceof CheckingAccount)
             sourceAccount = calculateInterest(sourceAccount.getId());
-
-        //TODO checar se as dados estão salvando ou se precisa mudar de account to checking || savings
 
         Account destinationAccount = null;
         Transaction transaction = null;
@@ -85,20 +83,20 @@ public class TransactionService implements Serializable {
                 break;
             case TRANSFER:
                 sourceAccount = setAccountDataForWithdrawalOrTransfer(sourceAccount, value);
-                AccountType destinationAccountType = AccountType.valueOf(trimWhitespace(json.get("destinationAccountType")).toUpperCase(Locale.ROOT));
+//                AccountType destinationAccountType = AccountType.valueOf(trimWhitespace(json.get("destinationAccountType")).toUpperCase(Locale.ROOT));
                 String destinationAccountCode = trimWhitespace(json.get("destinationAccountCode")).toUpperCase(Locale.ROOT);
                 String destinationAccountBranch = trimWhitespace(json.get("destinationAccountBranch")).toUpperCase(Locale.ROOT);
-//                destinationAccount = accountService.getByData(destinationAccountType,
-//                        destinationAccountCode, destinationAccountBranch);
                 destinationAccount = accountService.getByData(destinationAccountCode, destinationAccountBranch);
                 destinationAccount = setAccountDataForDepositOrTransfer(destinationAccount, value);
                 transaction = transferService.createTransfer(transactionType, sourceAccount, value, destinationAccount);
                 break;
         }
 
-        if (destinationAccount != null) {
+        if (sourceAccount instanceof SavingsAccount && sourceAccount.getBalance().equals(BigDecimal.ZERO))
+            ((SavingsAccount) sourceAccount).setInvestmentDay(null);
+        if (destinationAccount != null)
             accountService.update(destinationAccount);
-        }
+
         accountService.update(sourceAccount);
         this.repository.save(transaction);
         return transaction;
@@ -143,6 +141,7 @@ public class TransactionService implements Serializable {
                 balance = balance.add(valueSubtracted);
                 account.setBalance(balance);
                 account.setInterest(BigDecimal.ZERO);
+                account.setInterestDay(null);
                 return account;
             } else {
                 balance = balance.add(BigDecimal.valueOf(value));
@@ -157,6 +156,8 @@ public class TransactionService implements Serializable {
             balance = balance.add(BigDecimal.valueOf(value));
             account.setInvested(invested);
             account.setBalance(balance);
+            if (Objects.isNull(account.getInvestmentDay()))
+                account.setInvestmentDay(LocalDate.now());
             return account;
         } else
             throw new Exception("Erro ao identificar conta");
@@ -176,7 +177,6 @@ public class TransactionService implements Serializable {
             if (checkOverdraftLimit(sourceAccount, value)) {
                 CheckingAccount checkingAccount = (CheckingAccount) sourceAccount;
                 BigDecimal valueSubtracted = BigDecimal.valueOf(value).subtract(sourceAccount.getBalance());
-                //    BigDecimal availableValue = checkingAccount.getOverdraftLimit().subtract(checkingAccount.getInterest());
                 BigDecimal availableValue = checkingAccount.getOverdraftAvailable();
                 if (availableValue.subtract(valueSubtracted).signum() < 0)
                     throw new Exception("Operação inválida. Não há limite disponível.");
