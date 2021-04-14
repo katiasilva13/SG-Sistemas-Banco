@@ -73,4 +73,7 @@ public class PersonService implements Serializable {
         return legalPersonService.getAll();
     }
 
+    public void update(Person person) {
+        this.repository.save(person);
+    }
 }

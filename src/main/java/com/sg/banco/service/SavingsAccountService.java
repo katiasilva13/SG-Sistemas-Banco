@@ -31,11 +31,12 @@ public class SavingsAccountService implements Serializable {
     }
 
     public SavingsAccount create(AccountType accountType, String branch, BigDecimal balance, Person person,
-                                 BigDecimal savingsRate, BigDecimal savingsIncome, String accountCode) {
+                                 BigDecimal savingsRate, BigDecimal savingsIncome, String accountCode, BigDecimal invested) {
 
         SavingsAccount account = SavingsAccount.builder()
                 .savingsRate(savingsRate)
                 .savingsIncome(savingsIncome)
+                .invested(invested)
                 .build();
         account.setAccountType(accountType);
         account.setPerson(person);

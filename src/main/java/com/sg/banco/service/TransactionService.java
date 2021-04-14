@@ -29,9 +29,6 @@ public class TransactionService implements Serializable {
     private TransactionRepository repository;
 
     @Autowired
-    private PersonService personService;
-
-    @Autowired
     private TransferService transferService;
 
     @Autowired
@@ -74,7 +71,6 @@ public class TransactionService implements Serializable {
             sourceAccount = calculateInterest(sourceAccount.getId());
 
         //TODO checar se as dados estão salvando ou se precisa mudar de account to checking || savings
-//todo se checking = tirar dinheiro do saldo e do limite
 
         Account destinationAccount = null;
         Transaction transaction = null;

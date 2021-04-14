@@ -32,11 +32,13 @@ public class CheckingAccountService implements Serializable {
     }
 
     public CheckingAccount create(AccountType accountType, String branch, BigDecimal balance, Person person,
-                                  BigDecimal overdraftLimit, BigDecimal interestRate, BigDecimal interest, String accountCode) {
+                                  BigDecimal overdraftLimit, BigDecimal interestRate, BigDecimal interest,
+                                  String accountCode, BigDecimal overdraftAvailable) {
         CheckingAccount account = CheckingAccount.builder()
                 .overdraftLimit(overdraftLimit)
                 .interestRate(interestRate)
                 .interest(interest)
+                .overdraftAvailable(overdraftAvailable)
                 .build();
         account.setAccountType(accountType);
         account.setPerson(person);

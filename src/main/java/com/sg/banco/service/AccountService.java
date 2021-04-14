@@ -6,6 +6,7 @@ import com.sg.banco.domain.Person;
 import com.sg.banco.domain.SavingsAccount;
 import com.sg.banco.enumerator.AccountType;
 import com.sg.banco.repository.AccountRepository;
+import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,7 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import static org.springframework.util.StringUtils.trimWhitespace;
 
@@ -78,18 +76,24 @@ public class AccountService implements Serializable {
             BigDecimal overdraftLimit = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftLimit", "1000.00")).toUpperCase(Locale.ROOT)));
             BigDecimal interestRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interestRate", "1.57")).toUpperCase(Locale.ROOT)));
             BigDecimal interest = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interest", "0.0")).toUpperCase(Locale.ROOT)));
+            BigDecimal overdraftAvailable = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftAvailable", overdraftLimit.toString())).toUpperCase(Locale.ROOT)));
 
             account = checkingAccountService.create(accountType, branch, balance, person,
-                    overdraftLimit, interestRate, interest, accountCode);
+                    overdraftLimit, interestRate, interest, accountCode, overdraftAvailable);
 
         } else if (accountType.equals(AccountType.SAVINGS_ACCOUNT)) {
             BigDecimal savingsRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsRate", "0.87"))));
             BigDecimal  savingsIncome = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsIncome", "0.0"))));
+            BigDecimal invested = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("invested", "0.0")).toUpperCase(Locale.ROOT)));
             account = savingsAccountService.create(accountType, branch, balance, person,
-                    savingsRate, savingsIncome, accountCode);
+                    savingsRate, savingsIncome, accountCode, invested);
         }
 //todo add account to person ... ou não
+        List<Account> accounts = new ArrayList<>();
+        accounts.add(account);
+        person.setAccounts(accounts);
         this.repository.save(account);
+        personService.update(person);
         return account;
     }
 
