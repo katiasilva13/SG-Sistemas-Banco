@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "account")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Account implements Serializable {
@@ -31,7 +31,7 @@ public class Account implements Serializable {
     @Column(name = "account_code")//numero da conta
     private String accountCode;
 
-    @Column//agencia
+    @Column(name = "branch")//agencia
     private String branch;
 
     @Column//extrato
