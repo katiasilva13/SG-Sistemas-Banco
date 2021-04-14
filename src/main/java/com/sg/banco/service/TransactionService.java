@@ -59,7 +59,7 @@ public class TransactionService implements Serializable {
         for (TransactionType type : TransactionType.values()) {
             if (type.getCode().equals(checkType)) transactionType = type;
         }
-
+//todo if interest =0 then setInterestDay(null)
         Integer sourceAccountId = Integer.parseInt(trimWhitespace(json.get("sourceAccountId")).toUpperCase(Locale.ROOT));
         Account sourceAccount = accountService.getById(sourceAccountId);
         Double value = Double.parseDouble(trimWhitespace(json.get("value")).toUpperCase(Locale.ROOT));
@@ -85,11 +85,12 @@ public class TransactionService implements Serializable {
                 break;
             case TRANSFER:
                 sourceAccount = setAccountDataForWithdrawalOrTransfer(sourceAccount, value);
-                String destinationAccountType = trimWhitespace(json.get("destinationAccountType")).toUpperCase(Locale.ROOT);
+                AccountType destinationAccountType = AccountType.valueOf(trimWhitespace(json.get("destinationAccountType")).toUpperCase(Locale.ROOT));
                 String destinationAccountCode = trimWhitespace(json.get("destinationAccountCode")).toUpperCase(Locale.ROOT);
                 String destinationAccountBranch = trimWhitespace(json.get("destinationAccountBranch")).toUpperCase(Locale.ROOT);
-                destinationAccount = accountService.getByData(destinationAccountType,
-                        destinationAccountCode, destinationAccountBranch);
+//                destinationAccount = accountService.getByData(destinationAccountType,
+//                        destinationAccountCode, destinationAccountBranch);
+                destinationAccount = accountService.getByData(destinationAccountCode, destinationAccountBranch);
                 destinationAccount = setAccountDataForDepositOrTransfer(destinationAccount, value);
                 transaction = transferService.createTransfer(transactionType, sourceAccount, value, destinationAccount);
                 break;

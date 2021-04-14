@@ -136,9 +136,13 @@ public class AccountService implements Serializable {
         return this.repository.findAllByPersonId(personId);
     }
 
-    public Account getByData(String destinationAccountType, String destinationAccountCode, String destinationAccountBranch) {
-        return this.repository.findWhereAccountTypeAndAccountCodeAndBranch(destinationAccountType,
-                destinationAccountCode, destinationAccountBranch);
+//    public Account getByData(AccountType destinationAccountType, String destinationAccountCode, String destinationAccountBranch) {
+//        return this.repository.findByAccountTypeAndAccountCodeAndBranch(destinationAccountType.toString(),
+//                destinationAccountCode, destinationAccountBranch);
+//    }
+
+    public Account getByData(String destinationAccountCode, String destinationAccountBranch) {
+        return this.repository.findByAccountCodeAndBranch(destinationAccountCode, destinationAccountBranch);
     }
 
     public void update(Account sourceAccount) {

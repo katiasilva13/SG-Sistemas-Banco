@@ -1,13 +1,16 @@
 package com.sg.banco.service;
 
 import com.sg.banco.domain.Account;
+import com.sg.banco.domain.CheckingAccount;
 import com.sg.banco.domain.Person;
+import com.sg.banco.domain.Transaction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -85,9 +88,20 @@ class TransactionServiceTest {
         return params;
     }
 
+    private Map<String, String> getStringStringMapTranfer(Integer accountId, Account destination) {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("transactionType", "4");
+        params.put("value", "109.90");
+        params.put("sourceAccountId", accountId.toString());
+        params.put("destinationAccountType", destination.getAccountType().toString());
+        params.put("destinationAccountCode", destination.getAccountCode());
+        params.put("destinationAccountBranch", destination.getBranch());
+        return params;
+    }
+
     @Test
     @Transactional
-    void createDepositPJSavingsAccount() throws Exception {
+    void depositPJSavingsAccount() throws Exception {
         Person pj = personService.create(getStringStringMapPJ());
         Account sa = accountService.create(getStringStringMapSA(pj.getId()));
         Assertions.assertDoesNotThrow(() -> {
@@ -97,7 +111,7 @@ class TransactionServiceTest {
 
     @Test
     @Transactional
-    void createWithdrawalPFSavingsAccount() throws Exception {
+    void withdrawalPFSavingsAccount() throws Exception {
         Person pf = personService.create(getStringStringMapPF());
         Account sa = accountService.create(getStringStringMapSA(pf.getId()));
         this.service.createTransaction(getStringStringMapDeposit(sa.getId()));
@@ -106,14 +120,78 @@ class TransactionServiceTest {
         });
     }
 
-//    @Test
-//    void createWithdrawal() {
-//
-//    }
+    @Test
+    @Transactional
+    void depositPJCheckingAccount() throws Exception {
+        Person pj = personService.create(getStringStringMapPJ());
+        Account ca = accountService.create(getStringStringMapCA(pj.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapDeposit(ca.getId()));
+        });
+    }
 
-//    @Test
-//    void createTransfer() {
-//    }
+    @Test
+    @Transactional
+    void withdrawalPFCheckingAccount() throws Exception {
+        Person pf = personService.create(getStringStringMapPF());
+        Account ca = accountService.create(getStringStringMapCA(pf.getId()));
+        this.service.createTransaction(getStringStringMapDeposit(ca.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapWithdrawal(ca.getId()));
+        });
+    }
+
+    @Test
+    @Transactional
+    void withdrawalLimitPFCheckingAccount() throws Exception {
+        Person pf = personService.create(getStringStringMapPF());
+        Account ca = accountService.create(getStringStringMapCA(pf.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapWithdrawal(ca.getId()));
+        });
+    }
+
+    @Test
+    @Transactional
+    void depositPayInterestPFCheckingAccount() throws Exception {
+        Person pf = personService.create(getStringStringMapPF());
+        Account ca = accountService.create(getStringStringMapCA(pf.getId()));
+        this.service.createTransaction(getStringStringMapWithdrawal(ca.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapDeposit(ca.getId()));
+        });
+        Assertions.assertEquals(BigDecimal.valueOf(207.1), accountService.getById(ca.getId()).getBalance());
+    }
+
+    @Test
+    @Transactional
+    void depositInvestmentPJCheckingAccount() throws Exception {
+        Person pj = personService.create(getStringStringMapPJ());
+        Account ca = accountService.create(getStringStringMapCA(pj.getId()));
+        this.service.createTransaction(getStringStringMapDeposit(ca.getId()));
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapDeposit(ca.getId()));
+        });
+        Assertions.assertEquals(BigDecimal.valueOf(634.0), accountService.getById(ca.getId()).getBalance());
+    }
+
+    @Test
+    @Transactional
+    void transferPJCAtoPFSA() throws Exception {
+        Person pj = personService.create(getStringStringMapPJ());
+        Account ca = accountService.create(getStringStringMapCA(pj.getId()));
+
+        Person pf = personService.create(getStringStringMapPF());
+        Account sa = accountService.create(getStringStringMapSA(pf.getId()));
+
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.createTransaction(getStringStringMapTranfer(ca.getId(), sa));
+        });
+//        ca = accountService.getById(ca.getId());
+        Assertions.assertEquals(BigDecimal.valueOf(890.1),
+                ((CheckingAccount) ca).getOverdraftAvailable());
+
+    }
 
 //    @Test
 //    void getAll() {
