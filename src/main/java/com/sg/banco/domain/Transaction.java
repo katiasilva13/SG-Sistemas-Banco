@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sg.banco.enumerator.TransactionType;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,7 +31,8 @@ public class Transaction implements Serializable {
     @Column(name = "value")
     private Double value;
 
-    @Column(name = "timestamp")
+    @CreationTimestamp
+    @Column(name = "timestamp",  insertable = false, updatable = false)
     private Timestamp timestamp;
 
     @JsonBackReference

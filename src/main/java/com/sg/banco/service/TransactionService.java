@@ -98,8 +98,8 @@ public class TransactionService implements Serializable {
             accountService.update(destinationAccount);
 
         accountService.update(sourceAccount);
-        this.repository.save(transaction);
-        return transaction;
+        Transaction result = this.repository.save(transaction);
+        return getById(transaction.getId());
     }
 
     private SavingsAccount calculateIncome(Integer id) {
