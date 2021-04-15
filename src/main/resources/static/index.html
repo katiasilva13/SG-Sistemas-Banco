@@ -3,7 +3,7 @@
 <head>
     <base href="/">
     <meta charset="UTF-8">
-    <title>Lista Telefonica</title>
+    <title>Banco</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" type="text/css" href="css/ui.css">
@@ -15,8 +15,8 @@
     <script src="js/controllers/bancoCtrl.js"></script>
     <script src="js/controllers/novoContatoCtrl.js"></script>
     <script src="js/controllers/detalhesContatoCtrl.js"></script>
-    <script src="js/services/contatosAPIService.js"></script>
-    <script src="js/services/operadorasAPIService.js"></script>
+    <script src="js/services/usuariosAPIService.js"></script>
+    <script src="js/services/contasAPIService.js"></script>
     <script src="js/services/serialGeneratorService.js"></script>
     <script src="js/config/serialGeneratorConfig.js"></script>
     <script src="js/config/routeConfig.js"></script>
@@ -29,16 +29,33 @@
     <script src="js/interceptors/loadingInterceptor.js"></script>
     <script src="js/config/interceptorConfig.js"></script>
     <script src="lib/ui/ngMask.js"></script>
+    <style>
+        a:link, a:visited {
+            background-color: white;
+            color: black;
+            border: 2px solid green;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 60px;
+        }
+        a:hover, a:active {
+            background-color: green;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="jumbotron" ng-show="loading">
-		<h5>Carregando, por favor aguarde...</h5>
-	</div>
-	<div ng-hide="loading">
-		<div ng-view></div>
-		<div ng-include="'view/footer.html'"></div>
-	</div>
+<div class="jumbotron" ng-show="loading">
+    <h5>Carregando, por favor aguarde...</h5>
+</div>
+
+<div ng-hide="loading">
+    <div ng-view></div>
+    <div ng-include="'view/footer.html'"></div>
+</div>
 </body>
 
 </html>

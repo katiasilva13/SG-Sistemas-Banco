@@ -1,9 +1,9 @@
-angular.module("banco").controller("bancoCtrl", function ($scope, usuarios, 
+angular.module("banco").controller("bancoCtrl", function ($scope, usuarios, contas
 	//operadoras, serialGenerator, uppercaseFilter
 	) {
 	$scope.app = "Banco";
 	$scope.usuarios = usuarios.data;
-	// $scope.operadoras = operadoras.data;
+	 $scope.contas = contas.data;
 
 	// var generateSerial = function (contatos) {
 	// 	contatos.forEach(function (item) {

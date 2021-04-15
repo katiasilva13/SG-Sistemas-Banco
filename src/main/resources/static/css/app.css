@@ -1,31 +1,39 @@
 .jumbotron {
-	width: 800px;
-	text-align: center;
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
+    width: 800px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 h3 {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
+
 .table {
-	margin-top: 20px;
+    margin-top: 20px;
 }
+
 .form-control {
-	margin: auto;
-            float: 0;
-            margin-bottom: 5px;
-            width: 500px;
+    margin: auto;
+    float: 0;
+    margin-bottom: 5px;
+    width: 500px;
 }
+
 .btn {
     margin-top: 5px;
 }
+
 .selecionado {
-	background-color: palegoldenrod;
+    background-color: palegoldenrod;
 }
+
 .negrito {
-	font-weight: bold;
+    font-weight: bold;
 }
+
 hr {
-	border-color: #999;
+    border-color: #999;
 }
+
