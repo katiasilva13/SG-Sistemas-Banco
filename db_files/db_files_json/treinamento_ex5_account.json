@@ -1,0 +1,18 @@
+[
+  {
+    "id": 275,
+    "account_type": "1",
+    "account_code": "2131458121056",
+    "branch": "317",
+    "balance": 317,
+    "person_id": 131
+  },
+  {
+    "id": 276,
+    "account_type": "0",
+    "account_code": "1177644121056",
+    "branch": "317",
+    "balance": 0,
+    "person_id": 177
+  }
+]

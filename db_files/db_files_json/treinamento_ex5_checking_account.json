@@ -1,0 +1,10 @@
+[
+  {
+    "checking_account_id": 276,
+    "overdraft_limit": 1000,
+    "overdraft_available": 683,
+    "interest_rate": 1.57,
+    "interest": 317,
+    "interest_day": "2021-04-15"
+  }
+]

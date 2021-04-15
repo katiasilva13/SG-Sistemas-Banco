@@ -1,0 +1,16 @@
+[
+  {
+    "id": 181,
+    "transaction_type": "TRANSFER",
+    "value": 109.9,
+    "timestamp": null,
+    "source_account_id": 276
+  },
+  {
+    "id": 196,
+    "transaction_type": "TRANSFER",
+    "value": 207.1,
+    "timestamp": null,
+    "source_account_id": 276
+  }
+]

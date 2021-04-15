@@ -52,7 +52,7 @@ public class TransactionService implements Serializable {
         this.repository.deleteById(id);
         return getAll();
     }
-
+//todo pass timestamp as param to builder/constructor
     public Transaction createTransaction(Map<String, String> json) throws Exception {
         Integer checkType = Integer.parseInt(trimWhitespace(json.get("transactionType")).toUpperCase(Locale.ROOT));
         TransactionType transactionType = null;

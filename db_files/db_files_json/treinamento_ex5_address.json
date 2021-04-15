@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "street": "RUA TRÊS",
+    "number": "215",
+    "neighborhood": "SÍTIOS VILLAGE PAINEIRAS",
+    "city": "BAURU",
+    "cep": "17048-520",
+    "uf": "SP"
+  },
+  {
+    "id": 132,
+    "street": "Rua Mônaco",
+    "number": "747",
+    "neighborhood": "Loteamento Residencial Três Américas",
+    "city": "Rondonópolis",
+    "cep": "78736-078",
+    "uf": "MT"
+  }
+]

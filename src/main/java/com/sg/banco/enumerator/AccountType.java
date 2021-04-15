@@ -13,5 +13,5 @@ public enum AccountType {
     public Integer getCode() {
         return code;
     }
-
+//todo valor invalido para tipo int : cehcking_account
 }
