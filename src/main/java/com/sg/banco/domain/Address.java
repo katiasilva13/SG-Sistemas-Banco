@@ -1,17 +1,20 @@
 package com.sg.banco.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sg.banco.enumerator.UF;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
-public class Address {
+public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

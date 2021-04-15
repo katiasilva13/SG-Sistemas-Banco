@@ -1,4 +1,4 @@
-angular.module("listaTelefonica").config(function ($httpProvider) {
+angular.module("banco").config(function ($httpProvider) {
     $httpProvider.interceptors.push("timestampInterceptor");
     $httpProvider.interceptors.push("errorInterceptor");
 	$httpProvider.interceptors.push("loadingInterceptor");
