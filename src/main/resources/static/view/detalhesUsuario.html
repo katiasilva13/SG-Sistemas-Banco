@@ -1,0 +1,25 @@
+<div class="jumbotron">
+
+    <h3>{{app}}</h3>
+
+    <table class="table">
+        <td>Geral</td>
+        <tr>
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.name | name}}</td>
+        </tr>
+
+        <td>Detalhes</td>
+        <tr>
+            <td>{{usuario.phoneNumber}}</td>
+
+            <td ng-if="usuario.cnpj">{{usuario.cnpj}}</td>
+
+            <!-- <td>{{usuario.operadora.nome}}</td> -->
+
+            <!-- <td>{{usuario.data | date:"dd/MM/yyyy"}}</td> -->
+        </tr>
+    </table>
+    <a class="btn btn-primary" href="#/usuarios">Voltar </a>
+
+</div>
