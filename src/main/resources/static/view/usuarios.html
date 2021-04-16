@@ -1,7 +1,8 @@
 <div class="jumbotron">
 
     <h3>{{app}}</h3>
-    {{usuarios}}
+    
+   <h5> {{usuarios}} </h5>
 
     <ui-alert ng-if="message" title="Ops, aconteceu um problema!">
         {{message}}
@@ -9,14 +10,13 @@
 
     <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
 
-    <table ng-show="contatos.length > 0" class="table">
+    <table ng-show="usuarios.length > 0" class="table">
         <tr>
             <th></th>
-            <th>Serial</th>
-            <th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
-            <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
-            <th><a href="" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
-            <th><a href="" ng-click="ordenarPor('data')">Data</a></th>
+            <th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
+            <th><a href="" ng-click="ordenarPor('phoneNumber')">Telefone</a></th>
+            <!-- <th><a href="" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
+            <th><a href="" ng-click="ordenarPor('data')">Data</a></th> -->
         </tr>
         <tr ng-class="{'selecionado negrito': contato.selecionado}"
             ng-repeat="contato in contatos  | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao ">

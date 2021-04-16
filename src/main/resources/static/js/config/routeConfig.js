@@ -5,7 +5,8 @@ angular
         $routeProvider
             .when("/usuarios", {
                 templateUrl: "./view/usuarios.html",
-                controller: "bancoCtrl",
+                // controller: "bancoCtrl",
+                controller: "usuariosCtrl",
                 resolve: {
                     usuarios: function (usuariosAPI) {
                         return usuariosAPI.getUsuarios();
@@ -14,7 +15,7 @@ angular
             })
             .when("/contas", {
                 templateUrl: "./view/contas.html",
-                controller: "bancoCtrl",
+                controller: "contasCtrl",
                 resolve: {
                     contas: function (contasAPI) {
                         return contasAPI.getContas();
@@ -27,7 +28,11 @@ angular
             .when("/error", {
                 templateUrl: "./view/error.html"
             })
+            // .when("/index", {
+            //     templateUrl: "./index.html"
+            // })
             .otherwise("/", {
+                // redirectTo: "./view/home.html",
                 redirectTo: "./index.html",
             });
     });

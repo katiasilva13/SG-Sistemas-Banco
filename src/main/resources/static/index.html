@@ -13,6 +13,7 @@
     <script src="lib/angular/angular-route.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/bancoCtrl.js"></script>
+    <script src="js/controllers/usuariosCtrl.js"></script>
     <script src="js/controllers/novoContatoCtrl.js"></script>
     <script src="js/controllers/detalhesContatoCtrl.js"></script>
     <script src="js/services/usuariosAPIService.js"></script>
@@ -30,7 +31,8 @@
     <script src="js/config/interceptorConfig.js"></script>
     <script src="lib/ui/ngMask.js"></script>
     <style>
-        a:link, a:visited {
+        .btn:link,
+        .btn:visited {
             background-color: white;
             color: black;
             border: 2px solid green;
@@ -38,9 +40,12 @@
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            margin-left: 60px;
+            margin-left: 30px;
+            margin-bottom: 60px;
         }
-        a:hover, a:active {
+
+        .btn:hover,
+        .btn:active {
             background-color: green;
             color: white;
         }
@@ -48,14 +53,14 @@
 </head>
 
 <body>
-<div class="jumbotron" ng-show="loading">
-    <h5>Carregando, por favor aguarde...</h5>
-</div>
+    <div class="jumbotron" ng-show="loading">
+        <h5>Carregando, por favor aguarde...</h5>
+    </div>
 
-<div ng-hide="loading">
-    <div ng-view></div>
-    <div ng-include="'view/footer.html'"></div>
-</div>
+    <div ng-hide="loading">
+        <div ng-view></div>
+        <div ng-include="'view/footer.html'"></div>
+    </div>
 </body>
 
 </html>

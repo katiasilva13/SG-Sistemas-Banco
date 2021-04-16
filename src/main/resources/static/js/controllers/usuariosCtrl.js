@@ -1,16 +1,8 @@
 angular
   .module("banco")
-  .controller("bancoCtrl", function ($scope, usuarios) {
-    //operadoras, serialGenerator, uppercaseFilter , contas
-    $scope.app = "Banco";
+  .controller("usuariosCtrl", function ($scope, usuarios) {
+    $scope.app = "Banco: Usuários";
     $scope.usuarios = usuarios.data;
-    // $scope.contas = contas.data;
-
-    // var generateSerial = function (contatos) {
-    // 	contatos.forEach(function (item) {
-    // 		item.serial = serialGenerator.generate();
-    // 	});
-    // };
 
     $scope.apagarUsuarios = function (usuarios) {
       $scope.usuarios = usuarios.filter(function (usuario) {
@@ -27,5 +19,4 @@ angular
       $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     };
 
-    // generateSerial($scope.contatos);
   });

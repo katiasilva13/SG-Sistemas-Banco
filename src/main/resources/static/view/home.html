@@ -1,45 +1,6 @@
-<!--<div class="jumbotron">-->
-<!--    <h3 style="font-weight: bold">{{app}}Banco</h3>-->
-<!--        <table class="table">-->
-<!--            <tr>-->
-<!--                <th><a href="#/usuarios" target="_blank">Usuários</a></th>-->
-<!--                <th><a href="#/contas" target="_blank">Contas</a></th>-->
-<!--                <th><a href="#/transacoes" target="_blank">Transações</a></th>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--</div>-->
-
 <div class="jumbotron">
-
-    <h3>{{app}}</h3>
-
-    <ui-alert ng-if="message" title="Ops, aconteceu um problema!">
-        {{message}}
-    </ui-alert>
-
-    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
-
-    <table ng-show="contatos.length > 0" class="table">
-        <tr>
-            <th></th>
-            <th>Serial</th>
-            <th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
-            <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
-            <th><a href="" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
-            <th><a href="" ng-click="ordenarPor('data')">Data</a></th>
-        </tr>
-        <tr ng-class="{'selecionado negrito': contato.selecionado}"
-            ng-repeat="contato in contatos  | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao ">
-            <td><input type="checkbox" ng-model="contato.selecionado"></td>
-            <td>{{contato.serial}}</td>
-            <td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | name}}</a></td>
-            <td>{{contato.telefone}}</td>
-            <td>{{contato.operadora.nome}}</td>
-            <td>{{contato.data | date: 'dd/MM/yyyy - EEE'}}</td>
-        </tr>
-    </table>
-    <hr />
-    <a class="btn btn-primary" href="#/usuarios"> usuarios</a>
-
-    <a class="btn btn-primary" href="#/contas"> Contas</a>
+    <h2 style="font-weight: bold; margin-bottom: 30px">{{app}}Banco</h2>
+    <a class="btn btn-primary" href="#/usuarios"> Usuários </a>
+    <a class="btn btn-primary" href="#/contas"> Contas </a>
+    <a class="btn btn-primary" href="#/transacoes"> Transações </a>
 </div>
