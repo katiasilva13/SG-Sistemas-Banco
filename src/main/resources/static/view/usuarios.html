@@ -18,19 +18,24 @@
             <!-- <th><a href="" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
             <th><a href="" ng-click="ordenarPor('data')">Data</a></th> -->
         </tr>
-        <tr ng-class="{'selecionado negrito': contato.selecionado}"
-            ng-repeat="contato in contatos  | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao ">
-            <td><input type="checkbox" ng-model="contato.selecionado"></td>
-            <td>{{contato.serial}}</td>
-            <td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | name}}</a></td>
-            <td>{{contato.telefone}}</td>
-            <td>{{contato.operadora.nome}}</td>
-            <td>{{contato.data | date: 'dd/MM/yyyy - EEE'}}</td>
+        <tr ng-class="{'selecionado negrito': usuario.selecionado}"
+            ng-repeat="usuario in usuario  | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao ">
+            <td><input type="checkbox" ng-model="usuario.selecionado"></td>
+            <td>{{contato.id}}</td>
+            <td><a href="#/detalhesContato/{{usuario.id}}">{{usuario.name | name}}</a></td>
+            <td>{{contato.phoneNumber}}</td>
+            <!-- <td>{{contato.operadora.nome}}</td>
+            <td>{{contato.data | date: 'dd/MM/yyyy - EEE'}}</td> -->
         </tr>
     </table>
     <hr />
-    <a class="btn btn-primary" href="#/novoContato">Novo Contato</a>
-    <button class="btn btn-danger" ng-click="apagarContatos(contatos)" ng-disabled="!isContatoSelecionado(contatos)">
+    <a class="btn btn-primary" href="#/novoContato">Novo Usuário</a>
+    
+    <a class="btn btn-danger"  href="" ng-click="apagarContatos(contatos)"  >
+    <!-- ng-disabled="!isContatoSelecionado(contatos)" > -->
+        Apagar contatos</a>
+
+    <!-- <button class="btn btn-danger" ng-click="apagarContatos(contatos)" ng-disabled="!isContatoSelecionado(contatos)">
         Apagar contatos
-    </button>
+    </button> -->
 </div>
