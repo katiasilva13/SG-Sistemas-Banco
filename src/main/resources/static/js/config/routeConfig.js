@@ -23,6 +23,16 @@ angular
                     }
                   },
             })
+            .when("/novo-usuario/", {
+                templateUrl: "./view/novoUsuario.html",
+                // controller: "bancoCtrl",
+                controller: "novoUsuarioCtrl" //,
+                // resolve: {
+                //     usuario: function (usuariosAPI, $route) {
+                //       return usuariosAPI.getUsuario($route.current.params.id);
+                //     }
+                //   },
+            })
             .when("/contas", {
                 templateUrl: "./view/contas.html",
                 controller: "contasCtrl",

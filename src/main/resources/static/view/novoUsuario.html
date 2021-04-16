@@ -1,0 +1,25 @@
+<div class="jumbotron">
+    <h3>{{app}}</h3>
+
+    <form name="usuarioForm" center-block>
+        <input class="form-control" type="text" ng-model="usuario.name" name="name" placeholder="Nome"
+            ng-required="true" ng-minlength="7" />
+        <input class="form-control" type="text" ng-model="usuario.phoneNumber" name="phoneNumber" placeholder="Telefone"
+            ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
+
+        <!-- <input class="form-control" type="text" ng-model="usuario.data" name="data" placeholder="Data" mask="9999/19/39"
+            ng-model="date"> -->
+
+        <!-- #TODO adaptar operadora para UF -->
+        <!-- <select class="form-control" ng-model="usuario.operadora"
+            ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' group by operadora.categoria for operadora in operadoras ">
+            <option value="">Selecione uma operadora</option>
+        </select> -->
+    </form>
+
+    <button class="btn btn-primary" ng-click="adicionarUsuario(usuario)" ng-disabled="usuarioForm.$invalid">
+        Adicionar usuário
+    </button>
+
+
+</div>
