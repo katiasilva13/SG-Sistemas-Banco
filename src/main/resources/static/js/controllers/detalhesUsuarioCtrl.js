@@ -1,4 +1,4 @@
 angular.module("banco").controller("detalhesUsuarioCtrl", function ($scope, $routeParams, usuario) {
-	$scope.app = "Detalhes";
+	$scope.app = "Usuário";
 	$scope.usuario = usuario.data;	
 });
