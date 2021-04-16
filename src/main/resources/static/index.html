@@ -31,7 +31,7 @@
     <script src="js/interceptors/loadingInterceptor.js"></script>
     <script src="js/config/interceptorConfig.js"></script>
     <script src="lib/ui/ngMask.js"></script>
-    <style>
+    <!-- <style>
         .btn:link,
         .btn:visited {
             background-color: white;
@@ -65,16 +65,23 @@
             background-color: red;
             color: white;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
+    <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/usuarios">Usuários</a></li>
+        <li><a href="#/contas">Contas</a></li>
+        <li><a href="#/transacoes">Transações</a></li>
+      </ul>
     <div class="jumbotron" ng-show="loading">
         <h5>Carregando, por favor aguarde...</h5>
     </div>
 
     <div ng-hide="loading">
         <div ng-view></div>
+
         <div ng-include="'view/footer.html'"></div>
     </div>
 </body>

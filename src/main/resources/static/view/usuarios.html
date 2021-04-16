@@ -1,4 +1,5 @@
 <div class="jumbotron">
+    <!-- <a class="btn btn-dark" style="text-align: left"href="#/home"> Home </a> -->
     <h3>{{app}}</h3>
     <!-- <h5>{{usuarios}}</h5> -->
 
@@ -26,7 +27,7 @@
     <hr />
     <a class="btn btn-primary" href="#/novoUsuario">Novo Usuário</a>
 
-    <a class="btn btn-danger" href="" ng-click="apagarUsuario(usuarios)" ng-disabled="!isContatoSelecionado(contatos)">
+    <a class="btn btn-danger" href="" ng-click="apagarUsuario(usuarios)" ng-disabled="!isUsuarioSelecionado(usuarios)">
         Apagar contatos
     </a>
 </div>
