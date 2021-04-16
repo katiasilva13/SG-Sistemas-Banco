@@ -18,14 +18,15 @@
             <td><input type="checkbox" ng-model="usuario.selecionado" /></td>
             <td>{{usuario.id}}</td>
             <td>
-                <!-- #TODO: page for PJ & PF -->
                 <a href="#/detalhes-usuario/{{usuario.id}}">{{usuario.name | name}}</a>
             </td>
             <td>{{usuario.phoneNumber}}</td>
         </tr>
     </table>
     <hr />
-    <a class="btn btn-primary" href="#/novo-usuario">Novo Usuário</a>
+    <!-- #TODO: button for PJ & PF -->
+    <a class="btn btn-primary" href="#/novo-usuario/">Adicionar Pessoa Física</a>
+    <a class="btn btn-primary" href="#/novo-usuario/">Adicionar Pessoa Jurdica</a>
 
     <a class="btn btn-danger" href="" ng-click="apagarUsuario(usuarios)" ng-disabled="!isUsuarioSelecionado(usuarios)">
         Apagar contatos

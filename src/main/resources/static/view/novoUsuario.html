@@ -1,16 +1,26 @@
 <div class="jumbotron">
     <h3>{{app}}</h3>
 
-    <form name="usuarioForm" center-block>
+    <form name="usuarioForm" left-block>
+        <h4>Geral</h4>
         <input class="form-control" type="text" ng-model="usuario.name" name="name" placeholder="Nome"
             ng-required="true" ng-minlength="7" />
         <input class="form-control" type="text" ng-model="usuario.phoneNumber" name="phoneNumber" placeholder="Telefone"
             ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
 
+
+
         <!-- <input class="form-control" type="text" ng-model="usuario.data" name="data" placeholder="Data" mask="9999/19/39"
             ng-model="date"> -->
+        <hr>
 
-        <!-- #TODO adaptar operadora para UF -->
+        <h4>Endereço</h4>
+        <input class="form-control" type="text" ng-model="usuario.address.street" name="street" 
+            placeholder="Rua" ng-required="true" />
+
+        <input class="form-control" type="text" ng-model="usuario.address.street" name="number" 
+            placeholder="Número" ng-required="true" />
+        
         <select class="form-control" ng-model="usuario.address.uf" name="estados-brasil">
             <option value="">Selecione um estado</option>
             <option value="AC">Acre</option>
