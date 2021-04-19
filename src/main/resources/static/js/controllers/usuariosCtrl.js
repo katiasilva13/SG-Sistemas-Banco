@@ -1,14 +1,22 @@
 angular
   .module("banco")
-  .controller("usuariosCtrl", function ($scope, usuarios) {
+  .controller("usuariosCtrl", function ($scope, usuarios, usuariosAPI) {
     $scope.app = "Banco: Usuários";
     $scope.usuarios = usuarios.data;
 
     $scope.apagarUsuarios = function (usuarios) {
-      $scope.usuarios = usuarios.filter(function (usuario) {
-        if (!usuario.selecionado) return usuario;
+      usuarios.filter(function (usuario) {
+        if (usuario.selecionado) {
+          // function (usuariosAPI, $route) {
+            // usuariosAPI.deleteUsuario($route.current.params.id);
+
+            usuariosAPI.deleteUsuario(usuario.id);
+          // }
+        }
       });
+      return usuariosAPI.getUsuarios();
     };
+
     $scope.isUsuarioSelecionado = function (usuarios) {
       return usuarios.some(function (usuario) {
         return usuario.selecionado;
