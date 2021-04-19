@@ -43,6 +43,19 @@ angular
                     }
                 }
             })
+            .when("/detalhes-conta/:id", {
+                templateUrl: "./view/detalhesConta.html",
+                controller: "detalhesContaCtrl",
+                resolve: {
+                    conta: function (contasAPI, $route) {
+                      return contasAPI.getConta($route.current.params.id);
+                    }
+                  },
+            })
+            .when("/nova-conta/:tipo", {
+                templateUrl: "./view/novaConta.html?tipo",
+                controller: "novaContaCtrl" 
+            })
             .when("/home", {
                 templateUrl: "./view/home.html"
             })
