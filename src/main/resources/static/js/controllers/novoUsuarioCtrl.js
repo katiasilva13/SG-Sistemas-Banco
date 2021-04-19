@@ -1,7 +1,7 @@
 angular.module("banco").controller("novoUsuarioCtrl", function ($scope, usuariosAPI,
     //  operadoras,
       $location) {
-	$scope.app = "Usuário";
+	$scope.app = "Novo Usuário";
 	// $scope.operadoras = operadoras.data;
 
 	$scope.adicionarUsuario = function (usuario) {

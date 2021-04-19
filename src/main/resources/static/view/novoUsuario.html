@@ -8,44 +8,30 @@
         <input class="form-control" type="text" ng-model="usuario.phoneNumber" name="phoneNumber" placeholder="Telefone"
             ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
 
-        <input class="form-control" type="text" ng-model="usuario.cpf" name="cpf" 
-            placeholder="CPF" ng-required="true" 
+        <input class="form-control" type="text" ng-model="usuario.cpf" name="cpf" placeholder="CPF" ng-required="true"
             ng-if="isPfRoute()" />
-        <input class="form-control" type="text" ng-model="usuario.rg" name="rg" 
-            placeholder="RG" 
-            ng-if="isPfRoute()" />
-        
-            <!-- <input class="form-control" type="text" ng-model="usuario.cpf" name="cpf" 
-            placeholder="CPF" ng-required="true" 
-            ng-if="(window.location.href.indexOf('?tipo=pf') )" />
-        <input class="form-control" type="text" ng-model="usuario.rg" name="rg" 
-            placeholder="RG" 
-            ng-if="(window.location.href.indexOf('?tipo') === pf)" /> -->
-        <!-- <input class="form-control" type="text" ng-model="usuario.cnpj" name="cnpj" 
-            placeholder="CNPJ" ng-required="true" 
-            ng-if="(window.location.href.indexOf('?tipo=') === pj)" /> -->
-            <input class="form-control" type="text" ng-model="usuario.cnpj" name="cnpj" 
-            placeholder="CNPJ" ng-required="true" 
-            ng-if="isPjRoute()" />
-            <!-- <input class="form-control" type="text" ng-model="usuario.cnpj" name="cnpj" 
-            placeholder="CNPJ" ng-required="true" 
-            ng-if="(window.location.href.indexOf('?tipo=') > -1)" />  -->
+        <input class="form-control" type="text" ng-model="usuario.rg" name="rg" placeholder="RG" ng-if="isPfRoute()" />
 
-        <input class="form-control" type="text" ng-model="usuario.companyName" name="companyName" 
-            placeholder="Razão Social" 
+        <input class="form-control" type="text" ng-model="usuario.cnpj" name="cnpj" placeholder="CNPJ"
+            ng-required="true" ng-if="isPjRoute()" />
+        <input class="form-control" type="text" ng-model="usuario.companyName" name="companyName" placeholder="Razão Social" 
             ng-if="isPjRoute()" />
 
         <hr>
 
         <h4>Endereço</h4>
-        <th>
-        <input class="form-control" type="text" ng-model="usuario.address.street" name="street" 
-            placeholder="Rua" ng-required="true" />
+        <input class="form-control" type="text" ng-model="usuario.street" name="street" placeholder="Rua"
+            ng-required="true" />
+        <input class="form-control" type="text" ng-model="usuario.number" name="number" placeholder="Número"
+            ng-required="true" />
+        <input class="form-control" type="text" ng-model="usuario.neighborhood" name="neighborhood" placeholder="Bairro"
+            ng-required="true" />
+        <input class="form-control" type="text" ng-model="usuario.city" name="city" placeholder="Cidade"
+            ng-required="true" />
+        <input class="form-control" type="text" ng-model="usuario.cep" name="cep" placeholder="CEP"
+            ng-required="true" />
 
-        <input class="form-control" type="text" ng-model="usuario.address.number" name="number" 
-            placeholder="Número" ng-required="true" />
-        </th>
-        <select class="form-control" ng-model="usuario.address.uf" name="estados-brasil">
+        <select class="form-control" ng-model="usuario.uf" name="estados-brasil">
             <option value="">Selecione um estado</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -75,10 +61,11 @@
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
         </select>
+
+
     </form>
 
-    <button class="btn btn-primary" ng-click="adicionarUsuario(usuario)" 
-    ng-disabled="usuarioForm.$invalid">
+    <button class="btn btn-primary" ng-click="adicionarUsuario(usuario)" ng-disabled="usuarioForm.$invalid">
         Adicionar usuário
     </button>
 
