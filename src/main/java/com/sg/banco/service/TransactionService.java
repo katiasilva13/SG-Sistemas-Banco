@@ -52,7 +52,7 @@ public class TransactionService implements Serializable {
         this.repository.deleteById(id);
         return getAll();
     }
-//todo pass timestamp as param to builder/constructor
+
     public Transaction createTransaction(Map<String, String> json) throws Exception {
         Integer checkType = Integer.parseInt(trimWhitespace(json.get("transactionType")).toUpperCase(Locale.ROOT));
         TransactionType transactionType = null;
@@ -83,7 +83,6 @@ public class TransactionService implements Serializable {
                 break;
             case TRANSFER:
                 sourceAccount = setAccountDataForWithdrawalOrTransfer(sourceAccount, value);
-//                AccountType destinationAccountType = AccountType.valueOf(trimWhitespace(json.get("destinationAccountType")).toUpperCase(Locale.ROOT));
                 String destinationAccountCode = trimWhitespace(json.get("destinationAccountCode")).toUpperCase(Locale.ROOT);
                 String destinationAccountBranch = trimWhitespace(json.get("destinationAccountBranch")).toUpperCase(Locale.ROOT);
                 destinationAccount = accountService.getByData(destinationAccountCode, destinationAccountBranch);

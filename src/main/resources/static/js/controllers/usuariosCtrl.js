@@ -14,34 +14,9 @@ angular
         usuarios
           .filter(function (usuario) {
             if (usuario.selecionado) {
-              console.log(usuario);
-              // function (usuariosAPI, $route) {
-              // usuariosAPI.deleteUsuario($route.current.params.id);
               usuariosAPI.deleteUsuario(usuario.id);
-              // }
             }
-          // })
-          // .then(
-          //   function( data ) {
-          //      console.log(data);
-          //      $state.reload();
-              //$state.go('survey.surveyList',{id: 0});
-              // $("#deleteProject").modal("hide");
-          //  });
-          // .then((res) => {
-          //   reloadRoute();
-            // function locationreload() {   
-          //     // To reload the entire page from the server
-          //     location.reload();       
-          //     }
-          //   // $location.path("/contatos");
-          //   $location.path("/home");
-            //  $location.reload();
           });
-        // return usuariosAPI.getUsuarios();
-
-        // $location.path("/home");
-        // return $location.reload();
       };
 
       $scope.isUsuarioSelecionado = function (usuarios) {

@@ -5,7 +5,6 @@ angular
         $routeProvider
             .when("/usuarios", {
                 templateUrl: "./view/usuarios.html",
-                // controller: "bancoCtrl",
                 controller: "usuariosCtrl",
                 resolve: {
                     usuarios: function (usuariosAPI) {
@@ -15,7 +14,6 @@ angular
             })
             .when("/detalhes-usuario/:id", {
                 templateUrl: "./view/detalhesUsuario.html",
-                // controller: "bancoCtrl",
                 controller: "detalhesUsuarioCtrl",
                 resolve: {
                     usuario: function (usuariosAPI, $route) {
@@ -25,15 +23,9 @@ angular
             })
             .when("/novo-usuario/:tipo", {
                 templateUrl: "./view/novoUsuario.html?tipo",
-                // controller: "bancoCtrl",
-                controller: "novoUsuarioCtrl" //,
-                // resolve: {
-                //     usuario: function (usuariosAPI, $route) {
-                //       return usuariosAPI.getUsuario($route.current.params.id);
-                //     }
-                //   },
+                controller: "novoUsuarioCtrl"
             })
-            //TODO add rotas
+            //TODO add rotas conta
             .when("/contas", {
                 templateUrl: "./view/contas.html",
                 controller: "contasCtrl",
@@ -62,11 +54,7 @@ angular
             .when("/error", {
                 templateUrl: "./view/error.html"
             })
-            // .when("/index", {
-            //     templateUrl: "./index.html"
-            // })
             .otherwise("/", {
-                // redirectTo: "./view/home.html",
                 redirectTo: "./index.html",
             });
     });
