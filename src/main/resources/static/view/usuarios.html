@@ -6,7 +6,7 @@
     <table ng-show="usuarios.length > 0" class="table">
         <tr>
             <th></th>
-            <th><a href="" ng-click="ordenarPor('id')">ID</a></th>
+            <!-- <th><a href="" ng-click="ordenarPor('id')">ID</a></th> -->
             <th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
             <th><a href="" ng-click="ordenarPor('phoneNumber')">Telefone</a></th>
             <th></th>
@@ -15,14 +15,14 @@
         <tr ng-class="{'selecionado negrito': usuario.selecionado}"
             ng-repeat="usuario in usuarios  | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao ">
             <td><input type="checkbox" ng-model="usuario.selecionado" /></td>
-            <td>{{usuario.id}}</td>
+            <!-- <td>{{usuario.id}}</td> -->
             <td>
                 <a href="#/detalhes-usuario/{{usuario.id}}">{{usuario.name | name}}</a>
             </td>
             <td>{{usuario.phoneNumber}}</td>
-            <td>
+            <!-- <td>
                 <a href="#/contas-usuario/{{usuario.id}}">Contas</a>
-            </td>
+            </td> -->
         </tr>
     </table>
     <hr />
