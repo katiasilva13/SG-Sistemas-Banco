@@ -82,4 +82,13 @@ class PersonServiceTest {
             this.service.getAll().containsAll(people);
         });
     }
+
+    @Test
+    @Transactional
+    void deletePF() {
+        Person person = this.service.create(getStringStringMapPF());
+        Assertions.assertDoesNotThrow(() -> {
+            this.service.deleteById(person.getId());
+        });
+    }
 }
