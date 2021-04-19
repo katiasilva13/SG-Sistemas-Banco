@@ -23,8 +23,8 @@ angular
                     }
                   },
             })
-            .when("/novo-usuario/", {
-                templateUrl: "./view/novoUsuario.html",
+            .when("/novo-usuario/:tipo", {
+                templateUrl: "./view/novoUsuario.html?tipo",
                 // controller: "bancoCtrl",
                 controller: "novoUsuarioCtrl" //,
                 // resolve: {
@@ -33,6 +33,7 @@ angular
                 //     }
                 //   },
             })
+            //TODO add rotas
             .when("/contas", {
                 templateUrl: "./view/contas.html",
                 controller: "contasCtrl",

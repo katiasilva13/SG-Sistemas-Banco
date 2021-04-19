@@ -11,6 +11,7 @@
             <th><a href="" ng-click="ordenarPor('id')">ID</a></th>
             <th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
             <th><a href="" ng-click="ordenarPor('phoneNumber')">Telefone</a></th>
+            <th></th>
         </tr>
       <!-- #TODO: filter for PJ & PF -->
         <tr ng-class="{'selecionado negrito': usuario.selecionado}"
@@ -21,12 +22,15 @@
                 <a href="#/detalhes-usuario/{{usuario.id}}">{{usuario.name | name}}</a>
             </td>
             <td>{{usuario.phoneNumber}}</td>
+            <td>
+                <a href="#/contas-usuario/{{usuario.id}}">Contas</a>
+            </td>
         </tr>
     </table>
     <hr />
-    <!-- #TODO: button for PJ & PF -->
-    <a class="btn btn-primary" href="#/novo-usuario/">Adicionar Pessoa Física</a>
-    <a class="btn btn-primary" href="#/novo-usuario/">Adicionar Pessoa Jurdica</a>
+    <!-- #TODO: passar tipo PJ ou PF -->
+    <a class="btn btn-primary" href="#/novo-usuario/pf">Adicionar Pessoa Física</a>
+    <a class="btn btn-primary" href="#/novo-usuario/pj">Adicionar Pessoa Jurdica</a>
 
     <a class="btn btn-danger" href="" ng-click="apagarUsuario(usuarios)" ng-disabled="!isUsuarioSelecionado(usuarios)">
         Apagar contatos

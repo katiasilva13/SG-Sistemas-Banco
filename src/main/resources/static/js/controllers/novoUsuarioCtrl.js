@@ -11,5 +11,11 @@ angular.module("banco").controller("novoUsuarioCtrl", function ($scope, usuarios
 			$location.path("/usuarios");
 		});
 	};
+	$scope.isPfRoute = () => {
+		return location.href.includes('/pf')
+   }
+	$scope.isPjRoute = () => {
+		return location.href.includes('/pj')
+   }
 
 });
