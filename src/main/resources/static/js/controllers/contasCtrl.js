@@ -13,7 +13,7 @@ angular
         });
     };
 
-    $scope.isContasSelecionado = function (contas) {
+    $scope.isContaSelecionado = function (contas) {
       return contas.some(function (conta) {
         return conta.selecionado;
       });

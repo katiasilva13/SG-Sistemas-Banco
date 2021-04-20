@@ -1,0 +1,61 @@
+<div class="jumbotron">
+
+    <h3>{{app}}</h3>
+<h5>{{conta}}</h5>
+
+    <div style="text-align: left;">
+        <h>Geral</h4>
+    </div>
+    <table class="table">
+        <tr>
+            <!-- <th>ID</th> -->
+            <th>Número</th>
+            <th>Agência</th>
+            <th>Tipo</th>
+            <th>Saldo</th>
+            <th ng-if="conta.companyName">Taxa de Juros</th>
+            <th ng-if="conta.cnpj">Juros</th>
+            <th ng-if="conta.cpf">Limite Disponível</th>
+            <th ng-if="conta.rg">Limite Total</th>
+        </tr>
+        <tr>
+            <!-- <td>{{conta.id}}</td> -->
+            <td>{{conta.name | name}}</td>
+            <td>{{conta.phoneNumber}}</td>
+            <td ng-if="conta.companyName">{{conta.companyName}}</td>
+            <td ng-if="conta.cnpj">{{conta.cnpj}}</td>
+            <td ng-if="conta.cpf">{{conta.cpf}}</td>
+            <td ng-if="conta.rg">{{conta.rg}}</td>
+        </tr>
+    </table>
+    <hr>
+    <div style="text-align: left;">
+        <h>Detalhes</h4>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Rua</th>
+            <th>Número</th>
+            <th>Cidade</th>
+        </tr>
+        <tr>
+            <td>{{conta.street | name}}</td>
+            <td>{{conta.number}}</td>
+            <td>{{conta.city | name}}</td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <th>Bairro</th>
+            <th>CEP</th>
+            <th>UF</th>
+        </tr>
+        <tr>
+            <td>{{conta.neighborhood | name}}</td>
+            <td>{{conta.cep}}</td>
+            <td>{{conta.uf}}</td>
+        </tr>
+    </table>
+    <a class="btn" href="#/contas">Voltar </a>
+    <a class="btn" href="#/contas-usuario/{{usuario.id}}">Contas</a>
+<!-- #TODO botão extrato (all transações) -->
+</div>

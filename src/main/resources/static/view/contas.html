@@ -4,6 +4,7 @@
 
     <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
 
+      <!-- #TODO: filtrar por Corrente & Poupança -->
     <table ng-show="contas.length > 0" class="table">
         <tr>
             <th></th>
@@ -24,9 +25,8 @@
     <hr />
     <a class="btn btn-primary" href="#/novaConta/1">Nova Conta Corrente</a>
     <a class="btn btn-primary" href="#/novaConta/2">Nova Conta Poupança</a>
-    <a class="btn btn-danger" ng-click="apagarContas(contas)" ng-disabled="!isContaSelecionado(contas)">
+    <a class="btn btn-danger" href="" ng-click="apagarContas(contas)" ng-disabled="!isContaSelecionado(contas)">
         Apagar contas
     </a>
-
 
 </div>
