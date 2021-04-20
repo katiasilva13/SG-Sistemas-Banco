@@ -23,10 +23,15 @@ angular.module('app', [
   $stateProvider
     .state('app', {
      url: '/',
-     template: `<h1>Hello World - app.module.ts</h1>`
+     template: `<h1>Hello World - app.module.ts</h1>
+            <button><a href='#!/second'>Second</a></button>`
     })
+    .state('second', {
+        url: '/second',
+        template: `<h1>Second</h1>`
+       })
 //   $urlRouterProvider.otherwise('/login')
-//   $urlRouterProvider.otherwise('/')
+  $urlRouterProvider.otherwise('/')
 }])
 // .run(['$rootScope', '$state', '$stateParams', 'userService', ($rootScope, $state, 
 //     $stateParams, userService) => {
