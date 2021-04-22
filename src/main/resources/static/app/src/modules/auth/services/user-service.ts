@@ -1,5 +1,5 @@
 import UserFactory from "../model/factory/user-factory";
-import User from "../model/User";
+import User from "../model/user";
 
 class UserService {
   private user: User

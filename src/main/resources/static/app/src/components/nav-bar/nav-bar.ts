@@ -1,7 +1,7 @@
 import './nav-bar.scss'
 import template from './nav-bar.html'
 import UserService from '../../modules/auth/services/user-service';
-import User from '../../modules/auth/model/User';
+import User from '../../modules/auth/model/user';
 import { textChangeRangeIsUnchanged } from 'typescript';
 
 class NavBarController {
