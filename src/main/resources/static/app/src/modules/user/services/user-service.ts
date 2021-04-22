@@ -3,12 +3,10 @@ import User from "../model/user";
 
 class UserService {
   private users: User[]
-
   private url: string = 'http://localhost:8080/usuarios'
 
   constructor(
     public $http,
-    // public userFactory: UserFactory
   ) {}
 
   // getUsers = async (): Promise<User> => {
@@ -24,6 +22,7 @@ class UserService {
   //     console.log(response)
   //   })
   // }
+  
   getUsers = async (): Promise<User[]> => {
     return await this.$http.get(this.url)
   }
@@ -41,15 +40,10 @@ class UserService {
   //   return this.user
   // }
 
-  // logout = () => {
-  //   delete this.user
-  //   delete sessionStorage.user
-  // }
 }
 
 UserService['$inject'] = [
   '$http',
-  // 'userFactory'
 ]
 
 export default UserService

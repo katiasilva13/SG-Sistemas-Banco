@@ -3,23 +3,23 @@ import './users.scss'
 
 class UsersController {
   // private credentials: {user, password}
-  public users
+  // public users
   constructor(
     public $state,
     public userService: UserService,
-    
+    public users
   ) {}
 
-  $onInit() {
-   this.userService.getUsers().then(response => {
-     this.users = response
-   } )
-      // this.getUsers().then(response => {
-      //   this.users = response;
-      //   console.log(response)
-      // })
-      console.log("teste 123")
-    }
+  // $onInit() {
+  //  this.userService.getUsers().then(response => {
+  //    this.users = response
+  //  } )
+  //     // this.getUsers().then(response => {
+  //     //   this.users = response;
+  //     //   console.log(response)
+  //     // })
+  //     console.log("teste 123")
+  //   }
 
     // users = () => {
 
@@ -47,7 +47,7 @@ class UsersController {
 UsersController['$inject'] = [
   '$state',
   'userService',
-  // 'users'
+  'users'
 ]
 
 export default UsersController;

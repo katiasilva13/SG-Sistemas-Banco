@@ -14,8 +14,8 @@ const userModule = angular.module('app.user', [])
                 templateUrl: usersTemplate,
                 controller: UsersController,
                 controllerAs: '$ctrl',
-                // resolve: {
-                //     users: ['userService', (userService) => userService.getUsers()]
-                //   }
+                resolve: {
+                    users: ['userService', (userService) => userService.getUsers()]
+                  }
             })
     }])
