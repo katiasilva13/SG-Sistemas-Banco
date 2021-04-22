@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top bg-primary">
+  <!-- <div class="col-md-12"> -->
+    <a class="navbar-brand" href="/">
+      <img src="https://i.redd.it/s7ps46aqark01.jpg" height="80px" />
+    </a>
+    <div class="collapse navbar-collapse">
+      <!-- <ul class="navbar-nav mr-auto" ng-if="$ctrl.user && !$ctrl.user.isAdmin"> -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <div class="nav-link">Minha conta</div>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Serviços
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Abertura de conta</a>
+            <a class="dropdown-item" href="#">Empréstimos</a>
+            <a class="dropdown-item" href="#">Cartões</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" ng-if="$ctrl.user.user && $ctrl.user.isAdmin">
+        <li class="nav-item">
+          <div class="nav-link">Clientes</div>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Serviços
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Abertura de conta</a>
+            <a class="dropdown-item" href="#">Empréstimos</a>
+            <a class="dropdown-item" href="#">Cartões</a>
+          </div>
+        </li>
+      </ul>
+      <button ng-if="!$ctrl.user.user" type="button" class="btn btn-secondary btn-sm mb-2" role="button" aria-pressed="true" ui-sref="app.login()" ng-if="!$ctrl.hideButton()">Acessar</button>
+      <button ng-if="$ctrl.user.user" type="button" class="btn btn-secondary btn-sm mb-2" role="button" aria-pressed="true" ng-click="$ctrl.logout()" ui-sref="app.home()">Sair</button>
+    </div>
+</nav>
+<div class="hor-divider"></div>

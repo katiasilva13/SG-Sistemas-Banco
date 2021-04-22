@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="login glow col-12 col-md-4">
+      <h5 class="dialog-title">Acesso</h5>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+        </div>
+        <input ng-model="$ctrl.credentials.user" type="text" class="form-control" placeholder="Usuário" aria-label="Usuário" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon2"><i class="fas fa-key"></i></span>
+        </div>
+        <input ng-model="$ctrl.credentials.password" type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon2">
+      </div>
+      <button type="button" class="btn btn-sm btn-secondary float-right" role="button" aria-pressed="true" ng-click="$ctrl.login()">Acessar</button>
+    </div>
+  </div>
+</div>

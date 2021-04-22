@@ -1,1 +1,0 @@
-angular.module("banco", ["ngMessages", "ngRoute", "ngMask"]);

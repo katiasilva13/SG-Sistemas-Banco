@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li ng-class="{active: $index == $ctrl.selected}" ng-repeat="item in $ctrl.carousel" ng-click="$ctrl.select($index)"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item" ng-class="{active: $index == $ctrl.selected}" ng-repeat="image in $ctrl.carousel">
+          <img ng-src="{{ image }}" class="d-block w-100">
+        </div>
+      </div>
+      <div ng-click="$ctrl.backwardCarousel()">
+        <a class="carousel-control-prev" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </div>
+      <div ng-click="$ctrl.forwardCarousel()">
+        <a class="carousel-control-next" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards mt-4 pb-2">
+    <div class="row mb-2 d-flex justify-content-between">
+      <div class="col-4 mb-2" ng-repeat="card in $ctrl.cards">
+        <div class="card">
+          <img class="card-img-top" ng-src="{{ card.image }}">
+          <div class="card-body">
+            <p class="card-text">{{ card.title }}</p>
+            <a ui-sref="" class="btn btn-sm btn-secondary">{{ card.button }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

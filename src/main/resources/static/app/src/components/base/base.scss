@@ -1,0 +1,27 @@
+.footer {
+  clear: both;
+  margin-top: auto;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  img {
+    margin: auto 0;
+    height: 3em;
+  }
+
+  .container {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+
+    h3 {
+      line-height: normal;
+      margin-bottom: 0;
+    }
+
+    .trademark {
+      font-size: small;
+    }
+  }
+}

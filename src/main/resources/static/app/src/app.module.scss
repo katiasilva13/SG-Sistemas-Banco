@@ -1,0 +1,49 @@
+
+$theme-colors: (
+  "primary": white,
+  "secondary": #e34040,
+);
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+base.ng-scope.ng-isolate-scope {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dialog-title {
+  color: map-get($theme-colors, 'secondary');
+  margin-bottom: 1em;
+}
+
+.hor-divider {
+  margin-bottom: 3em;
+  margin: 0 auto;
+  display: block;
+  width: 80%;
+  height: 0.2em;
+  background: -moz-linear-gradient(left, rgb(255,255,255) 0%, rgb(227, 64, 64) 50%, rgb(227, 64, 64) 51%, rgb(255, 255, 255) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgb(255,255,255) 0%, rgb(227, 64, 64) 50%, rgb(227, 64, 64) 51%, rgb(255, 255, 255) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgb(255,255,255) 0%, rgb(227, 64, 64) 50%, rgb(227, 64, 64) 51%, rgb(255, 255, 255) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.glow {
+  border: 0.2em solid transparent;
+  border-radius: 1.5em;
+  box-shadow: 0.6em 0.6em 2em 0.1em #e3404033;
+}
+
+.list {
+  overflow-y: scroll;
+}
+
+@import '~bootstrap/scss/bootstrap'
