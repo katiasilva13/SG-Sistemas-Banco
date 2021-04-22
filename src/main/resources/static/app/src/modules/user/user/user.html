@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="login glow col-12 col-md-4">
+        <h5 class="dialog-title">Usuários</h5>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+          </div>
+          <input ng-model="$ctrl.user.id" type="text" class="form-control" placeholder="ID do Usuário" aria-label="ID Usuário" aria-describedby="basic-addon1">
+        </div>
+       
+        <button type="button" class="btn btn-sm btn-secondary float-right" role="button" aria-pressed="true" ng-click="$ctrl.getUser($ctrl.user.id)">Buscar</button>
+      </div>
+    </div>
+  </div>

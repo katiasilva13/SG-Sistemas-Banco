@@ -1,5 +1,5 @@
-import './nav-bar.scss'
-import template from './nav-bar.html'
+import './navbar.scss'
+import template from './navbar.html'
 
 class NavBarController {
     constructor(
