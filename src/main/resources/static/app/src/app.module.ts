@@ -4,8 +4,8 @@ import 'angular-ui-carousel'
 import 'bootstrap'
 import '@uirouter/angularjs'
 // import './modules'
-// import navBar from './components/nav-bar/nav-bar'
-// import base from './components/base/base'
+import navBar from './components/nav-bar/nav-bar'
+import base from './components/base/base'
 
 import './app.module.scss'
 
@@ -17,14 +17,14 @@ angular.module('app', [
             //   'app.auth',
 //   'app.manager',
 ])
-// .component('navbar', navBar)
-// .component('base', base)
+.component('navBar', navBar)
+.component('base', base)
 .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
   $stateProvider
     .state('app', {
      url: '/',
      template: `<h1>Hello World - app.module.ts</h1>
-            <button><a href='#!/second'>Second</a></button>`
+            <button ui-sref='second()'>Second</button>`
     })
     .state('second', {
         url: '/second',
