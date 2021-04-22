@@ -1,11 +1,11 @@
 import * as angular from 'angular'
 import usersTemplate from './users/users.html'
 import UsersController from './users/users'
-import UserFactory from './model/factory/user-factory'
+// import UserFactory from './model/factory/user-factory'
 import UserService from './services/user-service'
 
-const authModule = angular.module('app.user', [])
-    .factory('userFactory', () => new UserFactory())
+const userModule = angular.module('app.user', [])
+    // .factory('userFactory', () => new UserFactory())
     .service('userService', UserService)
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider
@@ -13,6 +13,9 @@ const authModule = angular.module('app.user', [])
                 url: '/users',
                 templateUrl: usersTemplate,
                 controller: UsersController,
-                controllerAs: '$ctrl'
+                controllerAs: '$ctrl',
+                // resolve: {
+                //     users: ['userService', (userService) => userService.getUsers()]
+                //   }
             })
     }])

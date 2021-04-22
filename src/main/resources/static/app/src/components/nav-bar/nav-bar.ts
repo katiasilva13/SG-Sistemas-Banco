@@ -12,19 +12,19 @@ class NavBarController {
     public userService: UserService,
   ) {}
 
-  $doCheck = () => {
-    this.user = this.userService.getUser() ?? {}
-  }
+  // $doCheck = () => {
+  //   this.user = this.userService.getUser() ?? {}
+  // }
 
-  hideButton = () => {
-    return this.$location.path().includes('login')
-  }
+  // hideButton = () => {
+  //   return this.$location.path().includes('login')
+  // }
 
-  logout = () => {
-    this.userService.logout()
-    delete this.user
-    this.$window.location.reload()
-  }
+  // logout = () => {
+  //   this.userService.logout()
+  //   delete this.user
+  //   this.$window.location.reload()
+  // }
 }
 
 NavBarController['$inject'] = [
@@ -37,11 +37,11 @@ const navBar = {
   controller: NavBarController,
   controllerAs: '$ctrl',
   templateUrl: template,
-  resolve: {
-    user: ['userService', (userService) => {
-      console.log("nao??")
-    }]
-  }
+  // resolve: {
+  //   user: ['userService', (userService) => {
+  //     console.log("nao??")
+  //   }]
+  // }
 }
 
 export default navBar

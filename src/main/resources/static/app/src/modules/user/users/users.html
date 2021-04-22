@@ -1,6 +1,27 @@
 <div class="container">
-<table>teste</table>
+  <div class="col mt-4 justify-content-center list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody >
+        {{$ctrl.users}}
+        <!-- <tr ng-repeat="user in $ctrl.getUsers()"> -->
+        <tr ng-repeat="user in $ctrl.users.data">
+          <th scope="row">{{ $index+1 }}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.phoneNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
+
+
   <!-- <div class="row justify-content-center">
     <div class="login glow col-12 col-md-4">
       <h5 class="dialog-title">Acesso</h5>
