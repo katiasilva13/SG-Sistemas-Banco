@@ -38,14 +38,17 @@ class HomeController {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEm4nTVSQJFC_tFo0QC1CEUgFsxZCpSp7SUQ&usqp=CAU',
       title: 'Ainda não é cadastrado?',
       button: 'Cadastre-se',
+      url: '#!/login',      
     },{
       image: 'https://kcm-www.s3.amazonaws.com/production/s3fs-public/daily_confessions_for_financial_victory_1239968128.jpg',
       title: 'Abra agora sua conta!',
       button: 'Nova conta',
+      url: '#!/login',
     },{
       image: 'https://unctad.org/sites/default/files/2020-08/Investment-Trends_800x450.jpg',
       title: 'Saque, depósito ou transferência?',
       button: 'Transações',
+      url: '#!/login',
     },
   ]
   constructor(
