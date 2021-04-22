@@ -16,6 +16,7 @@ angular.module('app', [
   'app.account',
   'app.auth',
   'app.management',
+  'app.user',
 ])
 .component('navbar', navBar)
 .component('base', base)
@@ -25,13 +26,14 @@ angular.module('app', [
       abstract: true,
       component: 'base'
     })
-  $urlRouterProvider.otherwise('/login')
+  // $urlRouterProvider.otherwise('/login')
+  $urlRouterProvider.otherwise('/')
 }])
-.run(['$rootScope', '$state', '$stateParams', 'userService', ($rootScope, $state, $stateParams, userService) => {
-  $rootScope.$on('$locationChangeSuccess', (event, toUrl) => {
-    const isAlreadyHome = toUrl.match(/https?:\/\/[\s\S]*\/#!\/(login\/?)?$/g)
-    if (!userService.getUser() && !isAlreadyHome) {
-      $state.go('app.home')
-    }
-  })
-}])
+// .run(['$rootScope', '$state', '$stateParams', 'userService', ($rootScope, $state, $stateParams, userService) => {
+//   $rootScope.$on('$locationChangeSuccess', (event, toUrl) => {
+//     const isAlreadyHome = toUrl.match(/https?:\/\/[\s\S]*\/#!\/(login\/?)?$/g)
+//     if (!userService.getUser() && !isAlreadyHome) {
+//       $state.go('app.home')
+//     }
+//   })
+// }])
