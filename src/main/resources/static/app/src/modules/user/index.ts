@@ -5,11 +5,9 @@ import detailsTemplate from './details/details.html'
 
 import DetailsController from './details/details'
 import UsersController from './users/users'
-// import UserFactory from './model/factory/user-factory'
 import UserService from './services/user-service'
 
 const userModule = angular.module('app.user', [])
-    // .factory('userFactory', () => new UserFactory())
     .service('userService', UserService)
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider

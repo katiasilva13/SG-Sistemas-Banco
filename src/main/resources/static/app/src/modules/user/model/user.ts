@@ -7,13 +7,7 @@ export default interface User {
   cpf?: string,
   rg?: string,
 
-  //address
+  //TODO address
 
-  // firstName?: string,
-  // lastName?: string,
-  // email?: string,
-  // user?: string,
-  // password?: string,
-  // isAdmin?: boolean
-  accounts?: Account[],//alter account
+  accounts?: Account[],//TODO alter account
 }

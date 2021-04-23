@@ -7,7 +7,6 @@ class DetailsController {
     public $state,
     public userService: UserService,
     public user,
-    // public id
   ) {}
 
 }
@@ -16,7 +15,6 @@ DetailsController['$inject'] = [
   '$state',
   'userService',
   'user', 
-//   'id'
 ]
 
 export default DetailsController;
