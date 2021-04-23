@@ -7,18 +7,18 @@
           <tr>
             <th scope="col" >Nome</th>
             <th scope="col" >Telefone</th>
-            <th scope="col" ng-if="$ctrl.user.data.cpf">CPF</th>
-            <th scope="col" ng-if="$ctrl.user.data.rg">RG</th>      
-            <th scope="col" ng-if="$ctrl.user.data.cnpj">CNPJ</th>
-            <th scope="col" ng-if="$ctrl.user.data.companyName">Razão Social</th>
+            <th scope="col" ng-if="$ctrl.user.cpf">CPF</th>
+            <th scope="col" ng-if="$ctrl.user.rg">RG</th>      
+            <th scope="col" ng-if="$ctrl.user.cnpj">CNPJ</th>
+            <th scope="col" ng-if="$ctrl.user.companyName">Razão Social</th>
           </tr>
           <tbody >
-            <td>{{ $ctrl.user.data.name }}</td>
-            <td>{{ $ctrl.user.data.phoneNumber }}</td>
-            <td ng-if="$ctrl.user.data.cpf">{{ $ctrl.user.data.cpf }}</td>
-            <td ng-if="$ctrl.user.data.rg">{{ $ctrl.user.data.rg }}</td>
-            <td ng-if="$ctrl.user.data.cnpj">{{ $ctrl.user.data.cnpj }}</td>
-            <td ng-if="$ctrl.user.data.companyName">{{ $ctrl.user.data.companyName }}</td>
+            <td>{{ $ctrl.user.name }}</td>
+            <td>{{ $ctrl.user.phoneNumber }}</td>
+            <td ng-if="$ctrl.user.cpf">{{ $ctrl.user.cpf }}</td>
+            <td ng-if="$ctrl.user.rg">{{ $ctrl.user.rg }}</td>
+            <td ng-if="$ctrl.user.cnpj">{{ $ctrl.user.cnpj }}</td>
+            <td ng-if="$ctrl.user.companyName">{{ $ctrl.user.companyName }}</td>
         </tbody>
 
          <tr><th >Endereço</th></tr>
@@ -30,10 +30,10 @@
           </tr>
           <tbody >
       <!-- #TODO como usar filters?-->
-            <td>{{ $ctrl.user.data.address.street }}</td>
-            <td>{{ $ctrl.user.data.address.number}}</td>
-            <td>{{ $ctrl.user.data.address.cep}}</td>
-            <td>{{ $ctrl.user.data.address.uf }}</td>
+            <td>{{ $ctrl.user.address.street }}</td>
+            <td>{{ $ctrl.user.address.number}}</td>
+            <td>{{ $ctrl.user.address.cep}}</td>
+            <td>{{ $ctrl.user.address.uf }}</td>
         </tbody>
         <tr>
             <th scope="col" >Bairro</th>
@@ -41,8 +41,8 @@
           </tr>
           <tbody >
       <!-- #TODO como usar filters?-->
-            <td>{{ $ctrl.user.data.address.neighborhood }}</td>
-            <td>{{ $ctrl.user.data.address.city }}</td>
+            <td>{{ $ctrl.user.address.neighborhood }}</td>
+            <td>{{ $ctrl.user.address.city }}</td>
         </tbody>
 
  <!-- #TODO criar tela contas e tela add conta -->

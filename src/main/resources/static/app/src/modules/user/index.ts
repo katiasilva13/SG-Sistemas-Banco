@@ -17,7 +17,7 @@ const userModule = angular.module('app.user', [])
                 controller: UsersController,
                 controllerAs: '$ctrl',
                 resolve: {
-                    users: ['userService', (userService) => userService.getUsers()]
+                    users: ['userService', (userService) => userService.getUsers().then(response => response.data)]
                   }
             })
             .state('app.details', {
@@ -30,7 +30,7 @@ const userModule = angular.module('app.user', [])
                 controllerAs: '$ctrl',  
                 resolve: {
                     user: ['$stateParams', 'userService', ($stateParams, userService) => 
-                        userService.getById($stateParams.id)]
+                        userService.getById($stateParams.id).then(response => response.data)]
                   }
             })
     }])
