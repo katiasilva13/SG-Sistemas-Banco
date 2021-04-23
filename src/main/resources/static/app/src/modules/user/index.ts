@@ -23,12 +23,16 @@ const userModule = angular.module('app.user', [])
                   }
             })
             .state('app.details', {
-                url: 'users/:id',
+                url: '/users/:id',
+                params: {
+                    id: null
+                },
                 templateUrl: detailsTemplate,
                 controller: DetailsController,
-                controllerAs: '$ctrl',
+                controllerAs: '$ctrl',  
                 resolve: {
-                    user: ['$stateParams', 'userService', ($stateParams, userService) => userService.getById($stateParams.id)]
+                    user: ['$stateParams', 'userService', ($stateParams, userService) => 
+                        userService.getById($stateParams.id)]
                   }
             })
     }])

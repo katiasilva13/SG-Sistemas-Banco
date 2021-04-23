@@ -10,6 +10,16 @@ class UserService {
     public $http,
   ) {}
 
+
+  
+  getUsers = async (): Promise<User[]> => {
+    return await this.$http.get(this.url)
+  }
+
+  getById = async (id): Promise<User> => {
+    return await this.$http.get(this.url+`/${id}`)
+  }
+
   // getUsers = async (): Promise<User> => {
   //   console.log("test method"); 
   //   var users = this.$http.get(this.url).then(data => data.resposne)
@@ -23,14 +33,6 @@ class UserService {
   //     console.log(response)
   //   })
   // }
-  
-  getUsers = async (): Promise<User[]> => {
-    return await this.$http.get(this.url)
-  }
-
-  getById = async ({id}): Promise<User> => {
-    return await this.$http.get(this.url+`/${id}`)
-  }
 
   // getUser = (): User => {
   //   if (this.user) return this.user

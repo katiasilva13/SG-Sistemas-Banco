@@ -11,8 +11,36 @@
       <tbody >
         <!-- {{$ctrl.users}} -->
         <tr ng-repeat="user in $ctrl.users.data">
-          <th scope="row">{{ $index+1 }}</th>
-          <td><a ui-sref="app.details({id: '{{user.id}}'})">{{ user.name }}</a></td>
+          <!-- <th scope="row">{{ $index+1 }}</th> -->
+
+          <td>{{ user.id }}</td>
+          
+          <td><a ui-sref="app.details({id: user.id })">{{ user.name }}</a></td>
+         
+          <!-- <var>{{ user.id }}</var> -->       
+          <!-- <td><a ui-sref="app.details({id: '<var>{{ user.id }}</var>})">{{ user.name }}</a></td> -->
+        
+            <!-- <td><a ui-sref="app.details({id: user.id})">{{ user.name }}</a></td> -->
+        
+          
+<!-- 
+          <td><a id="dynamicLink" ui-sref="">{{ user.name }}</a></td>
+          <script>
+            var idUser = $ctrl.users.data[$index]
+            var link = document.getElementById('dynamicLink'); 
+            link.href = "app.details({id: idUser}"
+            console.log("id user="+idUser)
+          </script> -->
+
+          
+          <!-- <td><a id="dynamicLink" ui-sref="">{{ user.name }}</a></td>
+          <script>
+            var idUser = "{{ user.id }}"
+            var link = document.getElementById('dynamicLink'); 
+            link.href = "app.details({id: idUser}"
+            console.log("id user="+idUser)
+          </script> -->
+         
           <td>{{ user.phoneNumber }}</td>
         </tr>
       </tbody>
