@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col mt-4 justify-content-center list">
+        <div style="text-align: left;">
+            <h>Geral</h4>
+        </div>
+        <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" >Nome</th>
+            <th scope="col" >Telefone</th>
+            <th scope="col" ng-if="user.cpf">CPF</th>
+            <th scope="col" ng-if="user.rg">RG</th>
+            <th scope="col" ng-if="user.cnpj">CNPJ</th>
+            <th scope="col" ng-if="user.companyName">Razão Social</th>
+          </tr>
+        </thead>
+        <tbody >
+          {{$ctrl.user}}
+            <td>{{ user.name }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td ng-if="user.companyName">{{ user.companyName }}</td>
+            <td ng-if="user.cnpj">{{ user.cnp j}}</td>
+            <td ng-if="user.cpf">{{ user.cpf }}</td>
+            <td ng-if="user.rg">{{ user.rg }</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <a class="btn" ui-sref="app.getUsers" >Voltar </a>
+    </div>
+</div>

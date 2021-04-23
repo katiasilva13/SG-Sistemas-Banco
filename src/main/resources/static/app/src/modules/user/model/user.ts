@@ -2,6 +2,12 @@ export default interface User {
   id?: string,
   name?: string,
   phoneNumber?: string,
+  companyName?: string,
+  cnpj?: string,
+  cpf?: string,
+  rg?: string,
+
+  //address
 
   // firstName?: string,
   // lastName?: string,
@@ -9,5 +15,5 @@ export default interface User {
   // user?: string,
   // password?: string,
   // isAdmin?: boolean
-  accounts?: Account[],
+  accounts?: Account[],//alter account
 }

@@ -26,14 +26,5 @@ angular.module('app', [
       abstract: true,
       component: 'base'
     })
-  // $urlRouterProvider.otherwise('/login')
   $urlRouterProvider.otherwise('/')
 }])
-// .run(['$rootScope', '$state', '$stateParams', 'userService', ($rootScope, $state, $stateParams, userService) => {
-//   $rootScope.$on('$locationChangeSuccess', (event, toUrl) => {
-//     const isAlreadyHome = toUrl.match(/https?:\/\/[\s\S]*\/#!\/(login\/?)?$/g)
-//     if (!userService.getUser() && !isAlreadyHome) {
-//       $state.go('app.home')
-//     }
-//   })
-// }])

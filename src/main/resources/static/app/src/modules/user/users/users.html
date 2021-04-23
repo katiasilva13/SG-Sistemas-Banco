@@ -12,14 +12,17 @@
         <!-- {{$ctrl.users}} -->
         <tr ng-repeat="user in $ctrl.users.data">
           <th scope="row">{{ $index+1 }}</th>
-          <td>{{ user.name }}</td>
+          <td><a ui-sref="app.details({id: '{{user.id}}'})">{{ user.name }}</a></td>
           <td>{{ user.phoneNumber }}</td>
         </tr>
       </tbody>
     </table>
   </div>
   
-
+   <!-- <div class="row justify-content-center">
+    <button type="button" class="btn btn-sm btn-secondary float-right" role="button"
+     aria-pressed="true" ng-click="$ctrl.addUser()">Acessar</button>
+  </div> -->
 
   <!-- <div class="row justify-content-center">
     <div class="login glow col-12 col-md-4">

@@ -3,6 +3,7 @@ import User from "../model/user";
 
 class UserService {
   private users: User[]
+  private id: bigint
   private url: string = 'http://localhost:8080/usuarios'
 
   constructor(
@@ -27,6 +28,9 @@ class UserService {
     return await this.$http.get(this.url)
   }
 
+  getById = async ({id}): Promise<User> => {
+    return await this.$http.get(this.url+`/${id}`)
+  }
 
   // getUser = (): User => {
   //   if (this.user) return this.user
