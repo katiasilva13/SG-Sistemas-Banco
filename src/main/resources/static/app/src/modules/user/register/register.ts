@@ -2,10 +2,11 @@ import UserService from '../services/user-service'
 import './register.scss'
 
 class RegisterController {
+  private type: string
   constructor(
     public $state,
     public userService: UserService,
-    public user,
+    // public user,
   ) {}
 
   //TODO criar addUser()
@@ -14,7 +15,7 @@ class RegisterController {
 RegisterController['$inject'] = [
   '$state',
   'userService',
-  'user', 
+  // 'user', 
 ]
 
 export default RegisterController;

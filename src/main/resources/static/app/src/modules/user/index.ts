@@ -35,8 +35,8 @@ const userModule = angular.module('app.user', [])
                         userService.getById($stateParams.id).then(response => response.data)]
                   }
             })
-            .state('app.addUser', {
-                url: '/users/add-user/:tipo',
+            .state('app.register', {
+                url: '/users/add-user/:type',
                 templateUrl: registerTemplate,
                 controller: RegisterController,
                 controllerAs: '$ctrl',  
