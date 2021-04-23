@@ -7,6 +7,8 @@ export default interface User {
   cpf?: string,
   rg?: string,
 
+  //TODO checar se é realmente necessario
+
   //TODO address
 
   accounts?: Account[],//TODO alter account

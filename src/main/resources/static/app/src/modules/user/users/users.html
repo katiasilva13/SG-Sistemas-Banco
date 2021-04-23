@@ -14,7 +14,11 @@
         <tr ng-repeat="user in $ctrl.users.data">
           <th scope="row">{{ $index+1 }}</th>
           <!-- <td>{{ user.id }}</td> -->          
-          <td><a ui-sref="app.details({id: user.id })">{{ user.name }}</a></td>        
+          <!-- #TODO como usar filters?-->
+          <td><a ui-sref="app.details({id: user.id })">{{ user.name}}</a></td> 
+          <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name | nameFilter }}</a></td>  -->
+
+           <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name.filter(NameFilter) }}</a></td>  -->
           <td>{{ user.phoneNumber }}</td>
         </tr>
       </tbody>

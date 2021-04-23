@@ -7,6 +7,11 @@ import './modules'
 import navBar from './components/nav-bar/nav-bar'
 import base from './components/base/base'
 
+// import name from './filters/nameFilter'
+
+import filters from './filters/index';
+// import  './filters';
+
 import './app.module.scss'
 
 angular.module('app', [
@@ -20,6 +25,8 @@ angular.module('app', [
 ])
 .component('navbar', navBar)
 .component('base', base)
+// .filter(filters.toString, () => filters)
+// .filters('name', name)
 .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
   $stateProvider
     .state('app', {
