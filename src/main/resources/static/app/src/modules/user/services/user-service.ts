@@ -1,7 +1,9 @@
+import * as angular from 'angular'
 import User from "../model/user";
 
 class UserService {
   private users: User[]
+  private user: User
   private id: bigint
   private url: string = 'http://localhost:8080/usuarios'
 
@@ -9,7 +11,11 @@ class UserService {
     public $http,
   ) {}
 
-
+  addUser = async (user): Promise<User> => {
+    console.log("user-service line 15")
+    // return await this.$http.post(this.url+`/${angular.toJson(user)}`)
+    return await this.$http.post(this.url, user)
+  }  
   
   getUsers = async (): Promise<User[]> => {
     return await this.$http.get(this.url)

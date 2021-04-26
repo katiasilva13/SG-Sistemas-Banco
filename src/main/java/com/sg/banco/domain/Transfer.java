@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @PrimaryKeyJoinColumn(name = "transfer_id")
-@Entity
+@Entity(name="transfernpm", schema="ex5")
 public class Transfer extends Transaction {
 
     @JsonBackReference

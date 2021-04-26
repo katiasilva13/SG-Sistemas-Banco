@@ -14,7 +14,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @PrimaryKeyJoinColumn(name = "natural_person_id")
-@Entity
+@Entity(name="natural_person", schema="ex5")
 public class NaturalPerson extends Person {
 
     @Column(name = "cpf")

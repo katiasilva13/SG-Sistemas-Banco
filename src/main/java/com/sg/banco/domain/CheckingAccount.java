@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @PrimaryKeyJoinColumn(name = "checking_account_id")
-@Entity
+@Entity( name="checking_account", schema="ex5") 
 public class CheckingAccount extends Account {
 
     @Column(name = "overdraft_limit")//limite

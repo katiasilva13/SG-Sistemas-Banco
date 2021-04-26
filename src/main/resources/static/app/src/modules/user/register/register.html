@@ -14,14 +14,14 @@
           ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
 
       <input class="form-control" type="text" ng-model="user.cpf" name="cpf" placeholder="CPF" ng-required="true"
-          ng-if="isPfRoute()" mask="999.999.999-99" />
+          ng-if="$ctrl.isPfRoute()" mask="999.999.999-99" />
       <input class="form-control" type="text" ng-model="user.rg" name="rg" placeholder="RG" 
-      ng-if="isPfRoute()" ng-maxlength="25" />
+      ng-if="$ctrl.isPfRoute()" ng-maxlength="25" />
 
       <input class="form-control" type="text" ng-model="user.cnpj" name="cnpj" placeholder="CNPJ"
-          ng-required="true" ng-if="isPjRoute()" ng-maxlength="25"/>
+          ng-required="true" ng-if="$ctrl.isPjRoute()" ng-maxlength="25"/>
       <input class="form-control" type="text" ng-model="user.companyName" name="companyName" placeholder="Razão Social" 
-          ng-if="isPjRoute()" />
+          ng-if="$ctrl.isPjRoute()" />
 
       <hr>
 
@@ -76,7 +76,7 @@
   </a> -->
   <div style="text-align: center; margin-top: 30px ;"> 
     <!-- #TODO criar addUser para concertar o botão -->
-    <a class="btn" ui-sref="app.addUser(user)" >Adicionar usuário</a>   
+    <a class="btn" ng-click="$ctrl.addUser(user)" >Adicionar usuário</a>   
    
   </div>
 </div>

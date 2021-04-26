@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "account")
+@Entity(name = "account", schema="ex5")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Account implements Serializable {
