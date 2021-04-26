@@ -1,30 +1,30 @@
 import Transaction from "../../transaction/model/transaction";
 
 export default interface Account {
-  id?: string,
+  id?: number,
   personId?: number,
-  agency?: string,
-  accountNumber?: string,
-  createdAt?: string,
-  balance?: number,
-  incoming?: number,
-  history?: Transaction[]
-
-  // branch?: string,
-  // accountCode?: string,
-  // accountType?: string,
+  // agency?: string,
+  // accountNumber?: string,
+  // createdAt?: string,
   // balance?: number,
+  // incoming?: number,
+  // history?: Transaction[]
 
-  // overdraftLimit: number,
-  // overdraftAvailable: number,
-  // interestRate: number,
-  // interest: number,
-  // interestDay: Date,
+  branch?: string,
+  accountCode?: string,
+  accountType?: string,
+  balance?: number,
 
-  // savingsRate: number,
-  // savingsIncome: number,
-  // invested: number,
-  // investmentDay: Date,
+  overdraftLimit: number,
+  overdraftAvailable: number,
+  interestRate: number,
+  interest: number,
+  interestDay: Date,
+
+  savingsRate: number,
+  savingsIncome: number,
+  invested: number,
+  investmentDay: Date,
 
   transations?: Transaction[]//?
 }

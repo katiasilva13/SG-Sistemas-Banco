@@ -1,11 +1,11 @@
-import UserFactory from "../model/factory/user-factory";
+// import UserFactory from "../model/factory/user-factory";
 import User from "../model/user";
 
 class UserService {
   private user: User
 
   constructor(
-    public userFactory: UserFactory
+    // public userFactory: UserFactory
   ) {}
 
   getUser = (): User => {
@@ -14,11 +14,11 @@ class UserService {
     return this.user
   }
 
-  authUser = ({user, password}): User => {
-    this.user = this.userFactory.create({ user, password, isAdmin: user == 'admin' })
-    sessionStorage.user = JSON.stringify(this.user)
-    return this.user
-  }
+  // authUser = ({user, password}): User => {
+  //   this.user = this.userFactory.create({ user, password, isAdmin: user == 'admin' })
+  //   sessionStorage.user = JSON.stringify(this.user)
+  //   return this.user
+  // }
 
   logout = () => {
     delete this.user

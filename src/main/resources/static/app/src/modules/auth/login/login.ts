@@ -8,14 +8,14 @@ class LoginController {
     public userService: UserService
   ) {}
 
-  login = () => {
-    const user = this.userService.authUser(this.credentials)
-    if (user.accounts[0]) {
-      this.$state.go('app.account.manage', { id: user.accounts[0].id })
-    } else {
-      this.$state.go('app.home')
-    }
-  }
+  // login = () => {
+  //   const user = this.userService.authUser(this.credentials)
+  //   if (user.accounts[0]) {
+  //     this.$state.go('app.account.manage', { id: user.accounts[0].id })
+  //   } else {
+  //     this.$state.go('app.home')
+  //   }
+  // }
 }
 
 LoginController['$inject'] = [

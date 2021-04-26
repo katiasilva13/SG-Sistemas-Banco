@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="col mt-4 justify-content-center list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <!-- <th scope="col">ID</th> -->
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody >
+        <!-- {{$ctrl.users}} -->
+        <tr ng-repeat="user in $ctrl.users">
+          <th scope="row">{{ $index+1 }}</th>
+          <!-- <td>{{ user.id }}</td> -->          
+          <!-- #TODO como usar filters?-->
+          <td><a ui-sref="app.details({id: user.id })">{{ user.name | uppercase}}</a></td> 
+          <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name | nameFilter }}</a></td>  -->
+
+           <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name.filter(NameFilter) }}</a></td>  -->
+          <td>{{ user.phoneNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <!-- <div style="text-align: center; margin-top: 30px ;"> 
+      <a class="btn btn-primary" ui-sref="app.register({type: 'pf'})" >Adicionar Pessoa Física</a>
+      <a class="btn btn-primary" ui-sref="app.register({type: 'pj'})" >Adicionar Pessoa Jurdica</a>    
+    </div> -->
+  </div>  
+
+</div>
