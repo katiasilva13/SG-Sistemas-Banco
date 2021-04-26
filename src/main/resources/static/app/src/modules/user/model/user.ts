@@ -10,6 +10,12 @@ export default interface User {
   //TODO checar se é realmente necessario
 
   //TODO address
+  uf?: string,
+  cep?: string,
+  number?: string,
+  street?: string,
+  neighborhood?: string,
+  city?: string
 
   accounts?: Account[],//TODO alter account
 }

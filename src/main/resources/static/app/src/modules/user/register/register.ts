@@ -1,17 +1,12 @@
 import UserService from '../services/user-service'
 import './register.scss'
-import User from './model/user'
+import User from '../model/user'
 
 class RegisterController {
   public user: User
-  // private type: string
   constructor(
-    // public $location,
-    // public $window,
-    // public $route,
     public $state,
     public userService: UserService,
-    // public user,
   ) { }
 
   addUser = function (user) {
@@ -40,10 +35,6 @@ class RegisterController {
 RegisterController['$inject'] = [
   '$state',
   'userService',
-  // '$route'
-  // '$location',
-  // '$window',
-  // 'user', 
 ]
 
 export default RegisterController;
