@@ -23,25 +23,25 @@ const accountModule = angular.module('app.account', [])
         url: '^/account',
         abstract: true,
       })
-      .state('app.account.create', {
-        url: '/create',
-        templateUrl: accountCreateTemplate,
-        controller: AccountCreateController,
-        controllerAs: '$ctrl',
-      })
-      .state('app.account.manage', {
-        url: '/:id',
-        templateUrl: accountManageTemplate,
-        controller: AccountManageController,
-        controllerAs: '$ctrl',
-        resolve: {
-          account: ['$stateParams', 'accountService', ($stateParams, accountService) => accountService.getAccount($stateParams.id)]
-        }
-      })
+      // .state('app.account.create', {
+      //   url: '/create',
+      //   templateUrl: accountCreateTemplate,
+      //   controller: AccountCreateController,
+      //   controllerAs: '$ctrl',
+      // })
+      // .state('app.account.manage', {
+      //   url: '/:id',
+      //   templateUrl: accountManageTemplate,
+      //   controller: AccountManageController,
+      //   controllerAs: '$ctrl',
+      //   resolve: {
+      //     account: ['$stateParams', 'accountService', ($stateParams, accountService) => accountService.getAccount($stateParams.id)]
+      //   }
+      // })
 
 
-      .state('app.getUsers', {
-        url: '/users',
+      .state('app.getAccounts', {
+        url: '/accounts',
         templateUrl: accountsTemplate,
         controller: AccountsController,
         controllerAs: '$ctrl',
