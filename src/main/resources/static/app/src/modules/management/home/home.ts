@@ -9,46 +9,21 @@ class HomeController {
     'https://cs2.gtaall.com.br/attachments/5a9f9/2018-06/original/19ccdc51b5c96ec697dcf9de11789eae721c54a0/8827-GTA5-2018-06-29-10-34-14-65.jpg',
   ]
   private cards: object[] = [
-    // {
-    //   image: 'https://media-exp1.licdn.com/dms/image/C561BAQG8jBJ-6Uw_2g/company-background_10000/0/1552568277311?e=2159024400&v=beta&t=leAN-aEQwoogMSo3h1UBJKGHDmxf6Sv9KTSZszxKzV8',
-    //   title: 'É hora de cuidar do que realmente importa',
-    //   button: 'Veja mais',
-    // },{
-    //   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEm4nTVSQJFC_tFo0QC1CEUgFsxZCpSp7SUQ&usqp=CAU',
-    //   title: 'O crédito que você precisa agora com até 6 anos pra pagar',
-    //   button: 'Saiba mais',
-    // },{
-    //   image: 'https://kcm-www.s3.amazonaws.com/production/s3fs-public/daily_confessions_for_financial_victory_1239968128.jpg',
-    //   title: 'Pra fazer um sonho decolar e pra tudo que você imaginar',
-    //   button: 'Vem ser cliente',
-    // },{
-    //   image: 'https://www.upgrade.com/img/blog-loan-vs-credit-card.jpg',
-    //   title: 'Veja como é fácil ter um MazeCard pra chamar de seu',
-    //   button: 'Peça seu cartão',
-    // },{
-    //   image: 'https://unctad.org/sites/default/files/2020-08/Investment-Trends_800x450.jpg',
-    //   title: 'Soluções em investimentos que combinam com você',
-    //   button: 'Confira',
-    // },{
-    //   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsn6_SKsQ7R8HpzxNIjpPVEOCQH4hIlor6zw&usqp=CAU',
-    //   title: 'Conheça todos os seguros que oferecemos para cuidar de você',
-    //   button: 'Seguros',
-    // },
     {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEm4nTVSQJFC_tFo0QC1CEUgFsxZCpSp7SUQ&usqp=CAU',
-      title: 'Ainda não é cadastrado?',
-      button: 'Cadastre-se',
-      url: '#!/login',      
+      title: 'Veja usuários, cadastre-se etc',
+      button: 'Usuários',
+      url: '#!/users',      
     },{
       image: 'https://kcm-www.s3.amazonaws.com/production/s3fs-public/daily_confessions_for_financial_victory_1239968128.jpg',
-      title: 'Abra agora sua conta!',
-      button: 'Nova conta',
-      url: '#!/login',
+      title: 'Veja as contas ou crie uma nova!',
+      button: 'Contas',
+      url: '#!/accounts',
     },{
       image: 'https://unctad.org/sites/default/files/2020-08/Investment-Trends_800x450.jpg',
       title: 'Saque, depósito ou transferência?',
       button: 'Transações',
-      url: '#!/login',
+      url: '#!/transactions',
     },
   ]
   constructor(

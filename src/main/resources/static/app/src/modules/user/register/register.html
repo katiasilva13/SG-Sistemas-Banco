@@ -1,82 +1,71 @@
 <div class="container">
-    <!-- <div class="col mt-4 justify-content-center list">                  
-      <hr>
-    </div>
-    <div style="text-align: center; margin-top: 30px ;">
-      <a class="btn" ui-sref="app.getUsers" >Voltar </a> 
-    </div>-->
 
     <form name="userForm" left-block>
-      <h4>Geral</h4>
-      <input class="form-control" type="text" ng-model="user.name" name="name" placeholder="Nome"
-          ng-required="true" ng-minlength="7" ng-maxlength="200"/>
-      <input class="form-control" type="text" ng-model="user.phoneNumber" name="phoneNumber" placeholder="Telefone"
-          ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
+        <h4>Geral</h4>
+        <input class="form-control" type="text" ng-model="user.name" name="name" placeholder="Nome" ng-required="true"
+            ng-minlength="7" ng-maxlength="200" />
+        <input class="form-control" type="text" ng-model="user.phoneNumber" name="phoneNumber" placeholder="Telefone"
+            ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
 
-      <input class="form-control" type="text" ng-model="user.cpf" name="cpf" placeholder="CPF" ng-required="true"
-          ng-if="$ctrl.isPfRoute()" mask="999.999.999-99" />
-      <input class="form-control" type="text" ng-model="user.rg" name="rg" placeholder="RG" 
-      ng-if="$ctrl.isPfRoute()" ng-maxlength="25" />
+        <input class="form-control" type="text" ng-model="user.cpf" name="cpf" placeholder="CPF" ng-required="true"
+            ng-if="$ctrl.isPfRoute()" mask="999.999.999-99" />
+        <input class="form-control" type="text" ng-model="user.rg" name="rg" placeholder="RG" ng-if="$ctrl.isPfRoute()"
+            ng-maxlength="25" />
 
-      <input class="form-control" type="text" ng-model="user.cnpj" name="cnpj" placeholder="CNPJ"
-          ng-required="true" ng-if="$ctrl.isPjRoute()" ng-maxlength="25"/>
-      <input class="form-control" type="text" ng-model="user.companyName" name="companyName" placeholder="Razão Social" 
-          ng-if="$ctrl.isPjRoute()" />
+        <input class="form-control" type="text" ng-model="user.cnpj" name="cnpj" placeholder="CNPJ" ng-required="true"
+            ng-if="$ctrl.isPjRoute()" ng-maxlength="25" />
+        <input class="form-control" type="text" ng-model="user.companyName" name="companyName"
+            placeholder="Razão Social" ng-if="$ctrl.isPjRoute()" />
 
-      <hr>
+        <hr>
 
-      <h4>Endereço</h4>
-      <input class="form-control" type="text" ng-model="user.street" name="street" placeholder="Rua"
-          ng-required="true" ng-maxlength="200"/>
-      <input class="form-control" type="text" ng-model="user.number" name="number" placeholder="Número"
-          ng-required="true" ng-maxlength="8"/>
-      <input class="form-control" type="text" ng-model="user.neighborhood" name="neighborhood" placeholder="Bairro"
-          ng-required="true" ng-maxlength="150" />
-      <input class="form-control" type="text" ng-model="user.city" name="city" placeholder="Cidade"
-          ng-required="true" ng-maxlength="150"/>
-      <input class="form-control" type="text" ng-model="user.cep" name="cep" placeholder="CEP"
-          ng-required="true" ng-maxlength="9" />
+        <h4>Endereço</h4>
+        <input class="form-control" type="text" ng-model="user.street" name="street" placeholder="Rua"
+            ng-required="true" ng-maxlength="200" />
+        <input class="form-control" type="text" ng-model="user.number" name="number" placeholder="Número"
+            ng-required="true" ng-maxlength="8" />
+        <input class="form-control" type="text" ng-model="user.neighborhood" name="neighborhood" placeholder="Bairro"
+            ng-required="true" ng-maxlength="150" />
+        <input class="form-control" type="text" ng-model="user.city" name="city" placeholder="Cidade" ng-required="true"
+            ng-maxlength="150" />
+        <input class="form-control" type="text" ng-model="user.cep" name="cep" placeholder="CEP" ng-required="true"
+            ng-maxlength="9" />
 
-      <select class="form-control" ng-model="user.uf">
-          <option value="">Selecione um estado</option>
-          <option value="AC">Acre</option>
-          <option value="AL">Alagoas</option>
-          <option value="AP">Amapá</option>
-          <option value="AM">Amazonas</option>
-          <option value="BA">Bahia</option>
-          <option value="CE">Ceará</option>
-          <option value="DF">Distrito Federal</option>
-          <option value="ES">Espírito Santo</option>
-          <option value="GO">Goiás</option>
-          <option value="MA">Maranhão</option>
-          <option value="MT">Mato Grosso</option>
-          <option value="MS">Mato Grosso do Sul</option>
-          <option value="MG">Minas Gerais</option>
-          <option value="PA">Pará</option>
-          <option value="PB">Paraíba</option>
-          <option value="PR">Paraná</option>
-          <option value="PE">Pernambuco</option>
-          <option value="PI">Piauí</option>
-          <option value="RJ">Rio de Janeiro</option>
-          <option value="RN">Rio Grande do Norte</option>
-          <option value="RS">Rio Grande do Sul</option>
-          <option value="RO">Rondônia</option>
-          <option value="RR">Roraima</option>
-          <option value="SC">Santa Catarina</option>
-          <option value="SP">São Paulo</option>
-          <option value="SE">Sergipe</option>
-          <option value="TO">Tocantins</option>
-      </select>
+        <select class="form-control" ng-model="user.uf">
+            <option value="">Selecione um estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
 
+    </form>
 
-  </form>
-
-  <!-- <a class="btn btn-primary" ng-click="addUser(user)" ng-disabled="userForm.$invalid">
-      Adicionar usuário
-  </a> -->
-  <div style="text-align: center; margin-top: 30px ;"> 
-    <!-- #TODO criar addUser para concertar o botão -->
-    <a class="btn" ng-click="$ctrl.addUser(user)" >Adicionar usuário</a>   
-   
-  </div>
+    <div style="text-align: center; margin-top: 30px ;">
+        <button class="btn btn-dark" ng-click="$ctrl.addUser(user)" ng-disabled="userForm.$invalid">Adicionar usuário</button>
+        <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.getUsers">Voltar</button>
+    </div>
 </div>

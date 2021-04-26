@@ -4,7 +4,7 @@ import User from './model/user'
 
 class RegisterController {
   public user: User
-  private type: string
+  // private type: string
   constructor(
     // public $location,
     // public $window,
@@ -14,14 +14,12 @@ class RegisterController {
     // public user,
   ) { }
 
-
-  //TODO criar addUser()
   addUser = function (user) {
-    console.log("register.ts line 18")
-    const savedUser = this.userService.addUser(user)
-    if (savedUser != null) {
-      this.$state.go('app.getUsers')
-    } else this.$state.reloadRoute();
+    const savedUser = this.userService.addUser(user).then(() => {
+      if (savedUser != null) {
+        this.$state.go('app.getUsers')
+      } else this.$state.reloadRoute();
+    })
   };
 
 
