@@ -1,7 +1,7 @@
 import UserService from '../services/user-service'
-import './details.scss'
+import './user-details.scss'
 
-class DetailsController {
+class UserDetailsController {
   constructor(
     public $state,
     public userService: UserService,
@@ -10,10 +10,10 @@ class DetailsController {
 
 }
 
-DetailsController['$inject'] = [
+UserDetailsController['$inject'] = [
   '$state',
   'userService',
   'user', 
 ]
 
-export default DetailsController;
+export default UserDetailsController;

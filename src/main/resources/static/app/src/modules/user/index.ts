@@ -1,11 +1,11 @@
 import * as angular from 'angular'
 import usersTemplate from './users/users.html'
-import detailsTemplate from './details/details.html'
-import registerTemplate from './register/register.html'
+import userDetailsTemplate from './user-details/user-details.html'
+import userRegisterTemplate from './user-register/user-register.html'
 
 
-import RegisterController from './register/register'
-import DetailsController from './details/details'
+import UserRegisterController from './user-register/user-register'
+import UserDetailsController from './user-details/user-details'
 import UsersController from './users/users'
 import UserService from './services/user-service'
 
@@ -27,8 +27,8 @@ const userModule = angular.module('app.user', [])
                 params: {
                     id: null
                 },
-                templateUrl: detailsTemplate,
-                controller: DetailsController,
+                templateUrl: userDetailsTemplate,
+                controller: UserDetailsController,
                 controllerAs: '$ctrl',  
                 resolve: {
                     user: ['$stateParams', 'userService', ($stateParams, userService) => 
@@ -37,12 +37,8 @@ const userModule = angular.module('app.user', [])
             })
             .state('app.register', {
                 url: '/users/add-user/:type',
-                templateUrl: registerTemplate,
-                controller: RegisterController,
+                templateUrl: userRegisterTemplate,
+                controller: UserRegisterController,
                 controllerAs: '$ctrl',  
-                // resolve: {
-                //     user: ['$stateParams', 'userService', ($stateParams, userService) => 
-                //         userService.addUser($stateParams).then(response => response.data)]
-                //   }
             })
     }])

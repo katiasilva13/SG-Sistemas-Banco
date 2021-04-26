@@ -1,8 +1,8 @@
 import UserService from '../services/user-service'
-import './register.scss'
+import './user-register.scss'
 import User from '../model/user'
 
-class RegisterController {
+class UserRegisterController {
   public user: User
   constructor(
     public $state,
@@ -32,9 +32,9 @@ class RegisterController {
 
 }
 
-RegisterController['$inject'] = [
+UserRegisterController['$inject'] = [
   '$state',
   'userService',
 ]
 
-export default RegisterController;
+export default UserRegisterController;
