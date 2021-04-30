@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name="transaction", schema="ex5")
+@Entity(name="transaction")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Transaction implements Serializable {
