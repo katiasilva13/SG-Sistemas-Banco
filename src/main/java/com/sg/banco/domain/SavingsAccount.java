@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @PrimaryKeyJoinColumn(name = "savings_account_id")
-@Entity(name="savings_account", schema="ex5")
+@Entity(name="savings_account")
 public class SavingsAccount extends Account {
 
     @Column(name = "savings_rate")//taxa de rendimento da poupança
