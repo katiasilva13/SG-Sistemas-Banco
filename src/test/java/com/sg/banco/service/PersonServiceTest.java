@@ -1,6 +1,7 @@
 package com.sg.banco.service;
 
-import com.sg.banco.domain.Person;
+import com.sg.banco.domain.person.Person;
+import com.sg.banco.service.person.PersonService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class PersonServiceTest {
 

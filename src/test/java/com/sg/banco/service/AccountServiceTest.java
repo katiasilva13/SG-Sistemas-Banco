@@ -1,8 +1,10 @@
 package com.sg.banco.service;
 
-import com.sg.banco.domain.Account;
-import com.sg.banco.domain.Person;
+import com.sg.banco.domain.account.Account;
+import com.sg.banco.domain.person.Person;
 import com.sg.banco.enumerator.AccountType;
+import com.sg.banco.service.account.AccountService;
+import com.sg.banco.service.person.PersonService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
