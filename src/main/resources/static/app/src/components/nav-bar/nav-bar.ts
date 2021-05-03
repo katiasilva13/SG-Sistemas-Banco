@@ -33,19 +33,19 @@ NavBarController['$inject'] = [
   'userService'
 ]
 
-const navBar = {
-  controller: NavBarController,
-  controllerAs: '$ctrl',
-  templateUrl: template,
-  // resolve: {
-  //   user: ['userService', (userService) => {
-  //     console.log("nao??")
-  //   }]
-  // }
-}
+    const navBar = {
+      controller: NavBarController,
+      controllerAs: '$ctrl',
+      templateUrl: template,
+      // resolve: {
+      //   user: ['userService', (userService) => {
+      //     console.log("nao??")
+      //   }]
+      // }
+    }
 
 export default navBar
 
 
-
+// export { NavBarController }
 

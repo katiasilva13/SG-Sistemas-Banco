@@ -13,7 +13,7 @@ class AccountsController {
 
 AccountsController['$inject'] = [
   '$state',
-  'AccountService',
+  'accountService',
   'accounts'
 ]
 

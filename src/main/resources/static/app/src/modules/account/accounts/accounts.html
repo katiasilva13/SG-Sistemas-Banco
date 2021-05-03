@@ -1,26 +1,28 @@
 <div class="container">
   <div class="col mt-4 justify-content-center list">
-    {{  $ctrl.accounts }}
+<!--    {{  $ctrl.accounts }}-->
     <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
           <!-- <th scope="col">ID</th> -->
-          <th scope="col">Nome</th>
-          <th scope="col">Telefone</th>
+          <th scope="col">Conta</th>
+          <th scope="col">Agência</th>
+          <th scope="col">Tipo</th>
+<!--          <th scope="col">Saldo</th>-->
         </tr>
       </thead>
       <tbody >
         <!-- {{$ctrl.users}} -->
-        <tr ng-repeat="user in $ctrl.users">
+        <tr ng-repeat="account in $ctrl.accounts">
           <th scope="row">{{ $index+1 }}</th>
           <!-- <td>{{ user.id }}</td> -->          
           <!-- #TODO como usar filters?-->
-          <td><a ui-sref="app.details({id: user.id })">{{ user.name | uppercase}}</a></td> 
-          <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name | nameFilter }}</a></td>  -->
-
-           <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name.filter(NameFilter) }}</a></td>  -->
-          <td>{{ user.phoneNumber }}</td>
+          <td><a ui-sref="app.account-details({id: account.id })">{{ account.accountCode}}</a></td>
+          <td>{{ account.branch}}</td>
+          <td ng-if="account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
+          <td ng-if="account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td>
+<!--          <td>{{ account.balance}}</td>-->
         </tr>
       </tbody>
     </table>

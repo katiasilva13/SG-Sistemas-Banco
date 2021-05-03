@@ -42,3 +42,29 @@ const userModule = angular.module('app.user', [])
                 controllerAs: '$ctrl',  
             })
     }])
+
+/*
+import * as angular from 'angular'
+import { userFormModule } from './user-form'
+import { userListModule } from './user-list'
+
+import { UserService } from './services/user-service'
+
+const vehicleModule = angular
+	.module('app.user', [
+		userFormModule,
+		userListModule,
+		'ui.utils.masks',
+	])
+	.service('userService', UserService)
+	.config(['$stateProvider', ($stateProvider) => {
+		$stateProvider
+			.state('app.user', {
+				url: '/user',
+				abstract: true
+			})
+	}])
+	.name
+
+export { userModule }
+ */
