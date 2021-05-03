@@ -4,7 +4,7 @@ import template from './user-list.html'
 import { UserListController } from './user-list.html'
 
 const userListModule = angular
-    .module('mbg.user.list', [])
+    .module('app.user.list', [])
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider
             .state('app.user.list', {

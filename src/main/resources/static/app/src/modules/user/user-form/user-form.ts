@@ -12,7 +12,7 @@ class UserFormController {
   addUser = function (user) {
     const savedUser = this.userService.addUser(user).then(() => {
       if (savedUser != null) {
-        this.$state.go('app.getUsers')
+        this.$state.go('app.user.list')
       } else this.$state.reloadRoute();
     })
   };

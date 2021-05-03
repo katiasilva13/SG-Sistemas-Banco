@@ -28,7 +28,7 @@ const appModule = angular.module('app', [
 .component('base', base)
 
 
-appModule.controller('app.controller', AppController)
+// appModule.controller('app.controller', AppController)
 .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
   $stateProvider
     .state('app', {
