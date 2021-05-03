@@ -1,10 +1,9 @@
-package com.sg.banco.service;
+package com.sg.banco.service.transaction;
 
 import com.sg.banco.domain.Account;
-import com.sg.banco.domain.Transaction;
 import com.sg.banco.domain.Transfer;
 import com.sg.banco.enumerator.TransactionType;
-import com.sg.banco.repository.TransferRepository;
+import com.sg.banco.repository.transaction.TransferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;

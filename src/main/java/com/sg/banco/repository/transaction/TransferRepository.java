@@ -1,4 +1,4 @@
-package com.sg.banco.repository;
+package com.sg.banco.repository.transaction;
 
 import com.sg.banco.domain.Transfer;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,10 +1,9 @@
-package com.sg.banco.service;
+package com.sg.banco.service.account;
 
-import com.sg.banco.domain.Account;
 import com.sg.banco.domain.CheckingAccount;
 import com.sg.banco.domain.Person;
 import com.sg.banco.enumerator.AccountType;
-import com.sg.banco.repository.CheckingAccountRepository;
+import com.sg.banco.repository.account.CheckingAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

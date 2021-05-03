@@ -1,9 +1,9 @@
-package com.sg.banco.service;
+package com.sg.banco.service.account;
 
 import com.sg.banco.domain.Person;
 import com.sg.banco.domain.SavingsAccount;
 import com.sg.banco.enumerator.AccountType;
-import com.sg.banco.repository.SavingsAccountRepository;
+import com.sg.banco.repository.account.SavingsAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

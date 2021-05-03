@@ -3,10 +3,7 @@ package com.sg.banco.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sg.banco.enumerator.AccountType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,15 +13,21 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "account")
+@Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy = InheritanceType.JOINED)
+
+@Data
+//@ApiModel
+//@GumgaMultitenancy(enableBMO = true)
+@Table(name = "account")
 public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     protected Integer id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "account_type")// corrente=1 ; poupança=2
     private AccountType accountType;
 

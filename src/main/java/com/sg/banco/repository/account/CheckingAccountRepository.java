@@ -1,4 +1,4 @@
-package com.sg.banco.repository;
+package com.sg.banco.repository.account;
 
 import com.sg.banco.domain.CheckingAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
