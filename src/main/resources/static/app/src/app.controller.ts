@@ -1,3 +1,4 @@
+import * as angular from 'angular'
 
 class AppController {
   constructor(
@@ -6,6 +7,7 @@ class AppController {
 
   $onInit() {
     this.$scope.message = "Hello World!";
+    console.log("Hello World!");
   }
 }
 
@@ -13,4 +15,4 @@ AppController['$inject'] = [
   '$scope'
 ]
 
-export default AppController
+export { AppController }

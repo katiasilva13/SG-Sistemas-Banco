@@ -1,4 +1,4 @@
-import UserService from '../services/user-service'
+import {UserService} from '../services/user-service'
 import './user-details.scss'
 
 class UserDetailsController {
@@ -16,4 +16,4 @@ UserDetailsController['$inject'] = [
   'user', 
 ]
 
-export default UserDetailsController;
+export {UserDetailsController};

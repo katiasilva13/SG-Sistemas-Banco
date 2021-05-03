@@ -1,5 +1,5 @@
-import UserService from '../services/user-service'
-import './users.scss'
+import {UserService} from '../services/user-service'
+import './user-list.scss'
 
 class UsersController {
   constructor(
@@ -17,4 +17,4 @@ UsersController['$inject'] = [
   'users'
 ]
 
-export default UsersController;
+export {UsersController};

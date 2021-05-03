@@ -6,7 +6,8 @@ import { TransactionType } from "../enum/transaction-type"
 
 const momentRandom: Function = require('moment-random')
 
-class TransactionFactory implements Factory {
+class TransactionFactory implements Factory
+{
   private idRegex: RegExp = /\d{6}/g
 
   private randomMethod = (): TransactionMethod => {

@@ -38,13 +38,13 @@ class HomeController {
     }, 5000)
   }
 
-  goAccountCreate = () => {
-    this.$state.go('account.create')
-  }
-
-  goAccountManage = () => {
-    this.$state.go('account.manage', { id: 1 })
-  }
+  // goAccountCreate = () => {
+  //   this.$state.go('account.create')
+  // }
+  //
+  // goAccountManage = () => {
+  //   this.$state.go('account.manage', { id: 1 })
+  // }
 
   backwardCarousel = () => {
     if (this.selected == 0) {

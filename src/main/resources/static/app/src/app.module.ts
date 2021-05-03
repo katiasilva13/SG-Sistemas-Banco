@@ -7,10 +7,14 @@ import './modules'
 import navBar from './components/nav-bar/nav-bar'
 import base from './components/base/base'
 
+import { userModule } from './modules/user'
 
+// import { accountModule } from './modules/account'
+
+import { AppController } from './app.controller'
 import './app.module.scss'
 
-angular.module('app', [
+const appModule = angular.module('app', [
   'ui.bootstrap',
   'ui.carousel',
   'ui.router',
@@ -18,10 +22,13 @@ angular.module('app', [
   'app.auth',
   'app.management',
   'app.user',
+    userModule,
 ])
 .component('navbar', navBar)
 .component('base', base)
 
+
+appModule.controller('app.controller', AppController)
 .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
   $stateProvider
     .state('app', {
@@ -30,3 +37,5 @@ angular.module('app', [
     })
   $urlRouterProvider.otherwise('/')
 }])
+
+export { appModule }

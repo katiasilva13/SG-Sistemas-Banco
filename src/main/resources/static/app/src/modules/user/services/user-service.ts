@@ -43,4 +43,4 @@ UserService['$inject'] = [
   '$http',
 ]
 
-export default UserService
+export {UserService}
