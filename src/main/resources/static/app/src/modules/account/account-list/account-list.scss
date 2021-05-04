@@ -1,0 +1,31 @@
+.full-screen {
+  // height: 100%;
+  position: absolute;
+}
+
+.login {
+  flex: 1;
+  padding: 1.2em 5em 1em 5em;
+  margin: auto;
+  margin-top: 15%;
+
+  .input-group-text {
+    width: 2.5em;
+
+    span {
+      display: inline-block;
+      margin: auto;
+    }
+  }
+}
+
+a {
+  color: #1fadc3 !important; 
+  text-decoration: none;
+  // background-color: transparent;
+  }
+  a:hover {
+    color: #333 !important; 
+    text-decoration: underline; 
+  }
+
