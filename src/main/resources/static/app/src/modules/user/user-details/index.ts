@@ -8,10 +8,17 @@ const userDetailsModule = angular
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider
             .state('app.user.details', {
-                url: '/details',
+                url: '/users/:id',
+                params: {
+                    id: null
+                },
                 templateUrl: template,
                 controller: UserDetailsController,
-                controllerAs: '$ctrl'
+                controllerAs: '$ctrl',
+                resolve: {
+                    user: ['$stateParams', 'userService', ($stateParams, userService) =>
+                        userService.getById($stateParams.id).then(response => response.data)]
+                }
             })
     }])
     .name

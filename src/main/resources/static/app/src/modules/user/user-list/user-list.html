@@ -10,12 +10,12 @@
         </tr>
       </thead>
       <tbody >
-        <!-- {{$ctrl.users}} -->
+         {{$ctrl.users}}
         <tr ng-repeat="user in $ctrl.users">
           <th scope="row">{{ $index+1 }}</th>
           <!-- <td>{{ user.id }}</td> -->          
           <!-- #TODO como usar filters?-->
-          <td><a ui-sref="app.details({id: user.id })">{{ user.name | uppercase}}</a></td> 
+          <td><a ui-sref="app.user.details({id: user.id })">{{ user.name | uppercase}}</a></td>
           <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name | nameFilter }}</a></td>  -->
 
            <!-- <td><a ui-sref="app.details({id: user.id })">{{ user.name.filter(NameFilter) }}</a></td>  -->
@@ -25,8 +25,8 @@
     </table>
     <hr>
     <div style="text-align: center; margin-top: 30px ;"> 
-      <a class="btn btn-primary" ui-sref="app.register({type: 'pf'})" >Adicionar Pessoa Física</a>
-      <a class="btn btn-primary" ui-sref="app.register({type: 'pj'})" >Adicionar Pessoa Jurdica</a>
+      <a class="btn btn-primary" ui-sref="app.user.form({type: 'pf'})" >Adicionar Pessoa Física</a>
+      <a class="btn btn-primary" ui-sref="app.user.form({type: 'pj'})" >Adicionar Pessoa Jurdica</a>
     
     </div>
   </div>

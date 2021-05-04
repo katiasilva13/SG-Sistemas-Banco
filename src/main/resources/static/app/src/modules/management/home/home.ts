@@ -13,7 +13,7 @@ class HomeController {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEm4nTVSQJFC_tFo0QC1CEUgFsxZCpSp7SUQ&usqp=CAU',
       title: 'Veja usuários, cadastre-se etc',
       button: 'Usuários',
-      url: '#!/users',      
+      url: '#!/users/list',
     },{
       image: 'https://kcm-www.s3.amazonaws.com/production/s3fs-public/daily_confessions_for_financial_victory_1239968128.jpg',
       title: 'Veja as contas ou crie uma nova!',

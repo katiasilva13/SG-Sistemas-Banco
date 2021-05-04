@@ -21,7 +21,9 @@ const appModule = angular.module('app', [
   'app.account',
   'app.auth',
   'app.management',
-  'app.user',
+  // 'app.home',
+  // 'app.user',
+    // 'ngRoute',
     userModule,
 ])
 .component('navbar', navBar)

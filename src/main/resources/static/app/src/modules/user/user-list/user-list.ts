@@ -6,7 +6,7 @@ class UsersController {
   constructor(
     public $state,
     public userService: UserService,
-    public users: User[]
+    public users
   ) {}
 
  

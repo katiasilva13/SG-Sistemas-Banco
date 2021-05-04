@@ -8,7 +8,7 @@ const userFormModule = angular
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider
             .state('app.user.form', {
-                url: '/form',
+                url: '/users/form/:type',
                 templateUrl: template,
                 controller: UserFormController,
                 controllerAs: '$ctrl'

@@ -45,6 +45,7 @@
 
 /**/
 import * as angular from 'angular'
+import 'angular-input-masks'
 import { userDetailsModule } from './user-details'
 import { userFormModule } from './user-form'
 import { userListModule } from './user-list'
@@ -62,7 +63,7 @@ const userModule = angular
 	.config(['$stateProvider', ($stateProvider) => {
 		$stateProvider
 			.state('app.user', {
-				url: '/user',
+				url: '/users',
 				abstract: true
 			})
 	}])
