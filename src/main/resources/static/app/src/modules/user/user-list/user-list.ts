@@ -2,7 +2,7 @@ import {UserService} from '../services/user-service'
 import './user-list.scss'
 import User from '../model/user'
 
-class UsersController {
+class UserListController {
   constructor(
     public $state,
     public userService: UserService,
@@ -12,10 +12,10 @@ class UsersController {
  
 }
 
-UsersController['$inject'] = [
+UserListController['$inject'] = [
   '$state',
   'userService',
   'users'
 ]
 
-export {UsersController};
+export {UserListController};

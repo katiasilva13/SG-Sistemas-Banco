@@ -1,7 +1,7 @@
 import * as angular from 'angular'
 import './user-list.scss'
 import template from './user-list.html'
-import { UserListController } from './user-list.html'
+import { UserListController } from './user-list'
 import { UserService } from '../services/user-service'
 
 const userListModule = angular
@@ -15,7 +15,9 @@ const userListModule = angular
                 controller: UserListController,
                 controllerAs: '$ctrl',
                 resolve: {
-                    users: ['userService', (userService) => userService.getUsers().then(response => response.data)]
+                    users: ['userService', (userService) => userService.getUsers()
+                        .then(response => response.data)
+                    ]
                 }
             })
     }])
