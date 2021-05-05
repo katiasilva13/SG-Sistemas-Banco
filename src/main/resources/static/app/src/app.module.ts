@@ -9,7 +9,7 @@ import base from './components/base/base'
 
 import { userModule } from './modules/user'
 
-// import { accountModule } from './modules/account'
+import { accountModule } from './modules/account'
 
 import { AppController } from './app.controller'
 import './app.module.scss'
@@ -25,6 +25,7 @@ const appModule = angular.module('app', [
   // 'app.user',
     // 'ngRoute',
     userModule,
+  accountModule,
 ])
 .component('navbar', navBar)
 .component('base', base)

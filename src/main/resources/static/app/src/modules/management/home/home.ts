@@ -18,7 +18,7 @@ class HomeController {
       image: 'https://kcm-www.s3.amazonaws.com/production/s3fs-public/daily_confessions_for_financial_victory_1239968128.jpg',
       title: 'Veja as contas ou crie uma nova!',
       button: 'Contas',
-      url: '#!/accounts',
+      url: '#!/accounts/list',
     },{
       image: 'https://unctad.org/sites/default/files/2020-08/Investment-Trends_800x450.jpg',
       title: 'Saque, depósito ou transferência?',

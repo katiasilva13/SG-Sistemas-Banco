@@ -3,24 +3,32 @@ import accountCreateTemplate from './account-create/account-create.html'
 import accountManageTemplate from './account-manage/account-manage.html'
 import AccountCreateController from './account-create/account-create'
 import AccountManageController from './account-manage/account-manage'
-import AccountService from './services/account-service'
+import {AccountService} from './services/account-service'
 
 
 import accountsTemplate from './accounts/accounts.html'
 // import accountDetailsTemplate from './account-details/account-details.html'
-// import accountRegisterTemplate from './account-register/account-register.html'
+// import accountFormTemplate from './account-form/account-form.html'
 
-// import AccountRegisterController from './account-register/account-register'
+// import AccountFormController from './account-form/account-form'
 // import AccountDetailsController from './account-details/account-details'
-import AccountsController from './accounts/accounts'
+// import {AccountListController} from './account-list/account-list'
+import {userDetailsModule} from "../user/user-details";
+import {userFormModule} from "../user/user-form";
+import {userListModule} from "../user/user-list";
+import {accountListModule} from "./account-list";
 
-const accountModule = angular.module('app.account', [])
+const accountModule = angular.module('app.account', [
+
+    accountListModule,
+    'ui.utils.masks',
+])
   .service('accountService', AccountService)
   .config(['$stateProvider', ($stateProvider) => {
     // console.log($routeParams)
     $stateProvider
       .state('app.account', {
-        url: '^/account',
+        url: '/accounts',
         abstract: true,
       })
       // .state('app.account.create', {
@@ -40,15 +48,17 @@ const accountModule = angular.module('app.account', [])
       // })
 
 
-      .state('app.getAccounts', {
-        url: '/accounts',
-        templateUrl: accountsTemplate,
-        controller: AccountsController,
-        controllerAs: '$ctrl',
-        resolve: {
-          accounts: ['accountService', (accountService) => accountService.getAccounts().then(response => response.data)]
-          }
-    })
+    //   .state('app.account.list', {
+    //     url: '/list',
+    //     templateUrl: accountsTemplate,
+    //     controller: AccountListController,
+    //     controllerAs: '$ctrl',
+    //     resolve: {
+    //       accounts: ['accountService', (accountService) => accountService.getAccounts().then(response => response.data)]
+    //       }
+    // })
+
+
     // .state('app.details', {
     //     url: '/users/:id',
     //     params: {
@@ -72,4 +82,5 @@ const accountModule = angular.module('app.account', [])
 
 
   }])
-export default accountModule
+    .name
+export {accountModule}

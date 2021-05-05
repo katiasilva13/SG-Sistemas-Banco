@@ -36,4 +36,4 @@ AccountService['$inject'] = [
   'userService'
 ]
 
-export default AccountService
+export {AccountService}
