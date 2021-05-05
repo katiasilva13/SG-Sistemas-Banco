@@ -17,9 +17,11 @@ import {userDetailsModule} from "../user/user-details";
 import {userFormModule} from "../user/user-form";
 import {userListModule} from "../user/user-list";
 import {accountListModule} from "./account-list";
+import {accountDetailsModule} from "./account-details";
 
 const accountModule = angular.module('app.account', [
 
+    accountDetailsModule,
     accountListModule,
     'ui.utils.masks',
 ])

@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="col mt-4 justify-content-center list">
+        <!--          {{$ctrl.account}}-->
+        <table class="table">
+            <thead>
+            <h4>Dados da Conta</h4>
+            <tr>
+                <th scope="col" >Conta</th>
+                <th scope="col" >Agência</th>
+<!--                <th scope="col" ng-if="$ctrl.user.cpf">CPF</th>-->
+<!--                <th scope="col" ng-if="$ctrl.user.rg">RG</th>-->
+<!--                <th scope="col" ng-if="$ctrl.user.cnpj">CNPJ</th>-->
+<!--                <th scope="col" ng-if="$ctrl.user.companyName">Razão Social</th>-->
+            </tr>
+            <tbody >
+            <td>{{ $ctrl.account.accountCode }}</td>
+            <td>{{ $ctrl.account.branch }}</td>
+<!--            <td ng-if="$ctrl.user.cpf">{{ $ctrl.user.cpf }}</td>-->
+<!--            <td ng-if="$ctrl.user.rg">{{ $ctrl.user.rg }}</td>-->
+<!--            <td ng-if="$ctrl.user.cnpj">{{ $ctrl.user.cnpj }}</td>-->
+<!--            <td ng-if="$ctrl.user.companyName">{{ $ctrl.user.companyName }}</td>-->
+            </tbody>
+
+<!--            <tr><th >Endereço</th></tr>-->
+<!--            <tr>-->
+<!--                <th scope="col" >Rua</th>-->
+<!--                <th scope="col" >Número</th>-->
+<!--                <th scope="col" >CEP</th>-->
+<!--                <th scope="col" >UF</th>-->
+<!--            </tr>-->
+<!--            <tbody >-->
+<!--            &lt;!&ndash; #TODO como usar filters?&ndash;&gt;-->
+<!--            <td>{{ $ctrl.user.address.street }}</td>-->
+<!--            <td>{{ $ctrl.user.address.number}}</td>-->
+<!--            <td>{{ $ctrl.user.address.cep}}</td>-->
+<!--            <td>{{ $ctrl.user.address.uf }}</td>-->
+<!--            </tbody>-->
+<!--            <tr>-->
+<!--                <th scope="col" >Bairro</th>-->
+<!--                <th scope="col" >Cidade</th>-->
+<!--            </tr>-->
+<!--            <tbody >-->
+<!--            &lt;!&ndash; #TODO como usar filters?&ndash;&gt;-->
+<!--            <td>{{ $ctrl.user.address.neighborhood }}</td>-->
+<!--            <td>{{ $ctrl.user.address.city }}</td>-->
+<!--            </tbody>-->
+
+            <!-- #TODO criar tela contas e tela add conta -->
+            <!-- <tr><th >Contas</th></tr>
+              <tr>
+                <th scope="col" >Número</th>
+                <th scope="col" >Agênica</th>
+                <th scope="col" >Tipo</th>
+                <th scope="col" >Saldo</th>
+              </tr>
+              <tbody >
+                  -->
+            <!-- #TODO como usar filters?-->
+            <!-- <td>{{ $ctrl.user.data.account.accountCode }}</td>
+            <td>{{ $ctrl.user.data.account.branch}}</td>
+            <td>{{ $ctrl.user.data.accounts.accountTyp}}</td>
+            <td>R$ {{ $ctrl.user.data.accounts.balance }}</td>
+        </tbody> -->
+
+            </thead>
+        </table>
+        <hr>
+    </div>
+    <div style="text-align: center; margin-top: 30px ;">
+        <a class="btn" ui-sref="app.account.list" >Voltar </a>
+    </div>
+
+</div>

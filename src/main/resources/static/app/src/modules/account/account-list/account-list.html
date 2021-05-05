@@ -20,7 +20,7 @@
           <th scope="row">{{ $index+1 }}</th>
           <!-- <td>{{ user.id }}</td> -->
           <!-- #TODO como usar filters?-->
-          <td><a ui-sref="app.accountDetails({id: account.id })">{{ account.accountCode}}</a></td>
+          <td><a ui-sref="app.account.details({id: account.id })">{{ account.accountCode}}</a></td>
           <td>{{ account.branch}}</td>
           <td ng-if="account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
           <td ng-if="account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td>
