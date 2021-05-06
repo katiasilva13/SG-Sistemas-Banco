@@ -38,7 +38,7 @@ public class Account implements Serializable {
     @Column//extrato
     private BigDecimal balance;
 
-    @JsonBackReference
+//    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id", nullable = false)
     private Person person;

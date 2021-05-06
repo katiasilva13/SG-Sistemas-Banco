@@ -1,8 +1,10 @@
 import Transaction from "../../transaction/model/transaction";
+import User from "../../user/model/user";
 
 export default interface Account {
   id?: number,
   personId?: number,
+  person?: User,
   // agency?: string,
   // accountNumber?: string,
   // createdAt?: string,
@@ -25,6 +27,8 @@ export default interface Account {
   savingsIncome: number,
   invested: number,
   investmentDay: Date,
+
+  user?: User,
 
   transations?: Transaction[]//?
 }

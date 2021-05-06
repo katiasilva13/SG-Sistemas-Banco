@@ -37,6 +37,9 @@ class UserService {
   //   })
   // }
 
+  getPersonByAccountId = async (accountID): Promise<User> => {
+    return await this.$http.get(this.url+`/${accountID}`)
+  }
 }
 
 UserService['$inject'] = [

@@ -17,7 +17,12 @@ const accountDetailsModule = angular
                 controllerAs: '$ctrl',
                 resolve: {
                     account: ['$stateParams', 'accountService', ($stateParams, accountService) =>
-                        accountService.getById($stateParams.id).then(response => response.data)]
+                        accountService.getById($stateParams.id).then(response => response.data)],
+
+                    // user: ['accountService',(accountService) => accountService.getByPerson(response).then(response => response.data)]
+
+                    // user: ['$stateParams', 'accountService', ($stateParams, accountService) =>
+                    //     accountService.getPersonByAccount($stateParams.id).then(response => response.data)],
                 }
             })
     }])

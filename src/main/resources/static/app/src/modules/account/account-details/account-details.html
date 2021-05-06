@@ -7,6 +7,8 @@
             <tr>
                 <th scope="col" >Conta</th>
                 <th scope="col" >Agência</th>
+
+                <th scope="col" >Titular da conta</th>
 <!--                <th scope="col" ng-if="$ctrl.user.cpf">CPF</th>-->
 <!--                <th scope="col" ng-if="$ctrl.user.rg">RG</th>-->
 <!--                <th scope="col" ng-if="$ctrl.user.cnpj">CNPJ</th>-->
@@ -15,6 +17,9 @@
             <tbody >
             <td>{{ $ctrl.account.accountCode }}</td>
             <td>{{ $ctrl.account.branch }}</td>
+
+            <td>{{ $ctrl.account.person.name }}</td>
+
 <!--            <td ng-if="$ctrl.user.cpf">{{ $ctrl.user.cpf }}</td>-->
 <!--            <td ng-if="$ctrl.user.rg">{{ $ctrl.user.rg }}</td>-->
 <!--            <td ng-if="$ctrl.user.cnpj">{{ $ctrl.user.cnpj }}</td>-->
