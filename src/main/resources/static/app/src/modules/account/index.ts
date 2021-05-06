@@ -1,5 +1,6 @@
 import * as angular from 'angular'
 import {AccountService} from './services/account-service'
+import 'angular-input-masks'
 
 
 // import accountFormTemplate from './account-form/account-form.html'
@@ -16,7 +17,6 @@ const accountModule = angular.module('app.account', [
 ])
   .service('accountService', AccountService)
   .config(['$stateProvider', ($stateProvider) => {
-    // console.log($routeParams)
     $stateProvider
       .state('app.account', {
         url: '/accounts',

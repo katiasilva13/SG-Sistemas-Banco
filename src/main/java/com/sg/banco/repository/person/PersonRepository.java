@@ -8,8 +8,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Integer> {
-
-//
-//    @Query("select p from person p join account a where a.id = :account_id and a.person_id = p.id")
-//    Person findPersonByAccountId(@Param("account_id") Integer account_id);
 }

@@ -77,7 +77,4 @@ public class PersonService implements Serializable {
         this.repository.save(person);
     }
 
-//    public Person findPersonByAccountId(Integer id) {
-//        return this.repository.findPersonByAccountId(id);
-//    }
 }

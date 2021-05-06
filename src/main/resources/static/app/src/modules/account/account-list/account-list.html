@@ -7,31 +7,28 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <!-- <th scope="col">ID</th> -->
           <th scope="col">Conta</th>
           <th scope="col">Agência</th>
           <th scope="col">Tipo</th>
-<!--          <th scope="col">Saldo</th>-->
+          <th scope="col" >Titular da conta</th>
         </tr>
       </thead>
       <tbody >
-        <!-- {{$ctrl.users}} -->
         <tr ng-repeat="account in $ctrl.accounts">
           <th scope="row">{{ $index+1 }}</th>
-          <!-- <td>{{ user.id }}</td> -->
           <!-- #TODO como usar filters?-->
           <td><a ui-sref="app.account.details({id: account.id })">{{ account.accountCode}}</a></td>
           <td>{{ account.branch}}</td>
           <td ng-if="account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
           <td ng-if="account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td>
-<!--          <td>{{ account.balance}}</td>-->
+          <td>{{ account.person.name }}</td>
         </tr>
       </tbody>
     </table>
     <hr>
     <!-- <div style="text-align: center; margin-top: 30px ;">
-      <a class="btn btn-primary" ui-sref="app.accountForm({type: 'ca'})" >Criar Conta Corrente</a>
-      <a class="btn btn-primary" ui-sref="app.accountForm({type: 'sa'})" >Criar Conta Poupança</a>
+      <a class="btn btn-primary" ui-sref="app.account.form({personId: 'account.person.id'}, {type: 'ca'})" >Criar Conta Corrente</a>
+      <a class="btn btn-primary" ui-sref="app.account.form({personId: 'account.person.id'}, {type: 'sa'})" >Criar Conta Poupança</a>
     </div> -->
   </div>
 

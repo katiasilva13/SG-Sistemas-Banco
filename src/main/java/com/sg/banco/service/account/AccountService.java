@@ -2,16 +2,14 @@ package com.sg.banco.service.account;
 
 import com.sg.banco.domain.account.Account;
 import com.sg.banco.domain.account.CheckingAccount;
-import com.sg.banco.domain.account.dto.AccountDto;
-import com.sg.banco.domain.person.Person;
 import com.sg.banco.domain.account.SavingsAccount;
+import com.sg.banco.domain.person.Person;
 import com.sg.banco.enumerator.AccountType;
 import com.sg.banco.repository.account.AccountRepository;
+import com.sg.banco.service.RateCalculator;
 import com.sg.banco.service.person.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -36,44 +34,31 @@ public class AccountService implements Serializable {
     @Autowired
     private PersonService personService;
 
+
+    @Autowired
+    private RateCalculator calculator;
+
     public List<Account> getAll() {
         return this.repository.findAll(Sort.by(Sort.Order.asc("accountCode")));
     }
 
     public Account getById(Integer id) {
         Optional<Account> accountOptional = this.repository.findById(id);
-        if(accountOptional.isPresent()) {
-            return this.repository.findById(id).get();
+        if (accountOptional.isPresent()){
+            if(accountOptional.get() instanceof SavingsAccount){
+                SavingsAccount savingsAccount = (SavingsAccount) accountOptional.get();
+                savingsAccount = calculator.calculateIncome(accountOptional.get().getId());
+                this.update(savingsAccount);
+                return savingsAccount;
+            }
+            if (accountOptional.get() instanceof CheckingAccount){
+                CheckingAccount checkingAccount = (CheckingAccount) accountOptional.get();
+                        calculator.calculateInterest(accountOptional.get().getId());
+                        return checkingAccount;
+            }
         }
-        return null;
+        return accountOptional.orElse(null);
     }
-
-//    public ResponseEntity<AccountDto> getAccountWithPerson(Integer id) {
-//        Optional<Account> accountOptional = this.repository.findById(id);
-//        if(accountOptional.isPresent()) {
-//            Account account = accountOptional.get();
-//            AccountDto accountDto = this.accountToAccountDto(account);
-////            return accountDto;
-//
-//            return new ResponseEntity<>(accountDto, HttpStatus.OK);
-//        }
-////        return ;
-//        return null;
-//    }
-
-//    private AccountDto accountToAccountDto(Account account) {
-//        AccountDto accountDto = new AccountDto();
-//        accountDto.setAccountType(account.getAccountType().toString());
-//        accountDto.setAccountCode(account.getAccountCode());
-//        accountDto.setBranch(account.getBranch());
-//        accountDto.setId(account.getId());
-//        accountDto.setBalance(account.getBalance());
-//
-//        Person person = this.personService.findPersonByAccountId(account.getId());
-//        accountDto.setPersonId(account.getPerson().getId());
-////        return new ResponseEntity<>(accountDto, HttpStatus.OK);
-//        return accountDto;
-//    }
 
     public List<Account> deleteById(Integer id) {
         this.repository.deleteById(id);
@@ -122,12 +107,6 @@ public class AccountService implements Serializable {
             account = savingsAccountService.create(accountType, branch, balance, person,
                     savingsRate, savingsIncome, accountCode, invested);
         }
-//todo add account to person ... ou não
-//        List<Account> accounts = new ArrayList<>();
-//        accounts.add(account);
-//        person.setAccounts(accounts);
-//        this.repository.save(account);
-//        personService.update(person);
         return account;
     }
 

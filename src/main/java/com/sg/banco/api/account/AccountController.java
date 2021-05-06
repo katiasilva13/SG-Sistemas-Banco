@@ -3,10 +3,8 @@ package com.sg.banco.api.account;
 import com.sg.banco.domain.account.Account;
 import com.sg.banco.domain.account.CheckingAccount;
 import com.sg.banco.domain.account.SavingsAccount;
-import com.sg.banco.domain.account.dto.AccountDto;
 import com.sg.banco.service.account.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,11 +26,6 @@ public class AccountController {
     public Account getById(@PathVariable Integer id) {
         return service.getById(id);
     }
-
-//    @GetMapping("/contas/{id}/usuario")
-//    public ResponseEntity<AccountDto> getAccountWithPerson(@PathVariable Integer id) {
-//        return service.getAccountWithPerson(id);
-//    }
 
     @DeleteMapping("/contas/{id}")
     public List<Account> deleteById(@PathVariable Integer id) {

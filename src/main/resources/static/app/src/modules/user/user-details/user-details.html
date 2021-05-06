@@ -45,30 +45,14 @@
             <td>{{ $ctrl.user.address.city }}</td>
         </tbody>
 
- <!-- #TODO criar tela contas e tela add conta -->
-        <!-- <tr><th >Contas</th></tr>
-          <tr>
-            <th scope="col" >Número</th>
-            <th scope="col" >Agênica</th>
-            <th scope="col" >Tipo</th>
-            <th scope="col" >Saldo</th>
-          </tr>
-          <tbody >
-              -->
-      <!-- #TODO como usar filters?-->
-            <!-- <td>{{ $ctrl.user.data.account.accountCode }}</td>
-            <td>{{ $ctrl.user.data.account.branch}}</td>
-            <td>{{ $ctrl.user.data.accounts.accountTyp}}</td>
-            <td>R$ {{ $ctrl.user.data.accounts.balance }}</td>
-        </tbody> --> 
-
         </thead>
       </table>
       <hr>
     </div>
     <div style="text-align: center; margin-top: 30px ;">
       <a class="btn" ui-sref="app.user.list" >Voltar </a>
+      <a class="btn" ui-sref="app.account.form({personId: 'account.person.id'}, {type: 'ca'})" >Criar Conta Corrente</a>
+      <a class="btn" ui-sref="app.account.form({personId: 'account.person.id'}, {type: 'sa'})" >Criar Conta Poupança</a>
     </div>
 
-        <!-- #TODO criar botoes para criar conta -->
 </div>
