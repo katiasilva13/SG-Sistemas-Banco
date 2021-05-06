@@ -10,7 +10,7 @@
                 </tr>
                 <tbody>
                     <td>{{ $ctrl.account.person.name }}</td>
-                    <td>R$ {{ $ctrl.account.balance }}</td>
+                    <td>{{ $ctrl.account.balance  | currency:'R$'}}</td>
                 </tbody>
                 <tr>
                     <th scope="col">Conta</th>
@@ -38,15 +38,15 @@
             </tr>
             <tbody>
 
-                <td ng-if="$ctrl.account.overdraftLimit">R$ {{ $ctrl.account.overdraftLimit }}</td>
-                <td ng-if="$ctrl.account.overdraftAvailable">R$ {{ $ctrl.account.overdraftAvailable }}</td>
-                <td ng-if="$ctrl.account.interestRate">R$ {{ $ctrl.account.interestRate }}</td>
-                <td ng-if="$ctrl.account.interest">R$ {{ $ctrl.account.interest }}</td>
+                <td ng-if="$ctrl.account.overdraftLimit">{{ $ctrl.account.overdraftLimit | currency:'R$'}}</td>
+                <td ng-if="$ctrl.account.overdraftAvailable">{{ $ctrl.account.overdraftAvailable  | currency:'R$'}}</td>
+                <td ng-if="$ctrl.account.interestRate">{{ $ctrl.account.interestRate | currency:'R$'}}</td>
+                <td ng-if="$ctrl.account.interest">{{ $ctrl.account.interest  | currency:'R$' }}</td>
 
                 
-                <td ng-if="$ctrl.account.invested">R$ {{ $ctrl.account.invested }}</td>
-                <td ng-if="$ctrl.account.savingsRate">R$ {{ $ctrl.account.savingsRate }}</td>
-                <td ng-if="$ctrl.account.savingsIncome">R$ {{ $ctrl.account.savingsIncome }}</td>
+                <td ng-if="$ctrl.account.invested">{{ $ctrl.account.invested | currency:'R$'}}</td>
+                <td ng-if="$ctrl.account.savingsRate">{{ $ctrl.account.savingsRate | currency:'R$' }}</td>
+                <td ng-if="$ctrl.account.savingsIncome">{{ $ctrl.account.savingsIncome | currency:'R$' }}</td>
             </tbody>
 
             </thead>

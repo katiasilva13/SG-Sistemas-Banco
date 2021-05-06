@@ -53,8 +53,9 @@ public class AccountService implements Serializable {
             }
             if (accountOptional.get() instanceof CheckingAccount){
                 CheckingAccount checkingAccount = (CheckingAccount) accountOptional.get();
-                        calculator.calculateInterest(accountOptional.get().getId());
-                        return checkingAccount;
+                calculator.calculateInterest(accountOptional.get().getId());
+                this.update(checkingAccount);
+                return checkingAccount;
             }
         }
         return accountOptional.orElse(null);

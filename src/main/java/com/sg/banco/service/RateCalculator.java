@@ -39,18 +39,14 @@ public class RateCalculator {
             LocalDate today = LocalDate.now();
             int countDays = Math.toIntExact(DAYS.between(account.getInvestmentDay(), today));
             BigDecimal invested = account.getInvested();
-
             for (int i = countDays; i > 0; i--) {
-                invested = invested.multiply(account.getSavingsRate());
+                invested = invested.multiply(account.getSavingsRate()).divide(account.getSavingsRate(), new MathContext(3));;
 //                invested = percentage(invested, account.getSavingsRate());
-
             }
-
-
             BigDecimal balance  = account.getBalance().subtract(account.getSavingsIncome());
 //            balance = balance.subtract(account.getInvested());
             account.setSavingsIncome(invested.round(new MathContext(3)));
-            account.setBalance(balance.add(invested).round(new MathContext(3)));
+            account.setBalance(balance.add(invested).round(new MathContext(2)));
         }
         return account;
     }
@@ -61,10 +57,13 @@ public class RateCalculator {
             LocalDate today = LocalDate.now();
             int countDays = Math.toIntExact(DAYS.between(account.getInterestDay(), today));
             BigDecimal interest = account.getOverdraftLimit().subtract(account.getOverdraftAvailable());
+
+//            BigDecimal interest = account.getInterest();
+//            interest = interest.subtract(account.getOverdraftLimit().subtract(account.getOverdraftAvailable()));
             for (int i = countDays; i > 0; i--) {
-                interest = interest.multiply(account.getInterestRate());
+                interest = interest.multiply(account.getInterestRate()).divide(account.getInterestRate(), new MathContext(3));
             }
-            account.setInterest(interest);
+            account.setInterest(interest.round(new MathContext(2)));
         }
         return account;
     }
