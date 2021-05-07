@@ -1,15 +1,20 @@
 package com.sg.banco.service.person;
 
+import com.sg.banco.domain.account.SavingsAccount;
 import com.sg.banco.domain.person.Address;
 import com.sg.banco.domain.person.LegalPerson;
 import com.sg.banco.domain.person.NaturalPerson;
 import com.sg.banco.domain.person.Person;
 import com.sg.banco.repository.person.PersonRepository;
+import com.sg.banco.service.account.AccountService;
+import com.sg.banco.service.account.CheckingAccountService;
+import com.sg.banco.service.account.SavingsAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -30,6 +35,12 @@ public class PersonService implements Serializable {
 
     @Autowired
     private AddressService addressService;
+
+//    @Autowired
+//    private CheckingAccountService checkingAccountService;
+//
+//    @Autowired
+//    private SavingsAccountService savingsAccountService;
 
     public List<Person> getAll() {
         return this.repository.findAll(Sort.by(Sort.Order.asc("name")));
@@ -77,4 +88,22 @@ public class PersonService implements Serializable {
         this.repository.save(person);
     }
 
+    public Person getUserByNameAndCpfOrCnpj(Map<String, String> json) {
+
+        String name = trimWhitespace(json.get("name")).toUpperCase(Locale.ROOT);
+        String doc = trimWhitespace(json.get("doc")).toUpperCase(Locale.ROOT);
+        List<Person> people = new ArrayList<>();
+        people = this.repository.findAllByName(name);
+        Person person = new Person();
+        for (Person p : people
+        ) {
+            if ( naturalPersonService.getById(p.getId()) != null){
+                NaturalPerson naturalPerson = (NaturalPerson) p;
+                if (naturalPerson.getCpf().equals(doc)) return naturalPerson;
+            }
+
+
+        }
+        return person;
+    }
 }

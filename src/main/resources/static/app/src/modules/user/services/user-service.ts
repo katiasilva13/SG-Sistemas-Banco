@@ -23,23 +23,10 @@ class UserService {
     return await this.$http.get(this.url+`/${id}`)
   }
 
-  // getUsers = async (): Promise<User> => {
-  //   console.log("test method"); 
-  //   var users = this.$http.get(this.url).then(data => data.resposne)
-  //   console.log(users); 
-  //   return await users;
-  // }
-
-  // $onInit() {
-  //   this.getUsers().then(response => {
-  //     this.users = response;
-  //     console.log(response)
-  //   })
-  // }
-
-  getPersonByAccountId = async (accountID): Promise<User> => {
-    return await this.$http.get(this.url+`/${accountID}`)
-  }
+  getUserByNameAndDoc = async (user): Promise<User> => {
+    console.log(user)
+      return await this.$http.post(this.url+`/buscar-dados`, user);
+    }
 }
 
 UserService['$inject'] = [

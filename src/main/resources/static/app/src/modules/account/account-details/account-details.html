@@ -9,7 +9,7 @@
                     <th scope="col">Saldo</th>
                 </tr>
                 <tbody>
-                    <td>{{ $ctrl.account.person.name }}</td>
+                    <td>{{ $ctrl.account.person.name  | uppercase}}</td>
                     <td>{{ $ctrl.account.balance  | currency:'R$'}}</td>
                 </tbody>
                 <tr>

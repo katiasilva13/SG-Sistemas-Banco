@@ -81,12 +81,12 @@ public class AccountService implements Serializable {
             if (type.getCode().equals(checkType)) accountType = type;
         }
 
-        Integer personId = Integer.parseInt(trimWhitespace(json.getOrDefault("personId", "0.0")).toUpperCase(Locale.ROOT));
+        Integer personId = Integer.parseInt(trimWhitespace(json.get("personId")).toUpperCase(Locale.ROOT));
         Person person = personService.getById(personId);
         if (duplicatedAccountType(personId, accountType))
             throw new Exception("Usuário já possui uma conta do tipo " + accountType.toString());
 
-        String branch = trimWhitespace(json.get("branch")).toUpperCase(Locale.ROOT);
+        String branch = trimWhitespace(json.getOrDefault("branch", "317")).toUpperCase(Locale.ROOT);
         BigDecimal balance = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT)));
 
         String accountCode = generateCode(checkType, personId);

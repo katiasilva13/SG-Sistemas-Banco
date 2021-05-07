@@ -31,4 +31,7 @@ export default interface Account {
   user?: User,
 
   transations?: Transaction[]//?
+
+  type?: string,
+
 }

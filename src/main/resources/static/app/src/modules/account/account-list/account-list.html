@@ -2,7 +2,7 @@
   <div class="col mt-4 justify-content-center list">
 
     <h3 style="margin-left: 50px">Lista de contas</h3>
-<!--    {{  $ctrl.accounts }}-->
+      <!--    {{  $ctrl.accounts }}-->
     <table class="table">
       <thead>
         <tr>
@@ -21,15 +21,15 @@
           <td>{{ account.branch}}</td>
           <td ng-if="account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
           <td ng-if="account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td>
-          <td>{{ account.person.name }}</td>
+          <td>{{ account.person.name  | uppercase}}</td>
         </tr>
       </tbody>
     </table>
     <hr>
-    <!-- <div style="text-align: center; margin-top: 30px ;">
-      <a class="btn btn-primary" ui-sref="app.account.form({personId: 'account.person.id'}, {type: 'ca'})" >Criar Conta Corrente</a>
-      <a class="btn btn-primary" ui-sref="app.account.form({personId: 'account.person.id'}, {type: 'sa'})" >Criar Conta Poupança</a>
-    </div> -->
+    <div style="text-align: center; margin-top: 30px ;">
+      <a class="btn btn-primary" ui-sref="app.account.form({personId: account.person.id , type: 'ca'})" >Criar Conta Corrente</a>
+      <a class="btn btn-primary" ui-sref="app.account.form({personId: account.person.id , type: 'sa'})" >Criar Conta Poupança</a>
+    </div>
   </div>
 
 </div>

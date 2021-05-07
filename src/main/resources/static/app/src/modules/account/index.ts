@@ -8,11 +8,13 @@ import 'angular-input-masks'
 // import AccountFormController from './account-form/account-form'
 import {accountListModule} from "./account-list";
 import {accountDetailsModule} from "./account-details";
+import { accountFormModule } from './account-form';
 
 const accountModule = angular.module('app.account', [
 
     accountDetailsModule,
     accountListModule,
+    accountFormModule,
     'ui.utils.masks',
 ])
   .service('accountService', AccountService)

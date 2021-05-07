@@ -18,7 +18,7 @@ const appModule = angular.module('app', [
   'ui.bootstrap',
   'ui.carousel',
   'ui.router',
-  'app.account',
+  // 'app.account',
   'app.auth',
   'app.management',
   // 'app.home',

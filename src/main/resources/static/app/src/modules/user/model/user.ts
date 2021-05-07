@@ -18,4 +18,9 @@ export default interface User {
   city?: string
 
   accounts?: Account[],//TODO alter account
+
+
+  doc?: string,
+  type?:  string,
+  personId?:  string, 
 }

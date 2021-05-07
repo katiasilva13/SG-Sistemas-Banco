@@ -47,5 +47,9 @@ public class PersonController {
         return service.getAllLegalPerson();
     }
 
+    @PostMapping("/usuarios/buscar-dados")
+    public Person getById(@RequestBody Map<String, String> json) {
+        return service.getUserByNameAndCpfOrCnpj(json);
+    }
 
 }
