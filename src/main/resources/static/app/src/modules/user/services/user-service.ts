@@ -20,11 +20,14 @@ class UserService {
   }
 
   getById = async (id): Promise<User> => {
+    // return await (id !=null) ?  this.$http.get(this.url+`/${id}`) : null;
+    console.log("user.service getById ",id);
+    if(id == null) return null ;
     return await this.$http.get(this.url+`/${id}`)
   }
 
   getUserByNameAndDoc = async (user): Promise<User> => {
-    console.log(user)
+    console.log("user ", user)
       return await this.$http.post(this.url+`/buscar-dados`, user);
     }
 }

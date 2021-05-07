@@ -9,14 +9,17 @@ class AccountFormController {
         public $state,
         public accountService: AccountService,
         public userService: UserService,
-        public user,
+        // public user,
     ) { }
 
-    onInit() {
+    // onInit() {
 
-        console.log(this.$state.$stateParams.personId);
-        console.log(this.$state.$stateParams.type);
-    }
+    //     // console.log(this.$state.personId);
+    //     // console.log(this.$state.type);
+    //     // this.user = '$stateParams', 'userService', ($stateParams, userService) =>
+    //     //     userService.getById($stateParams.personId).then(response => response.data);
+        
+    // }
 
     addAccount = function (account) {
         const savedAccount = this.accountService.addAccount(account).then(() => {
@@ -48,7 +51,7 @@ class AccountFormController {
         if (savedUser != null) {
             var account: any = {};
             account.personId = savedUser.id;
-            account.accountType = (this.user.type == "ca") ? '1' : '2';   
+            account.accountType = (type == "ca") ? '1' : '2';   
             this.addAccount(account);
         } else this.$state.reloadRoute();
     };
@@ -66,7 +69,7 @@ AccountFormController['$inject'] = [
     '$state',
     'accountService',
     'userService',
-    'user',
+    // 'user',
 ]
 
 export { AccountFormController };

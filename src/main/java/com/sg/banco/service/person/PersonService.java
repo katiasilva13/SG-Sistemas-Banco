@@ -97,12 +97,14 @@ public class PersonService implements Serializable {
         Person person = new Person();
         for (Person p : people
         ) {
-            if ( naturalPersonService.getById(p.getId()) != null){
+            if ( (p instanceof NaturalPerson) && (naturalPersonService.getById(p.getId()) != null)){
                 NaturalPerson naturalPerson = (NaturalPerson) p;
                 if (naturalPerson.getCpf().equals(doc)) return naturalPerson;
             }
-
-
+            if ( (p instanceof LegalPerson) && (legalPersonService.getById(p.getId()) != null )){
+                LegalPerson legalPerson = (LegalPerson) p;
+                if (legalPerson.getCnpj().equals(doc)) return legalPerson;
+            }
         }
         return person;
     }

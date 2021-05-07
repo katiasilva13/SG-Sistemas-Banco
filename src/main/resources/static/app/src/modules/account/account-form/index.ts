@@ -17,10 +17,10 @@ const accountFormModule = angular
                 templateUrl: template,
                 controller: AccountFormController,
                 controllerAs: '$ctrl',
-                resolve: {
-                    user : ['$stateParams', 'userService', ($stateParams, userService) =>
-                    userService.getById($stateParams.personId).then(response => response.data)]
-                }
+                // resolve: {
+                //     user : ['$stateParams', 'userService', ($stateParams, userService) =>
+                //     userService.getById($stateParams.personId).then(response => response.data)]
+                // }
             })
     }])
     .name

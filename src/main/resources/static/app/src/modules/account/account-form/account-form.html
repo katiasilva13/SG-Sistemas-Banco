@@ -1,12 +1,12 @@
 <div class="container" style="width: 600px;">
 
-    <div ng-if="$ctrl.personIdIsEmpty()">
+    <div >
         <form name="acountForm" left-block>
             <h4>Dados do Titular</h4>
-            <input ng-if="$ctrl.personIdIsEmpty()" class="form-control" type="text" ng-model="user.name" name="name"
+            <input  class="form-control" type="text" ng-model="user.name" name="name"
                 placeholder="Nome" ng-required="true" ng-minlength="7" ng-maxlength="200" />
 
-            <input ng-if="$ctrl.personIdIsEmpty()" class="form-control" type="text" ng-model="user.doc" name="doc"
+            <input class="form-control" type="text" ng-model="user.doc" name="doc"
                 placeholder="CPF/CNPJ" ng-required="true" ng-maxlength="25" />
 
             <div ng-if="$ctrl.isCARoute()">
@@ -36,7 +36,7 @@
 
     </div>
 
-    <div ng-if="!$ctrl.personIdIsEmpty()">
+    <!-- <div ng-if="!$ctrl.personIdIsEmpty()">
         <form name="accountFormWithId" left-block>
             <h4>Dados cadastrais</h4>
 
@@ -69,6 +69,6 @@
                 ui-sref="app.user.details({id: $ctrl.user.id })">Voltar</button>
         </div>
 
-    </div>
+    </div> -->
 
 </div>
