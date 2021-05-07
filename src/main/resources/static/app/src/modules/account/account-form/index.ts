@@ -8,19 +8,14 @@ const accountFormModule = angular
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider
             .state('app.account.form', {
-                url: '/form/:personId/:type',
+                url: '/form/:type',
                 params: {
-                    personId: null,
                     type: null
 
                 },
                 templateUrl: template,
                 controller: AccountFormController,
                 controllerAs: '$ctrl',
-                // resolve: {
-                //     user : ['$stateParams', 'userService', ($stateParams, userService) =>
-                //     userService.getById($stateParams.personId).then(response => response.data)]
-                // }
             })
     }])
     .name

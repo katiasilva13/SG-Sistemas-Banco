@@ -9,17 +9,7 @@ class AccountFormController {
         public $state,
         public accountService: AccountService,
         public userService: UserService,
-        // public user,
     ) { }
-
-    // onInit() {
-
-    //     // console.log(this.$state.personId);
-    //     // console.log(this.$state.type);
-    //     // this.user = '$stateParams', 'userService', ($stateParams, userService) =>
-    //     //     userService.getById($stateParams.personId).then(response => response.data);
-        
-    // }
 
     addAccount = function (account) {
         const savedAccount = this.accountService.addAccount(account).then(() => {
@@ -29,9 +19,9 @@ class AccountFormController {
         })
     };
 
-    personIdIsEmpty = () => {
-        return location.href.includes('^//')
-    };
+    // personIdIsEmpty = () => {
+    //     return location.href.includes('^//')
+    // };
 
     isCARoute = () => {
         return location.href.includes('/ca')

@@ -17,10 +17,10 @@ export default interface User {
   neighborhood?: string,
   city?: string
 
-  accounts?: Account[],//TODO alter account
+  accounts?: Account[],
 
 
   doc?: string,
   type?:  string,
-  personId?:  string, 
+  personId?: string, 
 }
