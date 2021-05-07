@@ -1,0 +1,74 @@
+<div class="container" style="width: 600px;">
+
+    <div ng-if="$ctrl.personIdIsEmpty()">
+        <form name="acountForm" left-block>
+            <h4>Dados do Titular</h4>
+            <input ng-if="$ctrl.personIdIsEmpty()" class="form-control" type="text" ng-model="user.name" name="name"
+                placeholder="Nome" ng-required="true" ng-minlength="7" ng-maxlength="200" />
+
+            <input ng-if="$ctrl.personIdIsEmpty()" class="form-control" type="text" ng-model="user.doc" name="doc"
+                placeholder="CPF/CNPJ" ng-required="true" ng-maxlength="25" />
+
+            <div ng-if="$ctrl.isCARoute()">
+                <input class="form-control" type="text" ng-model="user.type" name="type" value="ca"
+                    placeholder="Conta Corrente" disabled />
+            </div>
+            <div ng-if="$ctrl.isSARoute()">
+                <input class="form-control" type="text" ng-model="user.type" name="type" value="sa"
+                    placeholder="Conta Poupança" disabled />
+            </div>
+
+
+        </form>
+        <!-- {{user}} -->
+        <div ng-if="$ctrl.isCARoute()" style="text-align: center; margin-top: 30px ;">
+            <button class="btn btn-dark" ng-click="$ctrl.getUserByNameAndCpfOrCnpj(user, 'ca')"
+                ng-disabled="accountForm.$invalid">Criar conta</button>
+            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
+        </div>
+
+        <div ng-if="$ctrl.isSARoute()" style="text-align: center; margin-top: 30px ;">
+            <button class="btn btn-dark" ng-click="$ctrl.getUserByNameAndCpfOrCnpj(user, 'sa')"
+                ng-disabled="accountForm.$invalid">Criar conta</button>
+            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
+        </div>
+
+
+    </div>
+
+    <div ng-if="!$ctrl.personIdIsEmpty()">
+        <form name="accountFormWithId" left-block>
+            <h4>Dados cadastrais</h4>
+
+            <div>
+                <input class="form-control" type="text" ng-model="$ctrl.user.id" name="id" placeholder="ID" hidden />
+            </div>
+            <div ng-if="$ctrl.isCARoute()">
+                <input class="form-control" type="text" ng-model="$ctrl.user.type" name="type" value="ca"
+                    placeholder="Conta Corrente" disabled />
+            </div>
+            <div ng-if="$ctrl.isSARoute()">
+                <input class="form-control" type="text" ng-model="$ctrl.user.type" name="type" value="sa"
+                    placeholder="Conta Poupança" disabled />
+            </div>
+
+            <hr>
+
+        </form>
+
+        <div ng-if="$ctrl.isCARoute()" style="text-align: center; margin-top: 30px ;">
+            <button class="btn btn-dark" ng-click="$ctrl.setAccountData($ctrl.user, 'ca')"
+                ng-disabled="accountForm.$invalid">Criar conta</button>
+            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
+        </div>
+
+        <div ng-if="$ctrl.isSARoute()" style="text-align: center; margin-top: 30px ;">
+            <button class="btn btn-dark" ng-click="$ctrl.setAccountData($ctrl.user, 'sa')"
+                ng-disabled="accountFormWithId.$invalid">Criar conta</button>
+            <button style="margin-left: 10px ;" class="btn btn-dark"
+                ui-sref="app.user.details({id: $ctrl.user.id })">Voltar</button>
+        </div>
+
+    </div>
+
+</div>
