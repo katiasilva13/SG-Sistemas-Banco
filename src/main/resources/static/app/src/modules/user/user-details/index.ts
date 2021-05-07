@@ -8,7 +8,7 @@ const userDetailsModule = angular
     .config(['$stateProvider', ($stateProvider) => {
         $stateProvider
             .state('app.user.details', {
-                url: '/users/:id',
+                url: '/:id',
                 params: {
                     id: null
                 },
