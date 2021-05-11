@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="hor-divider"></div>
+    <div class="col mt-4 justify-content-center list">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+            {{$ctrl.transactions}}
+          <tr ng-repeat="transaction in $ctrl.transactions | orderBy : 'timestamp' : true">
+            <th scope="row">{{ $index + 1 }}</th>
+            <td>{{ transaction.timestamp | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+            <td>{{ $ctrl.getTransactionTypeLabel(transaction) }}</td>
+            <td>{{ transaction.value | currency : "R$ " }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

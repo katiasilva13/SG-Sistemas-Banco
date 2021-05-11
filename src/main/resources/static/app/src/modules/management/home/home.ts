@@ -11,7 +11,7 @@ class HomeController {
   private cards: object[] = [
     {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEm4nTVSQJFC_tFo0QC1CEUgFsxZCpSp7SUQ&usqp=CAU',
-      title: 'Veja usuários, cadastre-se etc',
+      title: 'Veja os usuários ou cadastre-se!',
       button: 'Usuários',
       url: '#!/users/list',
     },{

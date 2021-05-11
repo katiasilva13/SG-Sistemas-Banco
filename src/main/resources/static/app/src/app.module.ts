@@ -8,8 +8,8 @@ import navBar from './components/nav-bar/nav-bar'
 import base from './components/base/base'
 
 import { userModule } from './modules/user'
-
 import { accountModule } from './modules/account'
+import { transactionModule } from './modules/transaction'
 
 import { AppController } from './app.controller'
 import './app.module.scss'
@@ -23,22 +23,22 @@ const appModule = angular.module('app', [
   'app.management',
   // 'app.home',
   // 'app.user',
-    // 'ngRoute',
-    userModule,
+  // 'ngRoute',
+  userModule,
   accountModule,
+  transactionModule,
 ])
-.component('navbar', navBar)
-.component('base', base)
+  .component('navbar', navBar)
+  .component('base', base)
 
-
-// appModule.controller('app.controller', AppController)
-.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
-  $stateProvider
-    .state('app', {
-      abstract: true,
-      component: 'base'
-    })
-  $urlRouterProvider.otherwise('/')
-}])
+  // appModule.controller('app.controller', AppController)
+  .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
+    $stateProvider
+      .state('app', {
+        abstract: true,
+        component: 'base'
+      })
+    $urlRouterProvider.otherwise('/')
+  }])
 
 export { appModule }
