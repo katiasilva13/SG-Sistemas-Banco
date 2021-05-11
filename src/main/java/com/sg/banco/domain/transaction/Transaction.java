@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Getter
@@ -31,6 +32,9 @@ public class Transaction implements Serializable {
 
     @Column(name = "value")
     private Double value;
+
+    @Column//saldo resultante
+    private BigDecimal outcome;
 
     @CreationTimestamp
     @Column(name = "timestamp",  insertable = false, updatable = false)

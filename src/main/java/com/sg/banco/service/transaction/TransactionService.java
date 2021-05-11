@@ -61,7 +61,7 @@ public class TransactionService implements Serializable {
         return getAll();
     }
 
-    public Transaction createTransaction(Map<String, String> json) throws Exception {
+    public Transaction  createTransaction(Map<String, String> json) throws Exception {
         Integer checkType = Integer.parseInt(trimWhitespace(json.get("transactionType")).toUpperCase(Locale.ROOT));
         TransactionType transactionType = null;
         for (TransactionType type : TransactionType.values()) {

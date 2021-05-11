@@ -18,7 +18,7 @@ getTransactionTypeLabel = (transaction: Transaction): string => {
         return 'Depósito'
       case TransactionType.TRANSFER:
         return 'Transferência'
-      case TransactionType.WITHDRAW:
+      case TransactionType.WITHDRAWAL:
         return 'Saque'
       default:
         return 'N/A'

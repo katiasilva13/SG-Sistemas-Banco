@@ -1,5 +1,5 @@
 import * as angular from 'angular'
-import 'angular-input-masks'
+// import 'angular-input-masks'
 import { userDetailsModule } from './user-details'
 import { userFormModule } from './user-form'
 import { userListModule } from './user-list'
@@ -11,7 +11,7 @@ const userModule = angular
 		userDetailsModule,
 		userFormModule,
 		userListModule,
-		'ui.utils.masks',
+		// 'ui.utils.masks',
 	])
 	.service('userService', UserService)
 	.config(['$stateProvider', ($stateProvider) => {

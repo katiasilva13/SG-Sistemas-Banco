@@ -14,10 +14,10 @@
           </tr>
           <tbody >
             <td>{{ $ctrl.user.name  | uppercase}}</td>
-            <td>{{ $ctrl.user.phoneNumber }}</td>
-            <td ng-if="$ctrl.user.cpf">{{ $ctrl.user.cpf }}</td>
+            <td>{{ $ctrl.user.phoneNumber  | brPhoneNumber}}</td>
+            <td ng-if="$ctrl.user.cpf">{{ $ctrl.user.cpf | brCpf}}</td>
             <td ng-if="$ctrl.user.rg">{{ $ctrl.user.rg }}</td>
-            <td ng-if="$ctrl.user.cnpj">{{ $ctrl.user.cnpj }}</td>
+            <td ng-if="$ctrl.user.cnpj">{{ $ctrl.user.cnpj | brCnpj}}</td>
             <td ng-if="$ctrl.user.companyName">{{ $ctrl.user.companyName  | uppercase}}</td>
         </tbody>
 
@@ -32,7 +32,7 @@
       <!-- #TODO como usar filters?-->
             <td>{{ $ctrl.user.address.street  | uppercase}}</td>
             <td>{{ $ctrl.user.address.number }}</td>
-            <td>{{ $ctrl.user.address.cep }}</td>
+            <td>{{ $ctrl.user.address.cep | brCep}}</td>
             <td>{{ $ctrl.user.address.uf }}</td>
         </tbody>
         <tr>

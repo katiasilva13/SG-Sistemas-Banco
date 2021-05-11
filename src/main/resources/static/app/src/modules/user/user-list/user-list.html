@@ -14,7 +14,7 @@
         <tr ng-repeat="user in $ctrl.users">
           <th scope="row">{{ $index+1 }}</th>
           <td><a ui-sref="app.user.details({id: user.id })">{{ user.name | uppercase}}</a></td>
-          <td>{{ user.phoneNumber }}</td>
+          <td>{{ user.phoneNumber  | brPhoneNumber}}</td>
         </tr>
       </tbody>
     </table>

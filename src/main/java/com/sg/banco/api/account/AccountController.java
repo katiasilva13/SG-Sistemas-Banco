@@ -52,4 +52,8 @@ public class AccountController {
         return service.getByPersonId(personId);
     }
 
+    @PostMapping("/contas/buscar-dados")
+    public Account getAccountByCode(@RequestBody Map<String, String> json) {
+        return service.getAccountByCode(json);
+    }
 }

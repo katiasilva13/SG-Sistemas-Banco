@@ -157,4 +157,10 @@ public class AccountService implements Serializable {
     public void update(Account sourceAccount) {
         this.repository.save(sourceAccount);
     }
+
+    public Account getAccountByCode(Map<String, String> json) {
+        String accountCode = trimWhitespace(json.get("accountCode")).toUpperCase(Locale.ROOT);
+        Account account = this.repository.findByAccountCode(accountCode);
+        return account;
+    }
 }

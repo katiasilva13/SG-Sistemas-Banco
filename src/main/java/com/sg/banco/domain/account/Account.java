@@ -35,7 +35,7 @@ public class Account implements Serializable {
     @Column(name = "branch")//agencia
     private String branch;
 
-    @Column//extrato
+    @Column//saldo
     private BigDecimal balance;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -1,21 +1,25 @@
 <div class="container" style="width: 800px;"> 
+    <!-- #TODO validar/limitar campos/caracteres -->
 
     <form name="userForm" left-block>
         <h4>Geral</h4>
         <input class="form-control" type="text" ng-model="user.name" name="name" placeholder="Nome" ng-required="true"
             ng-minlength="7" ng-maxlength="200" />
+
         <input class="form-control" type="text" ng-model="user.phoneNumber" name="phoneNumber" placeholder="Telefone"
-            ng-required="true" mask="(99) 9?9999-9999" ng-model="phone2" />
+            ng-required="true" ui-br-phone-number-mask="areaCode" ng-model="phoneNumber" />
 
         <input class="form-control" type="text" ng-model="user.cpf" name="cpf" placeholder="CPF" ng-required="true"
-            ng-if="$ctrl.isPfRoute()" mask="999.999.999-99" />
+            ng-if="$ctrl.isPfRoute()" ng-model="initializedCpf" ui-br-cpf-mask />
+
         <input class="form-control" type="text" ng-model="user.rg" name="rg" placeholder="RG" ng-if="$ctrl.isPfRoute()"
             ng-maxlength="25" />
 
         <input class="form-control" type="text" ng-model="user.cnpj" name="cnpj" placeholder="CNPJ" ng-required="true"
-            ng-if="$ctrl.isPjRoute()" ng-maxlength="25" />
+            ng-if="$ctrl.isPjRoute()" ng-maxlength="25" ng-model="initializedCnpj" ui-br-cnpj-mask/>
+
         <input class="form-control" type="text" ng-model="user.companyName" name="companyName"
-            placeholder="Razão Social" ng-if="$ctrl.isPjRoute()" />
+            placeholder="Razão Social"  ng-maxlength="200" ng-if="$ctrl.isPjRoute()" />
 
         <hr>
 
@@ -29,7 +33,7 @@
         <input class="form-control" type="text" ng-model="user.city" name="city" placeholder="Cidade" ng-required="true"
             ng-maxlength="150" />
         <input class="form-control" type="text" ng-model="user.cep" name="cep" placeholder="CEP" ng-required="true"
-            ng-maxlength="9" />
+            ng-maxlength="9" ng-model="cep" ui-br-cep-mask/>
 
         <select class="form-control" ng-model="user.uf">
             <option value="">Selecione um estado</option>

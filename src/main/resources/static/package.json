@@ -29,6 +29,7 @@
     "dependencies": {
         "@uirouter/angularjs": "^1.0.29",
         "angular": "^1.8.2",
+        "angular-br-filters": "^0.7.0",
         "angular-input-masks": "^4.4.1",
         "bootstrap": "^4.6.0",
         "jquery": "^3.6.0",

@@ -1,6 +1,9 @@
 import * as angular from 'angular'
 import 'angular-ui-bootstrap'
 import 'angular-ui-carousel'
+import 'angular-br-filters'
+import 'angular-input-masks'
+// import 'angularjs-currency-input-mask'
 import 'bootstrap'
 import '@uirouter/angularjs'
 import './modules'
@@ -18,6 +21,10 @@ const appModule = angular.module('app', [
   'ui.bootstrap',
   'ui.carousel',
   'ui.router',
+  'ui.utils.masks',
+  'idf.br-filters',
+  // 'cur.$mask',
+  // 'ngMask',
   // 'app.account',
   'app.auth',
   'app.management',

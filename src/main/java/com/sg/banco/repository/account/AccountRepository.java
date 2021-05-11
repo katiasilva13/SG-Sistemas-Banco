@@ -14,4 +14,6 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     Account findByAccountCodeAndBranch(String code, String branch);
 
+    Account findByAccountCode(String code);
+
 }

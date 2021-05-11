@@ -1,13 +1,13 @@
 <div class="container" style="width: 600px;">
 
     <div >
-        <form name="acountForm" left-block>
+        <form name="accountForm" left-block>
             <h4>Dados do Titular</h4>
             <input  class="form-control" type="text" ng-model="user.name" name="name"
                 placeholder="Nome" ng-required="true" ng-minlength="7" ng-maxlength="200" />
 
             <input class="form-control" type="text" ng-model="user.doc" name="doc"
-                placeholder="CPF/CNPJ" ng-required="true" ng-maxlength="25" />
+                placeholder="CPF/CNPJ" ng-required="true" ng-maxlength="25" ng-model="initializedCpfCnpj1" ui-br-cpfcnpj-mask/>
 
             <div ng-if="$ctrl.isCARoute()">
                 <input class="form-control" type="text" ng-model="user.type" name="type" value="ca"
@@ -22,13 +22,13 @@
         </form>
         <!-- {{user}} -->
         <div ng-if="$ctrl.isCARoute()" style="text-align: center; margin-top: 30px ;">
-            <button class="btn btn-dark" ng-click="$ctrl.getUserByNameAndCpfOrCnpj(user, 'ca')"
+            <button class="btn btn-dark" ng-click="$ctrl.saveAccount(user, 'ca')"
                 ng-disabled="accountForm.$invalid">Criar conta</button>
             <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
         </div>
 
         <div ng-if="$ctrl.isSARoute()" style="text-align: center; margin-top: 30px ;">
-            <button class="btn btn-dark" ng-click="$ctrl.getUserByNameAndCpfOrCnpj(user, 'sa')"
+            <button class="btn btn-dark" ng-click="$ctrl.saveAccount(user, 'sa')"
                 ng-disabled="accountForm.$invalid">Criar conta</button>
             <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
         </div>

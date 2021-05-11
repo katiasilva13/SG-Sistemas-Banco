@@ -1,5 +1,6 @@
 // import { TransactionMethod } from '../model/enum/transaction-method'
 import { TransactionType } from '../model/enum/transaction-type'
+import Account from "../../account/model/account";
 
 export default interface Transaction {
   id?: string,
@@ -12,10 +13,19 @@ export default interface Transaction {
   transactionDate?: Date,
   parent?: Transaction,
 
-  transactionType?: TransactionType,
+  transactionType?: any,
   timestamp?: Date,
   sourceAccountId?: string,
   destinationAccountId?: string,
   transferId?: string,
   
+  sourceAccountCode?: string,
+  destinationAccountCode?: string,
+  destinationAccountBranch?: string,
+
+
+  sourceAccount?: Account,
+  destinationAccount?: Account,
+
+  type?: string,
 }

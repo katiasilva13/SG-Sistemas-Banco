@@ -23,6 +23,16 @@ class AccountService {
     return await this.$http.get(this.url + `/${id}`)
   }
 
+  getAccountByCode = async (transaction): Promise<User> => {
+    console.log("transaction ", transaction)
+    console.log("transaction.sourceAccountCode ", transaction.sourceAccountCode)
+    var account: any = {};
+    console.log("account ", account);
+    account.accountCode = transaction.sourceAccountCode;
+    console.log("account.accountCode ", account.accountCode);
+    console.log("account ", account)
+    return await this.$http.post(this.url + `/buscar-dados`, account);
+  }
 
 }
 AccountService['$inject'] = [

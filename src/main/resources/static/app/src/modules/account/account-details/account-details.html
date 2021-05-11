@@ -20,8 +20,7 @@
             <tbody>
                 <td>{{ $ctrl.account.accountCode }}</td>
                 <td>{{ $ctrl.account.branch }}</td>
-                <td ng-if="$ctrl.account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
-                <td ng-if="$ctrl.account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td>
+                <td>{{$ctrl.getAccountTypeLabel($ctrl.account)}}</td> 
             </tbody>
 
             <tr>
@@ -40,12 +39,12 @@
 
                 <td ng-if="$ctrl.account.overdraftLimit">{{ $ctrl.account.overdraftLimit | currency:'R$'}}</td>
                 <td ng-if="$ctrl.account.overdraftAvailable">{{ $ctrl.account.overdraftAvailable  | currency:'R$'}}</td>
-                <td ng-if="$ctrl.account.interestRate">{{ $ctrl.account.interestRate | currency:'R$'}}</td>
+                <td ng-if="$ctrl.account.interestRate">{{ $ctrl.account.interestRate }}%</td>
                 <td ng-if="$ctrl.account.interest">{{ $ctrl.account.interest  | currency:'R$' }}</td>
 
                 
                 <td ng-if="$ctrl.account.invested">{{ $ctrl.account.invested | currency:'R$'}}</td>
-                <td ng-if="$ctrl.account.savingsRate">{{ $ctrl.account.savingsRate | currency:'R$' }}</td>
+                <td ng-if="$ctrl.account.savingsRate">{{ $ctrl.account.savingsRate }}%</td>
                 <td ng-if="$ctrl.account.savingsIncome">{{ $ctrl.account.savingsIncome | currency:'R$' }}</td>
             </tbody>
 

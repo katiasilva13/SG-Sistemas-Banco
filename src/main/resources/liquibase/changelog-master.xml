@@ -197,4 +197,16 @@
                                  referencedTableName="transaction"
                                  referencedColumnNames="id"/>
     </changeSet>
+
+    <changeSet id="10" author="katia.silva@sgsistemas.com.br">
+        <preConditions>
+            <not>
+                <columnExists columnName="outcome" tableName="transaction" schemaName="ex5"/>
+            </not>
+        </preConditions>
+        <addColumn tableName="transaction" schemaName="ex5">
+            <column name="outcome" type="DECIMAL"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

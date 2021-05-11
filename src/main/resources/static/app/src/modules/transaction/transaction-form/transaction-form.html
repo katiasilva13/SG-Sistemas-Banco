@@ -1,0 +1,60 @@
+<div class="container" style="width: 600px;">
+
+    <div>
+        <form name="transactionForm" left-block>
+            <h4>Transação</h4>
+            <div>
+                <h6>Conta</h6>
+                <input class="form-control" type="text" ng-model="transaction.sourceAccountCode"
+                    name="sourceAccountCode" placeholder="Número da conta" ng-required="true" ng-minlength="7"
+                    ng-maxlength="45" />
+                <input class="form-control" type="text" ng-model="transaction.value" name="value.toString()"
+                    placeholder="Valor da transação" ng-required="true" ng-maxlength="25" ng-model="money"
+                    ui-money-mask />
+            </div>
+
+            <div ng-if="$ctrl.isTransferRoute()">
+                <h6>Conta destino</h6>
+                <input class="form-control" type="text" ng-model="transaction.destinationAccountBranch"
+                    name="destinationAccountBranch" placeholder="Agência" ng-if="$ctrl.isTransferRoute()"
+                    ng-minlength="1" ng-maxlength="25" ng-required="true" />
+                <input class="form-control" type="text" ng-model="transaction.destinationAccountCode"
+                    name="destinationAccountCode" placeholder="Número" ng-if="$ctrl.isTransferRoute()" ng-minlength="7"
+                    ng-maxlength="45" ng-required="true" />
+            </div>
+
+            <div ng-if="$ctrl.isTransferRoute()">
+                <input class="form-control" type="text" ng-model="transaction.transactionType" name="transactionType"
+                    value="transfer" placeholder="Transferência" disabled />
+            </div>
+            <div ng-if="$ctrl.isDepositRoute()">
+                <input class="form-control" type="text" ng-model="transaction.transactionType" name="transactionType"
+                    value="deposit" placeholder="Depósito" disabled />
+            </div>
+            <div ng-if="$ctrl.isWithdrawalRoute()">
+                <input class="form-control" type="text" ng-model="transaction.transactionType" name="transactionType"
+                    value="withdrawal" placeholder="Saque" disabled />
+            </div>
+
+        </form>
+        <!-- {{transaction}} -->
+
+        <div style="text-align: center; margin-top: 30px ;">
+            <button ng-if="$ctrl.isTransferRoute()" class="btn btn-dark"
+                ng-click="$ctrl.saveTransaction(transaction, 'transfer')"
+                ng-disabled="transactionForm.$invalid">Okay</button>
+
+            <button ng-if="$ctrl.isDepositRoute()" class="btn btn-dark"
+                ng-click="$ctrl.saveTransaction(transaction, 'deposit')"
+                ng-disabled="transactionForm.$invalid">Okay</button>
+
+            <button ng-if="$ctrl.isWithdrawalRoute()" class="btn btn-dark"
+                ng-click="$ctrl.saveTransaction(transaction, 'withdrawal')"
+                ng-disabled="transactionForm.$invalid">Okay</button>
+
+            <button style="margin-left: 10px ;" class="btn btn-danger" ui-sref="app.transaction.list">Cancelar</button>
+        </div>
+       
+    </div>
+
+</div>

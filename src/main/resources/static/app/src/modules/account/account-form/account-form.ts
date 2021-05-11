@@ -35,7 +35,7 @@ class AccountFormController {
         location.reload();
     }
 
-    getUserByNameAndCpfOrCnpj = async function (user, type: string) {
+    saveAccount = async function (user, type: string) {
         const savedUser = await this.userService.getUserByNameAndDoc(user)
             .then(res => res.data);
         if (savedUser != null) {

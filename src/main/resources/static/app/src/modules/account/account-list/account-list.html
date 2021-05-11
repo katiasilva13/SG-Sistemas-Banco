@@ -11,17 +11,19 @@
           <th scope="col">Agência</th>
           <th scope="col">Tipo</th>
           <th scope="col" >Titular da conta</th>
+          <th scope="col" >Saldo</th>
         </tr>
       </thead>
       <tbody >
         <tr ng-repeat="account in $ctrl.accounts">
           <th scope="row">{{ $index+1 }}</th>
-          <!-- #TODO como usar filters?-->
           <td><a ui-sref="app.account.details({id: account.id })">{{ account.accountCode}}</a></td>
           <td>{{ account.branch}}</td>
-          <td ng-if="account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
-          <td ng-if="account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td>
+          <!-- <td ng-if="account.accountType == 'CHECKING_ACCOUNT'">Conta Corrente</td>
+          <td ng-if="account.accountType == 'SAVINGS_ACCOUNT'">Conta Poupança</td> -->
+          <td>{{$ctrl.getAccountTypeLabel(account)}}</td> 
           <td>{{ account.person.name  | uppercase}}</td>
+          <td>{{ account.balance  | currency:'R$' }}</td>
         </tr>
       </tbody>
     </table>

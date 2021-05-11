@@ -1,0 +1,36 @@
+.table {
+    margin-top: 20px;
+}
+
+hr {
+    border-color: #999;
+}
+
+.form-control {
+    margin: auto;
+    float: 0;
+    margin-bottom: 5px;
+    width: 500px;
+}
+
+.btn {
+    margin-top: 5px;
+}
+
+.btn:link,
+.btn:visited {
+    background-color: white !important;
+    color: black  !important;
+    border: 2px solid green !important;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+.btn:hover,
+.btn:active {
+    background-color: green !important;
+    color: white !important;
+}
