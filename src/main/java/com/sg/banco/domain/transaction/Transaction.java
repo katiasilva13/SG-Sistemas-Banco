@@ -36,7 +36,7 @@ public class Transaction implements Serializable {
     @Column(name = "timestamp",  insertable = false, updatable = false)
     private Timestamp timestamp;
 
-    @JsonBackReference
+//    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "source_account_id", referencedColumnName = "id", nullable = false)
     private Account sourceAccount;

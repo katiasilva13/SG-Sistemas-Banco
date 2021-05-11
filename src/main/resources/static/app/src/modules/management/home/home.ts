@@ -23,7 +23,7 @@ class HomeController {
       image: 'https://unctad.org/sites/default/files/2020-08/Investment-Trends_800x450.jpg',
       title: 'Saque, depósito ou transferência?',
       button: 'Transações',
-      url: '#!/transactions',
+      url: '#!/transactions/list',
     },
   ]
   constructor(

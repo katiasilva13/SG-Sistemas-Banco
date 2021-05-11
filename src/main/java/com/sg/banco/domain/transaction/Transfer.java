@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Entity(name="transfer")
 public class Transfer extends Transaction {
 
-    @JsonBackReference
+//    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "destination_account_id", referencedColumnName = "id", nullable = false)
     private Account destinationAccount;
