@@ -101,12 +101,13 @@ public class TransactionService implements Serializable {
 
         if (sourceAccount instanceof SavingsAccount && sourceAccount.getBalance().equals(BigDecimal.ZERO))
             ((SavingsAccount) sourceAccount).setInvestmentDay(null);
+        sourceAccount = calculator.calculateInterest(sourceAccount.getId());
         if (destinationAccount != null)
+            destinationAccount = calculator.calculateInterest(destinationAccount.getId());
             accountService.update(destinationAccount);
 
         accountService.update(sourceAccount);
-        Transaction result = this.repository.save(transaction);
-        return getById(transaction.getId());
+        return this.repository.save(transaction);
     }
 
 //    private SavingsAccount calculateIncome(Integer id) {
