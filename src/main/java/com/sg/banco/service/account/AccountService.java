@@ -34,7 +34,6 @@ public class AccountService implements Serializable {
     @Autowired
     private PersonService personService;
 
-
     @Autowired
     private RateCalculator calculator;
 
@@ -44,16 +43,14 @@ public class AccountService implements Serializable {
 
     public Account getById(Integer id) {
         Optional<Account> accountOptional = this.repository.findById(id);
-        if (accountOptional.isPresent()){
-            if(accountOptional.get() instanceof SavingsAccount){
-                SavingsAccount savingsAccount = (SavingsAccount) accountOptional.get();
-                savingsAccount = calculator.calculateIncome(accountOptional.get().getId());
+        if (accountOptional.isPresent()) {
+            if (accountOptional.get() instanceof SavingsAccount) {
+                SavingsAccount savingsAccount = calculator.calculateIncome(accountOptional.get().getId());
                 this.update(savingsAccount);
                 return savingsAccount;
             }
-            if (accountOptional.get() instanceof CheckingAccount){
-                CheckingAccount checkingAccount = (CheckingAccount) accountOptional.get();
-                calculator.calculateInterest(accountOptional.get().getId());
+            if (accountOptional.get() instanceof CheckingAccount) {
+                CheckingAccount checkingAccount = calculator.calculateInterest(accountOptional.get().getId());
                 this.update(checkingAccount);
                 return checkingAccount;
             }
@@ -83,8 +80,10 @@ public class AccountService implements Serializable {
 
         Integer personId = Integer.parseInt(trimWhitespace(json.get("personId")).toUpperCase(Locale.ROOT));
         Person person = personService.getById(personId);
-        if (duplicatedAccountType(personId, accountType))
+        if (duplicatedAccountType(personId, accountType)) {
+            assert accountType != null;
             throw new Exception("Usuário já possui uma conta do tipo " + accountType.toString());
+        }
 
         String branch = trimWhitespace(json.getOrDefault("branch", "317")).toUpperCase(Locale.ROOT);
         BigDecimal balance = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("balance", "0.0")).toUpperCase(Locale.ROOT)));
@@ -92,6 +91,7 @@ public class AccountService implements Serializable {
         String accountCode = generateCode(checkType, personId);
 
         Account account = null;
+        assert accountType != null;
         if (accountType.equals(AccountType.CHECKING_ACCOUNT)) {
             BigDecimal overdraftLimit = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftLimit", "1000.00")).toUpperCase(Locale.ROOT)));
             BigDecimal interestRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interestRate", "1.57")).toUpperCase(Locale.ROOT)));
@@ -160,7 +160,6 @@ public class AccountService implements Serializable {
 
     public Account getAccountByCode(Map<String, String> json) {
         String accountCode = trimWhitespace(json.get("accountCode")).toUpperCase(Locale.ROOT);
-        Account account = this.repository.findByAccountCode(accountCode);
-        return account;
+        return this.repository.findByAccountCode(accountCode);
     }
 }

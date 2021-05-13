@@ -38,15 +38,8 @@ public class TransactionService implements Serializable {
     @Autowired
     private AccountService accountService;
 
-//    @Autowired
-//    private CheckingAccountService checkingAccountService;
-//
-//    @Autowired
-//    private SavingsAccountService savingsAccountService;
-
     @Autowired
     private RateCalculator calculator;
-//    private final RateCalculator calculator = new RateCalculator();
 
     public List<Transaction> getAll() {
         return this.repository.findAll(Sort.by(Sort.Order.desc(("timestamp"))));
@@ -109,35 +102,6 @@ public class TransactionService implements Serializable {
         accountService.update(sourceAccount);
         return this.repository.save(transaction);
     }
-
-//    private SavingsAccount calculateIncome(Integer id) {
-//        SavingsAccount account = savingsAccountService.getById(id);
-//        if (Objects.nonNull(account.getInvestmentDay())) {
-//            LocalDate today = LocalDate.now();
-//            Integer countDays = Math.toIntExact(DAYS.between(account.getInvestmentDay(), today));
-//            BigDecimal invested = account.getInvested();
-//            for (int i = countDays; i > 0; i--) {
-//                invested = invested.multiply(account.getSavingsRate());
-//            }
-//            account.setSavingsIncome(invested);
-//            account.setBalance(invested);
-//        }
-//        return account;
-//    }
-//
-//    private CheckingAccount calculateInterest(Integer id) {
-//        CheckingAccount account = checkingAccountService.getById(id);
-//        if (Objects.nonNull(account.getInterestDay())) {
-//            LocalDate today = LocalDate.now();
-//            Integer countDays = Math.toIntExact(DAYS.between(account.getInterestDay(), today));
-//            BigDecimal interest = account.getOverdraftLimit().subtract(account.getOverdraftAvailable());
-//            for (int i = countDays; i > 0; i--) {
-//                interest = interest.multiply(account.getInterestRate());
-//            }
-//            account.setInterest(interest);
-//        }
-//        return account;
-//    }
 
     private Account setAccountDataForDepositOrTransfer(Account destinationAccount, Double value) throws Exception {
         BigDecimal balance = null;

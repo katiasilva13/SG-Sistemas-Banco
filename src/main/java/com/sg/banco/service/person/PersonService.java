@@ -36,12 +36,6 @@ public class PersonService implements Serializable {
     @Autowired
     private AddressService addressService;
 
-//    @Autowired
-//    private CheckingAccountService checkingAccountService;
-//
-//    @Autowired
-//    private SavingsAccountService savingsAccountService;
-
     public List<Person> getAll() {
         return this.repository.findAll(Sort.by(Sort.Order.asc("name")));
     }

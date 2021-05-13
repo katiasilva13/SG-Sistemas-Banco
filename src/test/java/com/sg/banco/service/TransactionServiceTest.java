@@ -18,6 +18,7 @@ import java.util.Map;
 
 @SpringBootTest
 class TransactionServiceTest {
+//TODO corrigir testes; adequar ao novo cenário
 
     @Autowired
     private TransactionService service;

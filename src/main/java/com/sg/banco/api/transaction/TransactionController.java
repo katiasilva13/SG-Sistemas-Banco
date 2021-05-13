@@ -34,15 +34,7 @@ public class TransactionController {
     public Transaction create(@RequestBody Map<String, String> json) throws Exception {
         return service.createTransaction(json);
     }
-//
-//    @PostMapping("/transacoes/saque")
-//    public Transaction create(@RequestBody Map<String, String> json) throws Exception {
-//        return service.createDeposit(json);
-//    }
-//
-//    @PostMapping("/transacoes/saque")
-//    public Transaction create(@RequestBody Map<String, String> json) throws Exception {
-//        return service.createTranfer(json);
-//    }
-    
+//TODO calcular investido/rendimento
+//TODO calcular /juros/limite disponível
+//TODO calcular saldo resultante ao finalizar transação
 }
