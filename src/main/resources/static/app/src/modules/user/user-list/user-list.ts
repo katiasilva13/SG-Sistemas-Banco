@@ -9,6 +9,9 @@ class UserListController {
     public users
   ) {}
 
+  back() {
+		history.back()
+	}
  
 }
 

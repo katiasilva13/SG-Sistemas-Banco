@@ -52,6 +52,10 @@ class AccountFormController {
         account.accountType = (type == "ca") ? '1' : '2';  
         this.addAccount(account);        
     }
+    
+    back() {
+		history.back()
+	}
 
 }
 

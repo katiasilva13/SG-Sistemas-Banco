@@ -8,6 +8,10 @@ class UserDetailsController {
     public user,
   ) {}
 
+  back() {
+		history.back()
+	}
+
 }
 
 UserDetailsController['$inject'] = [

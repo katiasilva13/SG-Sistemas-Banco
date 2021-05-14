@@ -58,6 +58,11 @@ class TransactionFormController {
       this.addTransaction(transaction);
     } else this.$state.reloadRoute();
   };
+
+  back() {
+		history.back()
+	}
+  
 }
 
 TransactionFormController["$inject"] = [

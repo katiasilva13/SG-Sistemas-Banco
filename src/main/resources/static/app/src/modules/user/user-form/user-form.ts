@@ -30,6 +30,10 @@ class UserFormController {
     location.reload();
   }
 
+  back() {
+		history.back()
+	}
+
 }
 
 UserFormController['$inject'] = [

@@ -20,6 +20,9 @@ class AccountListController {
     }
   }
 
+  back() {
+		history.back()
+	}
 
 }
 

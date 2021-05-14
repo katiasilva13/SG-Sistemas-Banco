@@ -24,13 +24,13 @@
         <div ng-if="$ctrl.isCARoute()" style="text-align: center; margin-top: 30px ;">
             <button class="btn btn-dark" ng-click="$ctrl.saveAccount(user, 'ca')"
                 ng-disabled="accountForm.$invalid">Criar conta</button>
-            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
+            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="$ctrl.back()">Voltar</button>
         </div>
 
         <div ng-if="$ctrl.isSARoute()" style="text-align: center; margin-top: 30px ;">
             <button class="btn btn-dark" ng-click="$ctrl.saveAccount(user, 'sa')"
                 ng-disabled="accountForm.$invalid">Criar conta</button>
-            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="app.account.list">Voltar</button>
+            <button style="margin-left: 10px ;" class="btn btn-dark" ui-sref="$ctrl.back()">Voltar</button>
         </div>
 
 

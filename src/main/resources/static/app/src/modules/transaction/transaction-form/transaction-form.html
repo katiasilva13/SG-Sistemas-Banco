@@ -52,7 +52,7 @@
                 ng-click="$ctrl.saveTransaction(transaction, 'withdrawal')"
                 ng-disabled="transactionForm.$invalid">Okay</button>
 
-            <button style="margin-left: 10px ;" class="btn btn-danger" ui-sref="app.transaction.list">Cancelar</button>
+            <button style="margin-left: 10px ;" class="btn btn-danger" ui-sref="$ctrl.back()">Cancelar</button>
         </div>
        
     </div>
