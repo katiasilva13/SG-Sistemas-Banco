@@ -17,6 +17,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 @Service
 public class RateCalculator {
 
+    private final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
     @Autowired
     private SavingsAccountService savingsAccountService;
 
@@ -29,12 +30,15 @@ public class RateCalculator {
             LocalDate today = LocalDate.now();
             int countDays = Math.toIntExact(DAYS.between(account.getInvestmentDay(), today));
             BigDecimal invested = account.getInvested();
-            for (int i = countDays; i > 0; i--) {
-                invested = invested.multiply(account.getSavingsRate()).divide(account.getSavingsRate(), new MathContext(3));
-            }
+            invested = invested
+                    .multiply(account.getSavingsRate(), new MathContext(4))
+                    .multiply(BigDecimal.valueOf(countDays))
+                    .divide(ONE_HUNDRED, new MathContext(4))
+                    .setScale(4, BigDecimal.ROUND_UP);
             BigDecimal balance = account.getBalance().subtract(account.getSavingsIncome());
-            account.setSavingsIncome(invested.round(new MathContext(3)));
-            account.setBalance(balance.add(invested).round(new MathContext(2)));
+            account.setSavingsIncome(invested.setScale(4, BigDecimal.ROUND_UP));
+            account.setBalance(balance.add(account.getSavingsIncome().setScale(4, BigDecimal.ROUND_UP)));
+            account.setInvested(account.getBalance());
         }
         return account;
     }

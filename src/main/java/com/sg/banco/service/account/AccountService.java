@@ -94,7 +94,7 @@ public class AccountService implements Serializable {
         assert accountType != null;
         if (accountType.equals(AccountType.CHECKING_ACCOUNT)) {
             BigDecimal overdraftLimit = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftLimit", "1000.00")).toUpperCase(Locale.ROOT)));
-            BigDecimal interestRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interestRate", "1.57")).toUpperCase(Locale.ROOT)));
+            BigDecimal interestRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interestRate", "0.157")).toUpperCase(Locale.ROOT)));
             BigDecimal interest = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("interest", "0.0")).toUpperCase(Locale.ROOT)));
             BigDecimal overdraftAvailable = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("overdraftAvailable", overdraftLimit.toString())).toUpperCase(Locale.ROOT)));
 
@@ -102,7 +102,7 @@ public class AccountService implements Serializable {
                     overdraftLimit, interestRate, interest, accountCode, overdraftAvailable);
 
         } else if (accountType.equals(AccountType.SAVINGS_ACCOUNT)) {
-            BigDecimal savingsRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsRate", "0.87"))));
+            BigDecimal savingsRate = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsRate", "0.087"))));
             BigDecimal savingsIncome = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("savingsIncome", "0.0"))));
             BigDecimal invested = BigDecimal.valueOf(Double.parseDouble(trimWhitespace(json.getOrDefault("invested", "0.0")).toUpperCase(Locale.ROOT)));
             account = savingsAccountService.create(accountType, branch, balance, person,
